@@ -115,6 +115,7 @@ The Jupyter Lab will then be available at http://localhost:8888/lab/tree/start.i
 For each section there are one or more [Jupyter] Notebooks and a corresponding directory:
 
 - Introduction: [01_introduction](./01_introduction.ipynb)
+- Background and Related Work: [02_background](./02_background.ipynb)
 
 [vagrant]: https://developer.hashicorp.com/vagrant
 [install vagrant]: https://developer.hashicorp.com/vagrant/install

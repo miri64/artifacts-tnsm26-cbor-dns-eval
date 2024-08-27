@@ -1,0 +1,193 @@
+\tikzset{
+  x = 0.71em,
+  y = -4.3em,
+  integer/.style = {
+    fill=Pastel2-A,
+  },
+  integer-data/.style = {
+    fill=Pastel2-A!40,
+  },
+  string/.style = {
+    fill=Pastel2-D,
+  },
+  array/.style = {
+    fill=Pastel2-B,
+  },
+  integer-dark/.style = {
+    fill=Dark2-A,
+  },
+  string-dark/.style = {
+    fill=Dark2-D,
+  },
+  array-dark/.style = {
+    fill=Dark2-B,
+  },
+  node/.style = {
+    font = \ttfamily\Large\strut,
+    anchor = west,
+    align = left,
+    inner xsep = 0pt,
+    inner ysep = 0pt,
+    outer sep = 0pt,
+    draw = Pastel2-H,
+  },
+  node-integer/.style = {
+    node,
+    integer-data,
+    scale=0.5,
+    minimum height=2.60em,
+  },
+  node-string/.style = {
+    node,
+  },
+  transform/.style = {
+    -{stealth},
+    line width = 1pt,
+    line cap = round,
+    draw = Dark2-H,
+  },
+  transform-integer/.style = {
+    transform,
+    draw = Dark2-A,
+  },
+  transform-string/.style = {
+    transform,
+    draw = Dark2-D,
+  },
+  transform-array/.style = {
+    transform,
+    draw = Dark2-B,
+  },
+  hex/.style = {
+    node,
+    scale = 0.5,
+  },
+  hex-integer/.style = {
+    hex,
+    integer,
+  },
+  hex-integer-data/.style = {
+    hex,
+    integer-data,
+  },
+  hex-string/.style = {
+    hex,
+    string,
+  },
+  hex-array/.style = {
+    hex,
+    array,
+  },
+  header-text/.style = {
+    node,
+    fill=none,
+    draw=none,
+    align=center,
+    anchor=center,
+    scale = 0.3,
+  },
+  json-integer/.style = {
+    node,
+    integer,
+  },
+  json-string/.style = {
+    node,
+    string,
+  },
+  json-array/.style = {
+    node,
+    array,
+  },
+  header-integer/.style = {
+    node,
+    integer-dark,
+  },
+  header-string/.style = {
+    node,
+    string-dark,
+  },
+  header-array/.style = {
+    node,
+    array-dark,
+  },
+  zoom/.style = {
+    node,
+    font = \ttfamily\Large\strut,
+    inner ysep = 3pt,
+  },
+  zoom-integer/.style = {
+    zoom,
+    integer,
+  },
+  zoom-string/.style = {
+    zoom,
+    string,
+  },
+  zoom-array/.style = {
+    zoom,
+    array,
+  },
+  zoom-M/.style = {
+    zoom,
+    fill=Pastel2-C,
+  },
+  zoom-line/.style = {
+    line width = 0.3pt,
+    draw = Greys-G,
+    densely dashed,
+  },
+  zoom-box/.style = {
+    node,
+    line width = 0.1pt,
+    draw = Dark2-H,
+    rectangle,
+    fill=none,
+  },
+  zoom-label/.style = {
+    align = center,
+    font = \tiny\strut,
+    node distance=0pt,
+    outer sep=0,
+    inner sep=0,
+  },
+  title/.style = {
+    font = \small,
+    anchor = south,
+  },
+}
+\begin{tikzpicture}
+  \node [json-string] (JSON string text 1) at ( 0,  0) {"};
+  \node [node-string] (JSON string text 2) at ( 1,  0) {Hello!};
+  \node [json-string] (JSON string text 3) at ( 7,  0) {"};
+  \node [hex-string, above=0pt of JSON string text 1] (JSON string hex 1) {22};
+  \node [hex, above=0pt of JSON string text 2] (JSON string hex 2) {48656c6c6f21};
+  \node [hex-string, above=0pt of JSON string text 3] (JSON string hex 3) {22};
+  \node [hex, left=0pt of JSON string hex 1, draw=none] {0x};
+  \node [title] at ($(JSON string hex 1.north west)!0.5!(JSON string hex 3.north east)$) (JSON string label) {JSON\strut};
+  \node [zoom-label, anchor=north] at ($(JSON string text 1.south west)!0.5!(JSON string text 3.south east) + (0, -1pt)$) {(8 bytes)};
+
+  \node [header-string] (CBOR string text 1)  at (12,  0) {\phantom{3}};
+  \node [node-string] (CBOR string text 2)  at (13,  0) {Hello!};
+  \node [hex-string, above=0pt of CBOR string text 1] (CBOR string hex 1) {66};
+  \node [hex, above=0pt of CBOR string text 2] (CBOR string hex 2) {48656c6c6f21};
+  \node [hex, left=0pt of CBOR string hex 1, draw=none] {0x};
+  \node [title] at ($(CBOR string hex 1.north west)!0.5!(CBOR string hex 2.north east)$) (CBOR string label) {CBOR\strut};
+  \node [zoom-label, anchor=north] at ($(CBOR string text 1.south west)!0.5!(CBOR string text 2.south east) + (0, -1pt)$) {(7 bytes)};
+
+  \draw [transform-string] (JSON string hex 1.north east) to [out=15, in=165] (CBOR string hex 1.north west);
+  \draw [transform-string] (JSON string hex 3.north east) to [out=15, in=165] (CBOR string hex 1.north west);
+  \draw [transform] (JSON string text 2.south east) to [out=-20, in=-160] (CBOR string text 2.south west);
+
+  \node [zoom-box, fit={(CBOR string text 1)}] (CBOR string 1) {};
+  \node [zoom-string] (CBOR string bin 1) at (22, 0) {011};
+  \node [zoom-M, right=0pt of CBOR string bin 1] (CBOR string bin 2) {00110};
+  \node [zoom, left=0pt of CBOR string bin 1, draw=none] {0b};
+  \node [zoom-box, fit={(CBOR string bin 1) (CBOR string bin 2)}] (CBOR string bin zoom) {};
+  \draw [zoom-line, fill=Greys-B] (CBOR string 1.north east) -- (CBOR string bin zoom.north west)
+                                  (CBOR string 1.south east) -- (CBOR string bin zoom.south west);
+  \node [zoom-label, above=of CBOR string bin 1] {Code};
+  \node [zoom-label, below=1pt of CBOR string bin 1] {\texttt{tstr} (3)};
+  \node [zoom-label, above=of CBOR string bin 2] {$M = N$};
+  \node [zoom-label, below=1pt of CBOR string bin 2] {Length (6)};
+  \node [title] at (CBOR string label.south -| CBOR string bin zoom.north) {CBOR header\strut};
+\end{tikzpicture}

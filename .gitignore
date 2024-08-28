@@ -1,5 +1,6 @@
 .vagrant/
 vm-mount/
+.gh_token
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

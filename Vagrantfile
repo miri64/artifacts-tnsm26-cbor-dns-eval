@@ -15,6 +15,10 @@ su - vagrant -c "\
 set -x; \
 /home/vagrant/cbor-dns-eval-tbd/pyenv-setup.sh
 echo 'pyenv activate cbor-dns-eval-tbd' >> /home/vagrant/.bashrc; \
+( \
+  cd /home/vagrant/cbor-dns-eval-tbd/03_json2cbor_eval/; \
+  npm install  @sourcemeta/json-taxonomy \
+); \
 set +x"
 
 set -x

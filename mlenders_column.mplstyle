@@ -3,8 +3,8 @@ axes.titlesize : medium
 axes.labelpad : 0.25
 axes.labelsize : x-small
 figure.facecolor : none
-# @ textwidth, textwidth / phi / 2
-figure.figsize : 5.47807, 1.692816726375568
+# @ columnwidth = textwidth / 2, columnwidth / phi
+figure.figsize :  2.739035, 1.692816726375568
 figure.subplot.hspace : 0.005
 figure.subplot.wspace : 0.005
 font.family : serif

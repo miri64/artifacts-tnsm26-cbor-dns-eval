@@ -15,8 +15,8 @@ on:
 jobs:
   test:
     strategy:
-      max-parallel: 4
-      fail-fast: false
+      max-parallel: 6
+      fail-fast: true
       matrix:
         os:
           - ubuntu-22.04

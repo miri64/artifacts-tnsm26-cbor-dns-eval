@@ -8,7 +8,7 @@ html5lib==1.1
 json5==0.9.25
 jupyter_server_ydoc==0.8
 jupyterlab==4.2.5
-jupyter-tikz==0.5.4
+jupyter-tikz==0.5.5
 jupyterlab-git==0.50.1
 matplotlib==3.9.2
 maxminddb==2.6.2

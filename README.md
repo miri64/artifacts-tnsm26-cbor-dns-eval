@@ -118,6 +118,8 @@ For each section there are one or more [Jupyter] Notebooks and a corresponding d
 - Background and Related Work: [02_background](./02_background.ipynb)
 - Evaluating the Use of CBOR for Object Encoding: [03_json2cbor_eval](./03_json2cbor_eval)
 
+The directory `utils` contains additional helper functions and tools, such as our extended taxonomy tool for CBOR classification.
+
 [vagrant]: https://developer.hashicorp.com/vagrant
 [install vagrant]: https://developer.hashicorp.com/vagrant/install
 [VirtualBox provider]: https://developer.hashicorp.com/vagrant/docs/providers/virtualbox

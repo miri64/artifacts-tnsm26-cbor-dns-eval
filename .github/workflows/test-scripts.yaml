@@ -1,0 +1,43 @@
+name: Test scripts
+
+on:
+  push:
+    branches:
+      - clean   # TBD
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - clean  # TBD
+  schedule:
+    - cron: '56 1 * * 2'
+
+jobs:
+  test:
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-24.04
+          - ubuntu-latest
+        script:
+          - 03_json2cbor_eval/node-setup.sh
+          - jupyter-service-setup.sh
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@main
+      with:
+        submodules: true
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Install Ubuntu dependencies
+      run: sudo ./ubuntu-setup.sh
+    - name: Install Pyenv dependencies
+      run: ./pyenv-setup.sh
+    - name: Test ${{ matrix.script }} scripts
+      run: |
+          export PATH=~/.pyenv/bin:${PATH}
+          eval $(pyenv init -)
+          pyenv activate cbor-dns-eval-tbd
+          ./${{ matrix.script }}

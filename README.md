@@ -17,14 +17,14 @@ This repository contains code and documentation to reproduce the experimental re
 > components engineered for the constrained Internet of Things (IoT).
 > We show that simply switching from data representation in JSON to
 > the Concise Binary Object Representation (CBOR) offers a median gain
-> of $14.4\%$ for a corpus of JSON objects collected on
+> of 14.4% for a corpus of JSON objects collected on
 > GitHub.
 > A new CBOR-based DNS message format designed for use with DNS over
 > HTTPS (DoH) and DNS over CoAP (DoC) provides mean byte savings of
-> $64.0 \pm 50.0$ bytes in its packed form and shows large
+> 64.0 ± 50.0 bytes in its packed form and shows large
 > potential for additionally compressing names and addresses.
 > We propose two name compression schemes that apply to the new CBOR
-> format and save up to $116$ bytes in a response that
+> format and save up to 116 bytes in a response that
 > cannot elide the question section.
 > The decoder for our name compression
 > scheme is lean and can fit into as little as $314$ bytes of binary build size.

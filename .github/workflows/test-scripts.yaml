@@ -36,8 +36,9 @@ jobs:
     - name: Install Pyenv dependencies
       run: ./pyenv-setup.sh
     - name: Test ${{ matrix.script }} script
+      shell: bash
       run: |
           export PATH=~/.pyenv/bin:${PATH}
-          eval $(pyenv init -)
+          eval "$(pyenv init -)"
           pyenv activate cbor-dns-eval-tbd
           ./${{ matrix.script }}

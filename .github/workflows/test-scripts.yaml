@@ -35,7 +35,7 @@ jobs:
       run: sudo ./ubuntu-setup.sh
     - name: Install Pyenv dependencies
       run: ./pyenv-setup.sh
-    - name: Test ${{ matrix.script }} scripts
+    - name: Test ${{ matrix.script }} script
       run: |
           export PATH=~/.pyenv/bin:${PATH}
           eval $(pyenv init -)

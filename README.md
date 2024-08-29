@@ -122,7 +122,7 @@ For each section there are one or more [Jupyter] Notebooks and a corresponding d
 
 - Introduction: [`01_introduction`](./01_introduction.ipynb)
 - Background and Related Work: [`02_background`](./02_background.ipynb)
-- Evaluating the Use of CBOR for Object Encoding: [`03_json2cbor_eval`](./03_json2cbor_eval)
+- Evaluating the Use of CBOR for Object Encoding: [`03_json2cbor_eval`](./03_json2cbor_eval.ipynb)
 
 The directory `utils` contains additional helper functions and tools, such as our extended taxonomy tool for CBOR classification.
 

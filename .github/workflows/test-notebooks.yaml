@@ -1,0 +1,65 @@
+name: Test notebook
+
+on:
+  push:
+    branches:
+      - clean   # TBD
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - clean  # TBD
+  schedule:
+    - cron: '14 3 * * 2'
+
+jobs:
+  test:
+    strategy:
+      max-parallel: 5
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-24.04
+          - ubuntu-latest
+        notebook:
+          - name: 00_start
+          - name: 01_introduction
+          - name: 02_background
+          - name: 03_json2cbor_eval
+            prepare: tar -I pigz -C 03_json2cbor_eval -xf 03_json2cbor_eval/jsons.tar.gz
+          - name: 03_json2cbor_eval/01_dataset_collection
+            prepare: echo "${GITHUB_TOKEN}" > 03_json2cbor_eval/.gh_token
+            postcondition: >
+              tmux ls | grep "^scrape_github_repos:" &&
+              tmux ls | grep "^json2cbor:"
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@main
+      with:
+        submodules: true
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Install Ubuntu dependencies
+      run: sudo ./ubuntu-setup.sh
+    - name: Install Pyenv dependencies
+      run: ./pyenv-setup.sh
+    - name: Prepare for ${{ matrix.notebook.name }}
+      if: ${{ matrix.notebook.prepare }}
+      shell: bash
+      continue-on-error: true # TBD
+      run: ${{ matrix.notebook.prepare }}
+    - name: Test ${{ matrix.notebook.name }}
+      shell: bash
+      continue-on-error: true # TBD
+      run: |
+          export PATH=~/.pyenv/bin:${PATH}
+          eval "$(pyenv init -)"
+          pyenv activate cbor-dns-eval-tbd
+          jupyter execute --inplace ${{ matrix.notebook.name }}.ipynb
+    - name: Show ${{ matrix.notebook.name }} diff
+      shell: bash
+      run: git diff ${{ matrix.notebook.name }}.ipynb
+    - name: Check post contition for ${{ matrix.notebook.name }} 
+      if: ${{ matrix.notebook.postcondition }}
+      shell: bash
+      run: ${{ matrix.notebook.postcondition }}

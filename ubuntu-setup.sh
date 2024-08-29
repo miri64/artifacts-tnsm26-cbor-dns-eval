@@ -8,7 +8,7 @@
 
 set -x
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade curl git parallel pigz tshark \
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade curl git tmux parallel pigz tshark \
     npm python3-pip python3-virtualenv python3-dev \
     libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
     libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \

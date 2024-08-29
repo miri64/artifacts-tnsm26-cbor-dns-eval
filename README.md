@@ -82,6 +82,12 @@ config.vm.network "forwarded_port", guest: 8888, host: 8080
 
 The Jupyter Lab will then be available at http://localhost:8080/lab/tree/start.ipynb.
 
+If you need access to the VM for any reason, you can just use SSH with
+
+```sh
+vagrant ssh
+```
+
 ### Native set-up
 
 If you do not want to or cannot use a VM, please use this set-up.

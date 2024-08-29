@@ -1,2 +1,5 @@
 jsons/
 cbors/
+.gh_token
+node_modules/
+package*.json

@@ -88,6 +88,8 @@ If you need access to the VM for any reason, you can just use SSH with
 vagrant ssh
 ```
 
+**All listed commands in the notebooks assume that you are logged in via SSH into the vagrant VM**
+
 ### Native set-up
 
 If you do not want to or cannot use a VM, please use this set-up.

@@ -1,5 +1,6 @@
 jsons/
 cbors/
 .gh_token
+json2cbor_native.csv
 node_modules/
 package*.json

@@ -1,16 +1,14 @@
 #! /usr/bin/env python3
 # vim:fenc=utf-8
 #
-# Copyright (C) 2023 TU Dresden
+# Copyright (C) 2023-24 TU Dresden
 #
 # Distributed under terms of the MIT license.
 
 import argparse
 import base64
-import concurrent.futures
 import gzip
 import json
-import multiprocessing
 import pathlib
 import os
 import re
@@ -277,18 +275,13 @@ def main():
             flush=True,
         )
         return
-    # with concurrent.futures.ProcessPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
-    #     for root, dirs, filenames in os.walk(INPUT_PATH):
     root = INPUT_PATH.parent
-    # filenames = sys.stdin
-    # for filename in filenames:
     filename = args.filename.strip()
     if not filename.endswith(".cbor") and filename not in [
         "illegal_json.txt",
         "illegal_json_fixed.txt",
         "sha_filenames.csv",
     ]:
-        # executor.submit(convert2cbor, pathlib.Path(root) / filename)
         convert2cbor(pathlib.Path(root) / filename)
 
 

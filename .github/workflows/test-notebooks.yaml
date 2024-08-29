@@ -32,7 +32,11 @@ jobs:
             prepare: echo "${GITHUB_TOKEN}" > 03_json2cbor_eval/.gh_token
             postcondition: >
               tmux ls | grep "^scrape_github_repos:" &&
-              tmux ls | grep "^json2cbor:"
+              tmux ls | grep "^json2cbor:" &&
+              echo "Pane of scrape_github_repos" &&
+              tmux capture-pane -t "scrape_github_repos" -pS - &&
+              echo "Pane of json2cbor" &&
+              tmux capture-pane -t "json2cbor" -pS -
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@main

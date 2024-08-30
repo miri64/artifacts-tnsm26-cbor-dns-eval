@@ -22,7 +22,7 @@
   },
   cite/.style 2 args = {
     below left=0.25em and 0.1em of {#1.north east},
-    font=\footnotesize\cite{#2},
+    font=\footnotesize [#2],
     inner sep=0,
     outer sep=0,
     anchor=north east,
@@ -59,7 +59,7 @@
   \node [logo={base64}{python}] {};
   \node [api, below=of base64] (json) {json5.loads(json\_str)};
   \node [logo={json}{python}] {};
-  \node [cite={json}{pyjson5}] {};
+  \node [cite={json}{57}] {};
   % \node [above=0.5em of users] {\sffamily\bfseries \ref{sec:eval-j2c:collection} Dataset Collection};
 
   \draw [result] (users) -- node [result-text] (users-result) {[\{"login":...\},\{"login":...\},...]} (repos);
@@ -85,7 +85,7 @@
   \node [logo={load json file}{python}] {};
   \node [api, below=of load json file] (dump cbor files) {cbor2.dump(...,canonical=\{False,True\})};
   \node [logo={dump cbor files}{python}] {};
-  \node [cite={dump cbor files}{cbor2}] {};
+  \node [cite={dump cbor files}{30}] {};
   \node [api, below=of dump cbor files, draw=none] (gzip dummy) {};
   \node [api, below=of dump cbor files.south west, anchor=north west, text width=10.80em] (gzip) {gzip -9 *.\{json,cbor,canon.cbor\}};
   \node [logo={gzip}{dollar-sign}] {};

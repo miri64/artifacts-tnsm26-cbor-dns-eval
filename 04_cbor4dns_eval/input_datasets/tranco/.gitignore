@@ -1,0 +1,4 @@
+*.ndjson
+*.ndjson.xz
+*.status.txt
+tranco_*_full.csv

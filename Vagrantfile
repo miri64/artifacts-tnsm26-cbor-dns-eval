@@ -1,6 +1,6 @@
 $setup = <<SCRIPT
 set -x
-/home/vagrant/cbor-dns-eval-tbd/ubuntu-setup.sh
+USER=vagrant /home/vagrant/cbor-dns-eval-tbd/ubuntu-setup.sh
 set +x
 
 su - vagrant -c "\

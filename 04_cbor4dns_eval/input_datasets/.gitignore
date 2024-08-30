@@ -1,0 +1,4 @@
+*.csv.gz
+iotfinder/
+moniotr/
+yourthings/

@@ -25,9 +25,25 @@ jobs:
         notebook:
           - name: 00_start
           - name: 01_introduction
+            postcondition: >
+              git status --porcelain |
+                grep -E "^\s+M\s+01_introduction/plots/http-archive-bytes-total.pdf"
           - name: 02_background
           - name: 03_json2cbor_eval
-            prepare: tar -I pigz -C 03_json2cbor_eval -xf 03_json2cbor_eval/jsons.tar.gz
+            postcondition: >
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json-names-percentage.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json-taxonomy-content-type.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json-taxonomy-redundancy.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json-taxonomy-structure.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json-taxonomy-tier.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-blobs-gain.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-blobs-savings.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-gain.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-savings.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-times_dumps_epyc7702.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-times_dumps_rpi3.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-times_loads_epyc7702.pdf" &&
+              git status --porcelain | grep -E "^\s+M\s+03_json2cbor_eval/plots/json2cbor-times_loads_rpi3.pdf"
           - name: 03_json2cbor_eval/01_dataset_collection
             prepare: echo "${GITHUB_TOKEN}" > 03_json2cbor_eval/.gh_token
             postcondition: >

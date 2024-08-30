@@ -26,3 +26,7 @@ pyenv global 3.12.5
 pyenv virtualenv cbor-dns-eval-tbd
 pyenv activate cbor-dns-eval-tbd
 pip install -r "${SCRIPT_DIR}/requirements.txt" --upgrade
+
+for nb in "${SCRIPT_DIR}"/*.ipynb "${SCRIPT_DIR}"/0[0-9A]_*/*.ipynb; do
+    jupyter trust "${nb}"
+done

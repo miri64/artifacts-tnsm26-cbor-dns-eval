@@ -53,6 +53,9 @@ jobs:
               tmux capture-pane -t "scrape_github_repos" -pS - &&
               echo "Pane of json2cbor" &&
               tmux capture-pane -t "json2cbor" -pS -
+          - name: 04_cbor4dns_eval
+          - name: 04_cbor4dns_eval/01_dataset_collection
+          - name: 04_cbor4dns_eval/02_encoding
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@main

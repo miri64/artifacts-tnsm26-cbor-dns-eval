@@ -25,6 +25,7 @@ jobs:
         script:
           - 03_json2cbor_eval/node-setup.sh
           - jupyter-service-setup.sh
+          # TBD: 04 scripts
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@main

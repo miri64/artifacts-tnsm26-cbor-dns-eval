@@ -1,3 +1,6 @@
 [submodule "massdns"]
 	path = 04_cbor4dns_eval/massdns
 	url = https://github.com/blechschmidt/massdns.git
+[submodule "04_cbor4dns_eval/cbor4dns"]
+	path = 04_cbor4dns_eval/cbor4dns
+	url = https://github.com/anr-bmbf-pivot/cbor4dns

@@ -1,0 +1,25 @@
+# Copyright (C) 2025 TU Dresden
+#
+# Distributed under terms of the MIT license.
+
+services:
+  jupyter:
+    build:
+      args:
+        HOST_GID: "${HOST_GID:-1000}"
+        HOST_UID: "${HOST_UID:-1000}"
+      context: .
+      dockerfile: Dockerfile
+    image: cbor-dns-eval/jupyter
+    volumes:
+      - .:/app
+    environment:
+      JUPYTER_PORT: ${JUPYTER_PORT:-8888}"
+    network_mode: host
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    command: >
+      bash -c "usermod -u '${HOST_UID:-1000}' -g '${HOST_GID:-1000}' user;
+      chown -R user: /home/user;
+      su - user -c \"cd /app; jupyter lab --port '${JUPYTER_PORT:-8888}'\""

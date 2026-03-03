@@ -7,27 +7,17 @@ This repository contains code and documentation to reproduce the experimental re
 
 **Abstract:**
 
-> Decreasing latency in the World Wide Web (WWW) can significantly
-> improve user experience and is now established as a key objective of
-> the evolution of the Web, with major improvements achieved on the protocol
-> layers.
-> Nevertheless, the size of transferred objects continues to increase,
-> countering those improvements.
-> In this paper, we propose addressing this trend by employing
-> components engineered for the constrained Internet of Things (IoT).
-> We show that simply switching from data representation in JSON to
-> the Concise Binary Object Representation (CBOR) offers a median gain
-> of 14.4% for a corpus of JSON objects collected on
-> GitHub.
-> A new CBOR-based DNS message format designed for use with DNS over
-> HTTPS (DoH) and DNS over CoAP (DoC) provides mean byte savings of
-> 64.0 ± 50.0 bytes in its packed form and shows large
-> potential for additionally compressing names and addresses.
-> We propose two name compression schemes that apply to the new CBOR
-> format and save up to 116 bytes in a response that
-> cannot elide the question section.
-> The decoder for our name compression
-> scheme is lean and can fit into as little as $314$ bytes of binary build size.
+> The Internet community has taken major efforts to decrease latency in the World Wide Web with significant improvements in accelerating content transport and in compressing static content.
+> Less attention, however, has been dedicated to dynamic content compression.
+> Such content is commonly provided by JSON and DNS over HTTPS.
+> Dynamic content objects continue to grow in size, which increases latency and fosters the digital inequality.
+> Concise Binary Object Representation (CBOR) was originally introduced to restrict packet sizes in constrained Internet of Things (IoT) and enables efficient encoding of data objects.
+> When switching the data representation from JSON to CBOR a corpus of JSON objects collected via the HTTP Archive reduces data by up to 80.0%.
+> This size reduction can decrease loading times by up to 13.8% when downloading large objects—even in local setups.
+> A new CBOR-based DNS message format designed for use with DNS over HTTPS (DoH) and DNS over CoAP (DoC) minimizes packets by up to 95.5% in its packed form and shows large potential for additionally compressing names and addresses.
+> We contribute two name compression schemes that apply to the new CBOR format and save up to 226 bytes in a response.
+> A lean decoder for these schemes can fit into as little as 314 bytes of build size.
+> Further optimization proposals directly influenced our work on the new DNS message format within the IETF.
 
 ## Requirements
 
@@ -40,87 +30,83 @@ cd cbor-dns-eval-tbd
 
 Then you have the choice between a [vagrant]-based set-up using a VM, or you can run [Jupyter] Lab natively on your system.
 
-### Vagrant-based VM set-up
+## Dockerized Usage
 
-We provide a [vagrant] set-up in this repository. To use this, please [install vagrant] first,
-according to the instructions for your operating system, including the [VirtualBox provider]. 
-On Debian-based systems, such as Ubuntu, this can be done using the following command:
+This repository can be used using [`docker compose`](https://docs.docker.com/compose/install/). If you do not have root access to your machine, consider running in a virtual machine, otherwise, see ["Using UV"](#Using-UV) below. Once `docker compose` is installed, run `docker compose up` from a command-line in the directory you stepped into with the `cd` command above.
 
-```sh
-wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-
-sudo apt update && sudo apt install vagrant
-sudo apt install virtualbox
+``` bash
+docker compose up
 ```
 
-It is highly recommended to update memory and CPU in line with your host machine (as much processing
-power and RAM needed as possible) in the provider section of the [Vagrantfile]\ (search for
-`v.memory` and `v.cpus` in the file). E.g., for 16GB RAM and 16 CPU cores, use the following.
+Once it is done building the image, Jupyter Lab will start and a URL to open in your browser will be shown, e.g.,
 
-```ruby
-v.memory = 16384
-v.cpus = 16
+```
+jupyter-1  |     To access the server, open this file in a browser:
+jupyter-1  |         file:/home/user/.local/share/jupyter/runtime/jpserver-12-open.html
+jupyter-1  |     Or copy and paste one of these URLs:
+jupyter-1  |         http://localhost:8888/lab?token=f63eeb3d8158079dfea465051cbb4598fbe5575f96a7ffdb
+jupyter-1  |         http://127.0.0.1:8888/lab?token=f63eeb3d8158079dfea465051cbb4598fbe5575f96a7ffdb
 ```
 
-To start the VM, run the following.
+If port `8888` is already in use on your system, you can also pick another using the `JUPYTER_PORT` environment variable:
 
-```sh
-vagrant up
-vagrant reload
+```bash
+JUPYTER_PORT=8889 docker compose up
 ```
 
-After finishing, go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb.
+If your host user has a different UID or GID than 1000, this also can be configured:
 
-If port 8888 is already occupied on your host machine, change the value for `host:` of the
-`config.vm.network "forward_port"` option in the [Vagrantfile], e.g. for port 8080 set the
-following.
-
-```ruby
-config.vm.network "forwarded_port", guest: 8888, host: 8080
+```bash
+HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose up
 ```
 
-The Jupyter Lab will then be available at http://localhost:8080/lab/tree/start.ipynb.
+Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
 
-If you need access to the VM for any reason, you can just use SSH with
+## Using UV
 
-```sh
-vagrant ssh
+**We do not recommend this method**, since updates during the years since we published this repository might lead to incompatibilities.
+However, you might need to use it, if you do not have access to Docker or a virtual machine where you can run Docker on your machine.
+
+First, install the package and project manager for Python [UV](https://docs.astral.sh/uv/) (you might need to use flags like `--user` or `--system` to install this on your specific system, see [`pip` documentation](https://pip.pypa.io/en/stable/cli/pip_install/)):
+
+```bash
+pip install uv
 ```
 
-**All listed commands in the notebooks assume that you are logged in via SSH into the vagrant VM**
+UV has some advantages over the classic `pip` package manager: First, it is much faster. Second, it allows for a hassle-free deployment of python versions that are not pre-installed on your system.
 
-### Native set-up
+Our [Jupyter] Notebooks were tested with Python 3.12 on a Debian 13 (Trixie) machine. As such, we recommend installing that Python version.
 
-If you do not want to or cannot use a VM, please use this set-up.
-
-Our [Jupyter] Notebooks were tested with Python 3.12.5.
-We tested our setup on Ubuntu 22.04 and 24.04, but for generalized setup, please use [pyenv]
-to set-up Python 3.12.5:
-
-```sh
-./pyenv-setup.sh
-. ${HOME}/.bashrc
+```bash
+uv python install cpython-3.12
 ```
 
-You will also need [bash], [curl], [npm], [GNU parallel], [pigz], [tshark], and a LaTeX distribution
-[supported by Jupyter-TikZ] as well as [Poppler]'s `pdftocairo` tool. Please check the
-installation instructions of each tool for your operating system.
+Additional dependencies from the system might be needed. Please have a look at the `apt-get install` (the Debian package manager command used to install dependencies there) line from our [Dockerfile](./Dockerfile) for a (Debian-13-based) listing of the dependencies.
 
-All Python dependencies are listed in the [requirements.txt].
+Now create and step into a virtual environment for this repository.
 
-You can start [Jupyter] Lab as follows:
+```bash
+uv venv --python python3.12 .env
+. .env/bin/activate
+```
 
-```sh
-pyenv activate cbor-dns-eval-tbd
+Last, install the Python dependencies:
+
+```bash
+uv pip install -r requirements.txt
+```
+
+You now can start Jupyter Lab by running the following command (you might want to use the `--port` argument to change the port).
+
+```bash
 jupyter lab
 ```
 
-The Jupyter Lab will then be available at http://localhost:8888/lab/tree/start.ipynb.
+Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
 
 ## Repository Structure
 
-For each section there are one or more [Jupyter] Notebooks and a corresponding directory:
+Roughly, for each section there are one or more [Jupyter] Notebooks and a corresponding directory:
 
 1. Introduction: [`01_introduction`](./01_introduction.ipynb)
 2. Background and Related Work: [`02_background`](./02_background.ipynb)

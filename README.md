@@ -30,7 +30,7 @@ cd cbor-dns-eval-tbd
 
 Then you have the choice between a [vagrant]-based set-up using a VM, or you can run [Jupyter] Lab natively on your system.
 
-## Dockerized Usage
+### Dockerized Usage
 
 This repository can be used using [`docker compose`](https://docs.docker.com/compose/install/). If you do not have root access to your machine, consider running in a virtual machine, otherwise, see ["Using UV"](#Using-UV) below. Once `docker compose` is installed, run `docker compose up` from a command-line in the directory you stepped into with the `cd` command above.
 
@@ -62,7 +62,7 @@ HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose up
 
 Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
 
-## Using UV
+### Using UV
 
 **We do not recommend this method**, since updates during the years since we published this repository might lead to incompatibilities.
 However, you might need to use it, if you do not have access to Docker or a virtual machine where you can run Docker on your machine.

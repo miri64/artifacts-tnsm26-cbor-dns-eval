@@ -34,7 +34,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cm-super \
     dvipng \
     texlive-fonts-extra \
+    texlive-fonts-recommended \
     texlive-latex-extra \
+    texlive-plain-generic \
     texlive-pictures \
     texlive-xetex \
     npm \

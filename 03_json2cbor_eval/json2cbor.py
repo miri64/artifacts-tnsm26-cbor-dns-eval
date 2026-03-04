@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # vim:fenc=utf-8
 #
-# Copyright (C) 2023-24 TU Dresden
+# Copyright (C) 2023-26 TU Dresden
 #
 # Distributed under terms of the MIT license.
 
@@ -28,6 +28,7 @@ JSON_TAXONOMY_PATH = pathlib.Path(os.environ.get("JSON_TAXONOMY_PATH", SCRIPT_DI
 GITHUB_PATH = INPUT_PATH / "github" / "github"
 GITHUB_BLOBS_PATH = GITHUB_PATH / "blobs"
 GITHUB_USERS_PATH = GITHUB_PATH / "users"
+JSON_DATASET = os.environ.get("JSON_DATASET")
 ITERATIONS = int(os.environ.get("ITERATIONS", 1000))
 
 
@@ -206,8 +207,9 @@ def convert2cbor(json_filename):
                 github_type = "github_api_repos"
             else:
                 github_type = "github_api_others"
+        json_path = str(json_filename.relative_to(INPUT_PATH))
         print(
-            json_filename.relative_to(INPUT_PATH),
+            json_path if ";" not in json_path else f'"{json_path}"',
             json_filename.stat().st_mtime,
             github_type,
             size_tier,
@@ -282,7 +284,10 @@ def main():
         "illegal_json_fixed.txt",
         "sha_filenames.csv",
     ]:
-        convert2cbor(pathlib.Path(root) / filename)
+        filename = pathlib.Path(root) / filename
+        if JSON_DATASET and filename.relative_to(root).parts[1] != JSON_DATASET:
+            return
+        convert2cbor(filename)
 
 
 if __name__ == "__main__":

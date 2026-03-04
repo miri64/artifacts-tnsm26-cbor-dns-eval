@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2024 TU Dresden
+# Copyright (C) 2024-26 TU Dresden
 #
 # Distributed under terms of the MIT license.
 #
@@ -21,6 +21,7 @@ if [ $# -lt 1 ]; then
 fi
 
 export OUTPUT_FILE="$(readlink -f "${1}")"
+export JSON_DATASET="${JSON_DATASET:-}"
 
 "${SCRIPT_DIR}"/json2cbor.py --header > "${OUTPUT_FILE}"
 find "${INPUT_PATH}" -type f | \

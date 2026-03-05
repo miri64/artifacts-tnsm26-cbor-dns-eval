@@ -3,8 +3,8 @@ axes.titlesize : medium
 axes.labelpad : 0.25
 axes.labelsize : x-small
 figure.facecolor : none
-# @ columnwidth, columnwidth / phi
-figure.figsize :  3.33565, 1.0307725372867933
+# @ columnwidth / 2, columnwidth / phi / 2
+figure.figsize : 1.9181855, 1.1855038357272114
 figure.subplot.hspace : 0.005
 figure.subplot.wspace : 0.005
 font.family : serif
@@ -15,16 +15,16 @@ grid.linewidth : 0.5
 grid.alpha : 0.6
 hatch.linewidth : 0.25
 legend.columnspacing : 0.6
-legend.fontsize : xx-small
+legend.fontsize : x-small
 legend.handlelength : 1.0
 legend.handletextpad : 0.4
-legend.title_fontsize : small
+legend.title_fontsize: x-small
 lines.linewidth : 1
 lines.markeredgewidth : 0.5
-lines.markersize : 3
+lines.markersize: 3
 patch.linewidth : 0.5
 # pgf.rcfonts : True
-# pgf.texsystem : xelatex
+# pgf.texsystem : pdflatex
 text.usetex : True
 text.latex.preamble : "\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{pslatex}\usepackage[kerning,spacing]{microtype}" 
 xtick.labelsize : x-small

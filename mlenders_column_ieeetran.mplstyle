@@ -4,7 +4,7 @@ axes.labelpad : 0.25
 axes.labelsize : x-small
 figure.facecolor : none
 # @ columnwidth, columnwidth / phi
-figure.figsize :  3.33565, 1.0307725372867933
+figure.figsize :  4.080503, 2.5218899778197037
 figure.subplot.hspace : 0.005
 figure.subplot.wspace : 0.005
 font.family : serif
@@ -15,7 +15,7 @@ grid.linewidth : 0.5
 grid.alpha : 0.6
 hatch.linewidth : 0.25
 legend.columnspacing : 0.6
-legend.fontsize : xx-small
+legend.fontsize : x-small
 legend.handlelength : 1.0
 legend.handletextpad : 0.4
 legend.title_fontsize : small

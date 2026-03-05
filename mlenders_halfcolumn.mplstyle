@@ -3,13 +3,13 @@ axes.titlesize : medium
 axes.labelpad : 0.25
 axes.labelsize : x-small
 figure.facecolor : none
-# @ columnwidth = textwidth / 4, columnwidth / phi
-figure.figsize : 1.3695175, 0.846408363187784
+# @ columnwidth / 2, columnwidth / phi / 2
+figure.figsize : 1.667825, 0.5153862686433967
 figure.subplot.hspace : 0.005
 figure.subplot.wspace : 0.005
 font.family : serif
-font.serif : "Linux Libertine O"
-font.size : 9.0
+# font.serif : "Linux Libertine O"
+font.size : 10.0
 grid.linestyle : solid
 grid.linewidth : 0.5
 grid.alpha : 0.6
@@ -18,17 +18,18 @@ legend.columnspacing : 0.6
 legend.fontsize : xx-small
 legend.handlelength : 1.0
 legend.handletextpad : 0.4
-lines.linewidth : 0.5
+legend.title_fontsize: x-small
+lines.linewidth : 1
 lines.markeredgewidth : 0.5
 lines.markersize: 3
 patch.linewidth : 0.5
-pgf.rcfonts : True
-pgf.texsystem : pdflatex
+# pgf.rcfonts : True
+# pgf.texsystem : pdflatex
 text.usetex : True
-text.latex.preamble : "\usepackage[tt=false]{libertine}"
-xtick.labelsize : xx-small
+text.latex.preamble : "\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{pslatex}\usepackage[kerning,spacing]{microtype}" 
+xtick.labelsize : x-small
 xtick.major.pad : 1
 xtick.minor.pad : 1
-ytick.labelsize : xx-small
+ytick.labelsize : x-small
 ytick.major.pad : 1
 ytick.minor.pad : 1

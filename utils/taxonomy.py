@@ -213,6 +213,8 @@ def percentage(total, local):
 
 
 def main(obj):
+    if isinstance(obj, str):
+        return ["str", "str", "str", "str"]
     analysis = analyze(obj)
     qualifiers = []
 

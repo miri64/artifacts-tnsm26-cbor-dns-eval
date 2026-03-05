@@ -1,6 +1,9 @@
 jsons/
+jsons.tar.gz
 cbors/
+cbors.tar.gz
 .gh_token
-json2cbor_native.csv
 node_modules/
 package*.json
+json2cbor_*.csv
+json2cbor_*.csv.gz

@@ -2,34 +2,45 @@
   api/.style = {
     rectangle,
     rounded corners=0.2em,
-    font=\footnotesize,
-    node distance=1.2em,
+    font=\scriptsize\ttfamily,
+    node distance=1.2em and 1.0em,
     align=left,
-    text width=12.5em,
+    text width=13em,
     minimum height=1.25em,
-    draw=black,
-    line width=1pt,
+    % draw=black,
+    fill=white,
+    % line width=1pt,
     outer sep=0,
     inner xsep=1.0em,
     inner ysep=0.2em,
   },
-  logo/.style 2 args = {
+  api-left/.style = {
     below right=0.20em and 0.2em of {#1.north west},
-    font=\footnotesize\faIcon{#2},
+    font=\scriptsize,
     inner sep=0,
     outer sep=0,
     anchor=north west,
   },
-  cite/.style 2 args = {
-    below left=0.25em and 0.1em of {#1.north east},
-    font=\footnotesize [#2],
+  logo/.style 2 args = {
+    api-left={#1},
+    color=gray,
+    font=\scriptsize\faIcon{#2},
+  },
+  api-right/.style = {
+    below left=0.25em and 0.2em of {#1.north east},
+    font=\scriptsize,
     inner sep=0,
     outer sep=0,
     anchor=north east,
   },
+  cite/.style 2 args = {
+    api-right={#1},
+    font=\scriptsize\cite{#2},
+  },
   result/.style = {
     -stealth,
     line width=1pt,
+    rounded corners=0.5em,
   },
   bare-result-text/.style = {
     fill=white,
@@ -38,108 +49,170 @@
     draw=none,
     align=center,
     rounded corners=0.1em,
-    font=\tiny,
+    font=\scriptsize,
   },
   result-text/.style = {
     bare-result-text,
     pos=0.35,
   },
+  collect-bq-result-text/.style = {
+    result-text,
+    fill=Set3-A,
+  },
+  collect-github-result-text/.style = {
+    result-text,
+    fill=Set3-C,
+  },
+  eval-result-text/.style = {
+    result-text,
+    fill=YlOrRd-C,
+  },
+  file/.style = {
+    rectangle,
+    draw=black,
+    outer sep=0,
+  },
+}
+
+\newcommand{\file}[6][]{
+  \begin{scope}[shift={#3}, #1]
+    \begin{scope}[x=1.7pt, y=1.7pt]
+      \draw [draw=none, fill={#4-J}] (1, 7) -- ++(4, -4) -- ++(0, -9) arc (0:-90:1) -- ++(-8, 0) arc (270:180:1) -- ++(0, 12) arc (180:90:1);
+      \begin{scope}
+        \clip ($(2, 4)+(225:1)$) -- (5, -0.8) -- (5, 3) -- cycle;
+        \node [rectangle, fill={#4-M!50!black}, draw=none, postaction={path fading=north, fading angle=45, fill={#4-J}}, anchor=north west, inner sep=0, outer sep=0, minimum width=8.0pt, minimum height=9.6pt] at (1, 4) {};
+      \end{scope}
+      \draw [draw=none, fill={#4-M}] (1, 7) -- ++(0, -3) arc (180:270:1) -- ++(3, 0) -- cycle;
+      \draw [draw=none, fill={#4-M}] (5, -3.5) -- ++(0, -2.5) arc (0:-90:1) -- ++(-8, 0) arc (270:180:1) -- ++(0, 2.5) -- cycle;
+      \node [color=white, font=\sffamily\bfseries\tiny] at (0, -5.25) {#5};
+      \ifthenelse{\equal{#6}{}}{}{
+        \node [color=white, font=\small] at (0, 0) {#6};
+      }
+    \end{scope}
+  \end{scope}
+  \node [file, inner sep=0, minimum width=20pt, minimum height=28pt, draw=none, fill=none] (#2) at #3 {};
 }
 
 \begin{tikzpicture}
-  \node [api] (users) {/users};
-  \node [logo={users}{github}] {};
-  \node [api, below=of users] (repos) {/orgs/<user\_login>/repos};
-  \node [logo={repos}{github}] {};
-  \node [api, below=of repos] (search) {/search/code?q=language:json\\+repo=<full\_name>};
-  \node [logo={search}{github}] {};
-  \node [api, below=of search] (blob) {/repositories/<repo\_id>/git/\\blobs/<sha>};
-  \node [logo={blob}{github}] {};
-  \node [api, below=of blob] (base64) {base64.b64decode(content)};
-  \node [logo={base64}{python}] {};
-  \node [api, below=of base64] (json) {json5.loads(json\_str)};
-  \node [logo={json}{python}] {};
-  \node [cite={json}{57}] {};
-  % \node [above=0.5em of users] {\sffamily\bfseries \ref{sec:eval-j2c:collection} Dataset Collection};
+  \node [api] (sql) {%
+    SELECT url, req\_user\_agent, ...\\
+    FROM summary\_requests...\\
+    WHERE ...\_type LIKE "\%json\%"\\
+    ORDER BY RAND(*) LIMIT...%
+  };
+  \node [logo={sql}{table}] {};
 
-  \draw [result] (users) -- node [result-text] (users-result) {[\{"login":...\},\{"login":...\},...]} (repos);
-  \draw [result] (repos) -- node [result-text] (repos-result) {[\{...,"full\_name":...\},...]} (search);
-  \draw [result] (search) -- node [result-text] (search-result) {\{...,"items":\{...,"git\_url":...\},...\}} (blob);
-  \draw [result] (blob) -- node [result-text] (blob-result) {\{"sha":...,"size":..."content":...,"encoding":"base64"\} (GitHub blob)} (base64);
-  \draw [result] (base64) -- node [result-text] (base64-result) {json\_str} (json);
+  \node [below=1.2em of sql, xshift=4em, inner sep=0, outer sep=0, label={[label distance=-0.2em, align=center, font=\footnotesize]below:{HTTP Archive\\Big Query}}] (big-query) {\includegraphics[height=20pt]{bigquery-logo}};
+  \node [font=\scriptsize\bfseries, align=left, right=0.2em of big-query] {HTTP Archive\\Start};
+
+  \draw [result] (big-query.north) -- (sql.south -| big-query.north);
+
+  \coordinate [below=of sql, xshift=-4em] (CSV coordinate);
+  \file {CSV}{(CSV coordinate)}{Greens}{CSV}{\faIcon{table}}
+  \draw [result] (sql.south -| CSV.north) -- (CSV.north);
+  \node [api, below=of CSV, xshift=4em] (curl) {curl -A <req\_user\_agent> <url>};
+  \node [logo={curl}{dollar-sign}] {};
+  \draw [result] (CSV) -- (CSV.south |- curl.north);
+  \node [api, below=of curl] (json) {json5.loads(json\_str)};
+  \node [logo={json}{python}] {};
+  \node [cite={json}{pyjson5}] {};
+  \draw [result] (curl) -- node [collect-bq-result-text] (curl-result) {json\_str} (curl.south |- json.north);
+
+  \node [api, below=of json] (base64) {base64.b64decode(content)};
+  \node [logo={base64}{python}] {};
+  \node [api, below=of base64] (blob) {/repositories/<repo\_id>/git/\\blobs/<sha>};
+  \node [logo={blob}{github}] {};
+  \node [api, below=of blob] (search) {/search/code?q=language:json\\+repo=<full\_name>};
+  \node [logo={search}{github}] {};
+  \node [api, below=of search] (repos) {/orgs/<user\_login>/repos};
+  \node [logo={repos}{github}] {};
+  \node [api, below=of repos] (users) {/users};
+  \node [logo={users}{github}] {};
+  \node [api-right={users}] {\bfseries GitHub Start};
+
+  \draw [result] (users) -- node [collect-github-result-text] (users-result) {[\{"login":...\},\{"login":...\},...]} (repos);
+  \draw [result] (repos) -- node [collect-github-result-text] (repos-result) {[\{...,"full\_name":...\},...]} (search);
+  \draw [result] (search) -- node [collect-github-result-text] (search-result) {\{...,"items":\{...,"git\_url":...\},...\}} (blob);
+  \draw [result] (blob) -- node [collect-github-result-text, xshift=2.5em] (blob-result) {\{"sha":...,"size":..."content":...,"encoding":"base64"\} (GitHub blob)} (base64);
+  \draw [result] (base64) -- node [collect-github-result-text] (base64-result) {json\_str} (json);
   \draw [result, rounded corners=0.5em] (json.west) -- ([xshift=-0.75em]json.west) -- ([xshift=-0.75em]search.west) -- (search.west);
   \draw [result, rounded corners=0.5em] (json.west) -- ([xshift=-0.75em]json.west) -- ([xshift=-0.75em]repos.west) -- (repos.west);
   \draw [result, rounded corners=0.5em] (json.west) -- ([xshift=-0.75em]json.west) -- ([xshift=-0.75em]users.west) -- (users.west);
 
-  \node [inner sep, right=1.5em of search, align=center, yshift=-1em] (filesystem) {{\huge\color{gray}\faIcon{database}}\\[-0.2em]\footnotesize File Storage};
+  \node [inner sep=0, outer sep=0, right=7.5em of json, align=center, yshift=0.5em, label={[label distance=-0.2em, font=\footnotesize, align=center]below:{File\\Storage}}] (filesystem) {{\huge\color{gray}\faIcon{database}}};
 
-  \draw [result] (users-result) -| (filesystem);
-  \node [bare-result-text, xshift=-0.2em] (json_dump_above) at (repos-result.east -| filesystem.north) {\scriptsize\faIcon{python} json.dump(...)};
-  \draw [line width=1pt] (repos-result) -- (json_dump_above);
-  \draw [result] (json) -| node [result-text, pos=0.92, xshift=-0.2em] (json_dump_below) {\scriptsize\faIcon{python} json.dump(...)} (filesystem);
-  \draw [line width=1pt] (blob-result) -- ([xshift=0.2em]blob-result -| json_dump_below.south);
-  \draw [line width=1pt] (search-result) -| ($(json_dump_below.north west)!0.2!(json_dump_below.north)$);
+  \draw [result] (json) -- node [collect-bq-result-text, pos=0.50, xshift=-0.2em] (json_dump_below node) {{\color{gray}\scriptsize\faIcon{python}} json.dump(...)} (filesystem.west |- json);
+  \coordinate (json_dump_below) at ([xshift=-2em]json_dump_below node);
+  \draw [line width=1pt] ([xshift=-2.5em]blob-result.north east) -- ([xshift=-2.5em]json_dump_below node.south -| blob-result.north east);
+  % \draw [line width=1pt] (json) -| (json_dump_below.north);
 
-  \tikzset {raspi-result-text/.style = {result-text, fill=Reds-E!10}}
-  \node [api, right=8em of users] (load json file) {json.load(...)};
+  \node [api, right=13em of sql.north east, anchor=north west] (load json file) {json.load(...)};
   \node [logo={load json file}{python}] {};
-  \node [api, below=of load json file] (dump cbor files) {cbor2.dump(...,canonical=\{False,True\})};
+  \node [api, below=1.4em of load json file] (dump cbor files) {cbor2.dump(...)};
   \node [logo={dump cbor files}{python}] {};
-  \node [cite={dump cbor files}{30}] {};
-  \node [api, below=of dump cbor files, draw=none] (gzip dummy) {};
-  \node [api, below=of dump cbor files.south west, anchor=north west, text width=10.80em] (gzip) {gzip -9 *.\{json,cbor,canon.cbor\}};
+  \node [cite={dump cbor files}{cbor2}] {};
+  \node [api, below=1.4em of dump cbor files, draw=none] (gzip dummy) {};
+  \node [api, below=1.4em of dump cbor files.south west, anchor=north west, text width=12em] (gzip) {gzip -9 *.\{json,cbor\}};
   \node [logo={gzip}{dollar-sign}] {};
-  \node [api, below=of gzip dummy.south west, anchor=north west, text width=4.10em] (iterate json loads) {json.loads(...)};
+  \node [api, below=1.4em of gzip dummy.south west, anchor=north west, text width=6.00em] (iterate json loads) {json.loads(...)};
   \node [logo={iterate json loads}{python}] {};
-  \node [api, below=of iterate json loads, text width=4.25em] (iterate json dumps) {json.dumps(...)};
+  \node [api, below=4.05em of iterate json loads, text width=6.00em] (iterate json dumps) {json.dumps(...)};
   \node [logo={iterate json dumps}{python}] {};
-  \node [api, below=of gzip dummy.south east, anchor=north east, text width=4.10em, xshift=-1.1em] (iterate cbor loads) {cbor2.loads(...)};
+  \node [api, below=4.05em of gzip dummy.south east, anchor=north east, text width=6.00em, xshift=-0.9em] (iterate cbor loads) {cbor2.loads(...)};
   \node [logo={iterate cbor loads}{python}] {};
-  \node [api, below=of iterate cbor loads, text width=4.25em] (iterate cbor dumps) {cbor2.dumps(...)};
+  \node [api, below=4.05em of iterate cbor loads, text width=6.00em] (iterate cbor dumps) {cbor2.dumps(...)};
   \node [logo={iterate cbor dumps}{python}] {};
 
-  \node [api, below=of iterate json dumps.south west, anchor=north west, minimum height=3em] (blob processing) {};
-  \node [font=\footnotesize] (tag base64) at ($(blob processing.north west)!0.25!(blob processing.south east)$) {Tag base64 content};
-  \node [font=\footnotesize] (base64 binary) at ($(blob processing.south west)!0.75!(blob processing.north east)$) {Make base64 binary};
-  \node [font=\footnotesize] (embed cbor) at ($(blob processing.south)!0.25!(blob processing.north)$) {Encode binary as embedded CBOR};
-  \draw [line width=1pt] (blob processing.west) -- (blob processing.east);
-  \draw [line width=1pt] (blob processing.north) -- (blob processing.center);
+  \coordinate (blob anchor) at (iterate cbor dumps.south east -| dump cbor files.south east);
+  \node [api, below=2.3em of blob anchor, anchor=north east, minimum height=5em] (blob processing) {};
+  \node [font=\footnotesize, align=center] (tag base64) at ($(blob processing.north west)!0.25!(blob processing.south east)$) {Tag base64\\content};
+  \node [font=\footnotesize, align=center] (base64 binary) at ($(blob processing.south west)!0.75!(blob processing.north east)$) {Make base64\\binary};
+  \node [font=\footnotesize, align=center] (embed cbor) at ($(blob processing.south)!0.25!(blob processing.north)$) {Encode binary as\\embedded CBOR};
+  \draw [line width=1pt, draw=YlOrRd-C] (blob processing.west) -- (blob processing.east);
+  \draw [line width=1pt, draw=YlOrRd-C] (blob processing.north) -- (blob processing.center);
 
-  % \node [above=0.5em of load json file] {\sffamily\bfseries \ref{sec:eval-j2c:method} Measurement Method};
+  \coordinate (collect-title node) at ($(sql.north west)!0.5!(sql.north east -| json_dump_below node.north east)$);
+  \node [above=0.25em of load json file.north] (eval-title) {\bfseries Evaluation};
+  \node [above=0.25em of collect-title node] (collect-title) {\bfseries JSON Dataset Collection};
 
-  \coordinate (filesystem raspi out) at ($(filesystem.east)!0.7!(filesystem.north east) - (1.25em, 0)$);
-  \coordinate (filesystem raspi in 1) at ($(filesystem.east)!0.35!(filesystem.north east) - (1.25em, 0)$);
-  \coordinate (filesystem raspi in 2) at ($(filesystem.east)!0.0!(filesystem.south east) - (1.25em, 0)$);
+  \coordinate (filesystem raspi out) at (filesystem.north);
+  \coordinate (filesystem raspi in 1) at ($(filesystem.east) - (0, 0.4em)$);
+  \coordinate (filesystem raspi in 2) at ($(filesystem.east)!0.7!(filesystem.south east)$);
   \coordinate (dump cbor files out 1) at ($(dump cbor files.south east -| gzip.east)!0.33!(dump cbor files.south east)$);
-  \coordinate (dump cbor files out 2) at ($(dump cbor files.south east -| gzip.east)!0.66!(dump cbor files.south east)$);
-  \coordinate (iterate node) at ($(gzip.south)!0.2!(iterate cbor loads.north)$);
+  \coordinate (dump cbor files out 2) at ($(dump cbor files.south east -| gzip.east)!0.75!(dump cbor files.south east)$);
+  \coordinate (iterate node) at ($(gzip.south)!0.1!(iterate cbor loads.north)$);
   \coordinate (blobs node) at ($(iterate cbor dumps.south)!0.4!(blob processing.north)$);
 
-  \draw [result] (filesystem raspi out) -- ([xshift=0.25em]filesystem raspi out -| json_dump_above.east) |- node [result-text] (json file) {*.json} (load json file);
+  \draw [result] (filesystem raspi out) -- (filesystem raspi out |- load json file) -- node [result-text, pos=0.30] (json file) {*.json} (load json file);
   \draw [result] (load json file) -- (dump cbor files);
-  \draw [result] (dump cbor files) -- node [raspi-result-text] (cbor files) {*.cbor, *.canon.cbor} (gzip.north -| dump cbor files.south);
-  \draw [result] (cbor files) -| ([xshift=0.75em]filesystem raspi in 1 -| json_dump_above.east) |- (filesystem raspi in 1);
-  \draw [line width=1pt] (gzip) -| ([xshift=0.75em]filesystem raspi in 1 -| json_dump_above.east);
+  \draw [result] (dump cbor files) -- node [eval-result-text] (cbor files) {*.cbor} (gzip.north -| dump cbor files.south);
+  \draw [result] (cbor files) -| ([xshift=1.7em, yshift=1em]filesystem raspi in 1) |- (filesystem raspi in 1);
+  \draw [line width=1pt, rounded corners=0.5em] (gzip) -| ([xshift=1.7em, yshift=0.5em]filesystem raspi in 1);
   \draw [result] (dump cbor files out 1) |- (iterate node -| iterate cbor loads) -- (iterate cbor loads);
-  \draw [result] (iterate node -| iterate cbor loads) -| (iterate json loads);
+  \draw [result] ([xshift=1em]iterate node -| iterate cbor loads) -| (iterate json loads);
 
-  \draw [result, fill=none] ([xshift=.4em]iterate json loads.north west) arc (0:270:.4em);
-  \node [bare-result-text, fill=none, anchor=south west] (iteration json loads) at ($(iterate json loads.north west) + (10:.4em)$) {$100\times$\faIcon[regular]{clock}};
-  \draw [result] ([xshift=.4em]iterate cbor loads.north west) arc (0:270:.4em);
-  \node [bare-result-text, fill=none, anchor=south west] (iteration cbor loads) at ($(iterate cbor loads.north west) + (10:.4em)$) {$100\times$\faIcon[regular]{clock}};
-  \draw [result] ([xshift=.4em]iterate json dumps.north west) arc (0:270:.4em);
-  \node [bare-result-text, fill=none, anchor=south west] (iteration json dumps) at ($(iterate json dumps.north west) + (10:.4em)$) {$100\times$\faIcon[regular]{clock}};
-  \draw [result] ([xshift=.4em]iterate cbor dumps.north west) arc (0:270:.4em);
-  \node [bare-result-text, fill=none, anchor=south west] (iteration cbor dumps) at ($(iterate cbor dumps.north west) + (10:.4em)$) {$100\times$\faIcon[regular]{clock}};
+  \draw [result, fill=none] ([xshift=.5em]iterate json loads.north west) arc (0:270:.5em);
+  \node [bare-result-text, fill=none, anchor=south west] (iteration json loads) at ($(iterate json loads.north west) + (90:.5em)$) {$100\times$\faIcon[regular]{clock}};
+  \draw [result] ([xshift=.5em]iterate cbor loads.north west) arc (0:270:.5em);
+  \node [bare-result-text, fill=none, anchor=south west] (iteration cbor loads) at ($(iterate cbor loads.north west) + (90:.5em)$) {$100\times$\faIcon[regular]{clock}};
+  \draw [result] ([xshift=.5em]iterate json dumps.north west) arc (0:270:.5em);
+  \node [bare-result-text, fill=none, anchor=south west] (iteration json dumps) at ($(iterate json dumps.north west) + (90:.5em)$) {$100\times$\faIcon[regular]{clock}};
+  \draw [result] ([xshift=.5em]iterate cbor dumps.north west) arc (0:270:.5em);
+  \node [bare-result-text, fill=none, anchor=south west] (iteration cbor dumps) at ($(iterate cbor dumps.north west) + (90:.5em)$) {$100\times$\faIcon[regular]{clock}};
 
   \draw [result] (iterate json loads) -- (iterate json dumps);
   \draw [result] (iterate cbor loads) -- (iterate cbor dumps);
 
-  \draw [result] (dump cbor files out 2) |- (blobs node) -| node [raspi-result-text, pos=0.00, xshift=1.5em] {CBOR of GitHub blob} (blob processing);
-  \draw [result] (blob processing.west) -| node [result-text, pos=0.75, rotate=90, fill=none] {*.b64tag.cbor, *.bin.cbor,\\[-0.1em]*.cbor.cbor} ([xshift=0.5em]filesystem raspi in 2 -| json_dump_below.east) |- (filesystem raspi in 2);
+  \draw [result] (dump cbor files out 2) |- (blobs node) -| node [eval-result-text, pos=-0.2, xshift=1.5em] {CBOR of GitHub blob} (blob processing);
+  \draw [result] (blob processing.west) -| (blob processing.west -| filesystem.south) -- node [result-text, pos=0.5] {*.b64tag.cbor,\\[-0.1em]*.bin.cbor,\\[-0.1em]*.cbor.cbor} ([yshift=-1.8em]filesystem.south);
+  \coordinate (eval fill) at (users.south -| blob processing.south);
 
   \begin{pgfonlayer}{bg}
-    \node [api, draw=Reds-I!50, fill=Reds-E!10, rounded corners=0.4em, fit={(load json file) (iterate json dumps) (iterate cbor dumps) (blob processing)}, inner xsep=0.75em, inner ysep=0.5em] (raspi) {};
-    \node [align=center] at (raspi.center) {\adjustbox{scale=3}{\Huge\color{Reds-I!30}\faIcon{raspberry-pi}}};
+    \node [api, draw=none, fill=Set3-C, rounded corners=0.4em, fit={(json.south) (users) (base64) ([xshift=-1em, yshift=-1em]json_dump_below node.south east)}, inner xsep=1em, inner ysep=2pt] (collect github template) {};
+    \node [api, draw=none, fill=Set3-A, rounded corners=0.4em, fit={(collect-title) (json.north) (curl) ([xshift=-1em, yshift=-0.1em]json_dump_below node.south east)}, inner xsep=1em, inner ysep=2pt] (collect bq template) {};
+    \draw [draw=none, fill=Set3-C] (collect github template.north west) -- (collect github template.north east) -- ([yshift=-1em]collect bq template.south east) -- ([yshift=-1em]collect bq template.south west) -- cycle;
+    \node [api, draw=none, fill=YlOrRd-C, rounded corners=0.4em, fit={(eval-title) (load json file) (iterate json dumps) (iterate cbor dumps) (blob processing) (eval fill)}, inner xsep=2.25em, inner ysep=2pt] (evaluation) {};
+    \node [font=\Huge, anchor=north east, opacity=.2, inner sep=0, outer sep=0.4em] at (collect github template.north east) {\faIcon{github}};
+    \node [anchor=south east, opacity=.99, inner sep=0, outer sep=0.4em] at (json_dump_below node.north east) {\includegraphics[height=24pt]{har-logo}};
   \end{pgfonlayer}
 \end{tikzpicture}

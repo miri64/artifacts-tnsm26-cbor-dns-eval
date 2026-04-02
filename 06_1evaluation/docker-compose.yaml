@@ -1,0 +1,14 @@
+services:
+  local-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cbor-dns-eval/local-proxy
+    ports:
+      - 8080:80
+      - 4443:443
+    volumes:
+      - .:/app
+      - ./nginx-local.conf:/etc/nginx/nginx.conf
+    command: nginx -c /etc/nginx/nginx.conf
+    # command: sh -c "while true; do sleep 6000; done"

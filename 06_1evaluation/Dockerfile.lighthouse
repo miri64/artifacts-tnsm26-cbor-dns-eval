@@ -1,0 +1,8 @@
+FROM lscr.io/linuxserver/chrome:latest
+
+RUN apt-get update && apt-get install -y --no-install-recommends iproute2 dnsutils openssl tshark
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | HOME="/root" bash && \
+    HOME="/root" . /root/.nvm/nvm.sh && \
+    HOME="/root" nvm install 24.14.1 && \
+    HOME="/root" npm install -g lighthouse@13.1.0 && which lighthouse

@@ -1,0 +1,11 @@
+services:
+  proxy-base:
+    build:
+      context: .
+      dockerfile: Dockerfile.mitmproxy
+    image: cbor-dns-eval/proxy
+    environment:
+      PROXY_LOG: "${PROXY_LOG:-/app/mitmproxy.log}"
+    volumes:
+      - .:/app
+      - ../04_cbor4dns_eval/cbor4dns:/cbor4dns  # tbd remove

@@ -1,0 +1,37 @@
+services:
+  local-proxy:
+    extends:
+      file: proxy.yaml
+      service: proxy-base
+    environment:
+      MARKER_DOMAIN: "${MARKER_DOMAIN:-tud.de}"
+      PROXY_LOG: "${PROXY_LOCAL_LOG:-/app/output-dataset/mimproxy-local.log}"
+      PROXY_LOCAL_PORT: "${PROXY_LOCAL_PORT:-8080}"
+      PROXY_LOCAL_SCRIPT: "${PROXY_LOCAL_SCRIPT:-/app/local_proxy.py}"
+      PROXY_REMOTE_PORT: "${PROXY_REMOTE_PORT:-8081}"
+      PROXY_REMOTE_HOST: "${PROXY_REMOTE_HOST:-remote-proxy}"
+    volumes:
+      - "./mitmproxy-local:/root/.mitmproxy"
+      - "./mitmproxy-remote:/mitmproxy-remote"
+    ports:
+      - "${PROXY_LOCAL_PORT:-8080}:${PROXY_LOCAL_PORT:-8080}"
+    networks:
+      default:
+        interface_name: eth0
+    cap_add:
+      - NET_ADMIN
+    command: /app/local_proxy.sh
+    # depends_on:
+    #   - remote-proxy
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv4.conf.all.send_redirects: 0
+      net.ipv4.conf.all.src_valid_mark: 1
+
+networks:
+  default:
+    ipam:
+      config:
+      - subnet: "172.16.0.0/16"
+

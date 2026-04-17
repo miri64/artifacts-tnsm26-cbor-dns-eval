@@ -1,8 +1,0 @@
-ngx_module_type=HTTP_AUX_FILTER
-ngx_module_name=ngx_http_replace_cbor_module
-ngx_addon_name=$ngx_module_name
-ngx_module_srcs="$ngx_addon_dir/ngx_http_replace_cbor_module.c"
-ngx_module_incs=/usr/local/include/python3.12
-ngx_module_libs=-lpython3.12
-
-. auto/module

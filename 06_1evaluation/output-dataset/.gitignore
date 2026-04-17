@@ -1,0 +1,3 @@
+lighthouse-run-*/
+*.report.html
+*.report.json

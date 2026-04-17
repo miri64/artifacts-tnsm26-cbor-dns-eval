@@ -1,0 +1,16 @@
+services:
+  remote-proxy:
+    extends:
+      file: proxy.yaml
+      service: proxy-base
+    environment:
+      PROXY_LOG: "${PROXY_REMOTE_LOG:-/app/output-dataset/mimproxy-remote.log}"
+      PROXY_PORT: "${PROXY_REMOTE_PORT:-8081}"
+      PROXY_SCRIPT: "${PROXY_REMOTE_SCRIPT:-/app/remote_proxy.py}"
+    volumes:
+      - "./mitmproxy-remote:/root/.mitmproxy"
+    ports:
+      - "${PROXY_REMOTE_PORT:-8081}:${PROXY_REMOTE_PORT:-8081}"
+    cap_add:
+      - SYSLOG
+    command: /app/remote_proxy.sh

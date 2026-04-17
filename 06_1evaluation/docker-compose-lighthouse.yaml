@@ -1,0 +1,17 @@
+services:
+  lighthouse:
+    extends:
+      file: docker-compose-chrome.yaml
+      service: chrome
+    build:
+      context: .
+      dockerfile: Dockerfile.lighthouse
+    image: cbor-dns-eval/lighthouse
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      MARKER_DOMAIN: "${MARKER_DOMAIN:-tud.de}"
+      SSLKEYLOGFILE: "/app/output-dataset/chrome-key.log"
+    command:
+      - /app/lighthouse.sh

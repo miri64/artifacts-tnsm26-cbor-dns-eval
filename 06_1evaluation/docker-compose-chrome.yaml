@@ -1,0 +1,20 @@
+services:
+  chrome:
+    image: lscr.io/linuxserver/chrome:latest
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+      SSLKEYLOGFILE: "/app/output-dataset/chrome-key.log"
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ./chrome-config:/config
+      - ./init_chrome.sh:/init.sh
+      - "./mitmproxy-local:/mitmproxy-local"
+    cap_add:
+      - NET_ADMIN
+    shm_size: 1gb
+    command:
+      - /init.sh

@@ -9,7 +9,7 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 TRANCO_LIST="${TRANCO_LIST:-"${SCRIPT_DIR}"/tranco_3QL4L.csv}"
-LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-10}"
+LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-3}"
 MARKER_DOMAIN="${MARKER_DOMAIN:-tud.de}"
 TRANCO_LIST_LEN=$(wc -l "${TRANCO_LIST}" | awk '{print $1}')
 
@@ -20,8 +20,8 @@ tranco_subset() {
     awk \
         -v TRANCO_LIST_LEN="${TRANCO_LIST_LEN}"\
         -F, \
-        'FNR <= 1000 || FNR > (TRANCO_LIST_LEN - 1000) {gsub("\r","",$2); print $1,$2}' \
-        "${TRANCO_LIST}" | grep -v -F 'mail.ru'
+        'FNR <= 50 || FNR > (TRANCO_LIST_LEN - 50) {gsub("\r","",$2); print $1,$2}' \
+        "${TRANCO_LIST}" #| grep -v -F -e 'mail.ru'
 }
 
 if tranco_subset | grep -qF "${MARKER_DOMAIN}"; then
@@ -62,9 +62,8 @@ USER="$(id -nu "${PUID}")"
 
 mkdir -p /app/output-dataset
 
-for run in $(seq "${LIGHTHOUSE_RUNS}"); do
-    # tranco_subset | awk '$2 == "office.com"' | while read nr domain; do
-    tranco_subset | while read nr domain; do
+tranco_subset | while read nr domain; do
+    for run in $(seq "${LIGHTHOUSE_RUNS}"); do
         for convert in "true" "false"; do
             for packed in "false"; do
                 if [ "${convert}" = "false" ] && [ "${packed}" = "true" ]; then
@@ -73,13 +72,11 @@ for run in $(seq "${LIGHTHOUSE_RUNS}"); do
                 LIGHTHOUSE_TS=$(date "+%s")
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"run\":${run},\"signal\":\"start\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
                 chown -R "${USER}:" /app/output-dataset
-                LIGHTHOUSE_OUTPUT_PATH="/app/output-dataset/lighthouse-run-${domain}-$(printf "%03d" "${run}")-${convert}-${packed}-${LIGHTHOUSE_TS}"
+                LIGHTHOUSE_OUTPUT_PATH="/app/output-dataset/lighthouse-run-${domain}-$(printf "%03d" "${run}")-${convert}-${packed}-${LIGHTHOUSE_TS}${LIGHTHOUSE_LOG_EXTRA}"
                 su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port 9159"
-                if [ "${domain}" == "chatgpt.com" ]; then
-                    sleep 30
-                fi
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"run\":${run},\"signal\":\"end\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
             done
         done
     done
+    sleep 60
 done

@@ -5,6 +5,7 @@ services:
       service: chrome
     environment:
       CHROME_DEBUG_PORT: "${CHROME_DEBUG_PORT:-9159}"
+      LIGHTHOUSE_LOG_EXTRA: "${LIGHTHOUSE_LOG_EXTRA:-}"
     build:
       context: .
       dockerfile: Dockerfile.lighthouse

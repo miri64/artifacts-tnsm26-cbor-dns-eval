@@ -1,3 +1,4 @@
 lighthouse-run-*/
 *.report.html
 *.report.json
+*.report.csv

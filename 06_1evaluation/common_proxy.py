@@ -276,11 +276,12 @@ class CommonProxy:
         content_type = msg.headers.get("content-type", "")
         content_len = msg.headers.get("content-length", "")
         content = msg.raw_content
-        msg.raw_content = cbor_obj
-        msg.headers["content-type"] = "application/dns+cbor"
-        if  self.packed and flow.response == msg:
-            msg.headers["content-type"] += ";packed=1"
-        msg.headers["content-length"] = str(len(cbor_obj))
+        if self.convert:
+            msg.raw_content = cbor_obj
+            msg.headers["content-type"] = "application/dns+cbor"
+            if  self.packed and flow.response == msg:
+                msg.headers["content-type"] += ";packed=1"
+            msg.headers["content-length"] = str(len(cbor_obj))
         row = self._prefill_flow_row(flow)
         row.update(
             {
@@ -298,7 +299,7 @@ class CommonProxy:
                 "new_content_type": "application/dns+cbor",
                 "new_body_length": len(cbor_obj),
                 "new_body_hex": cbor_obj.hex(),
-                "msg": "Converted DNS to CBOR",
+                "msg": "Converted DNS to CBOR" if self.convert else "Not converted",
             }
         )
         return row
@@ -337,14 +338,15 @@ class CommonProxy:
     def _json2cbor(self, flow, msg):
         try:
             obj = json.loads(msg.raw_content)
-            if isinstance(obj, (dict, list)) and self.convert:
+            if isinstance(obj, (dict, list)):
                 cbor_obj = cbor2.dumps(obj)
                 content_type = msg.headers.get("content-type", "")
                 content_len = msg.headers.get("content-length", "")
                 content = msg.raw_content
-                msg.raw_content = cbor_obj
-                msg.headers["content-type"] = "application/cbor"
-                msg.headers["content-length"] = str(len(cbor_obj))
+                if self.convert:
+                    msg.raw_content = cbor_obj
+                    msg.headers["content-type"] = "application/cbor"
+                    msg.headers["content-length"] = str(len(cbor_obj))
                 row = self._prefill_flow_row(flow)
                 row.update(
                     {
@@ -362,7 +364,7 @@ class CommonProxy:
                         "new_content_type": "application/cbor",
                         "new_body_length": len(cbor_obj),
                         "new_body_hex": cbor_obj.hex(),
-                        "msg": "Converted JSON to CBOR",
+                        "msg": "Converted JSON to CBOR" if self.convert else "Not converted",
                     }
                 )
             else:

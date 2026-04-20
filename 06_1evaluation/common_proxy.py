@@ -93,6 +93,7 @@ class CommonProxy:
                 "new_content_type",
                 "new_body_length",
                 "new_body_hex",
+                "query_missing",
                 "handler_time",
                 "msg",
             ]
@@ -251,6 +252,7 @@ class CommonProxy:
         return row
 
     def _dns2cbor(self, flow, msg):
+        query_missing = None
         if flow.response == msg:
             if "application/dns+cbor" == flow.request.headers.get(
                 "content-type", "",
@@ -261,9 +263,14 @@ class CommonProxy:
             ):
                 try:
                     query = self.dns_requests[flow.id]
+                    del self.dns_requests[flow.id]
                 except KeyError:
-                    raise KeyError(f"{flow.id!r} not in {self.dns_requests}")
-                del self.dns_requests[flow.id]
+                    logging.error(
+                        f"{flow.id!r} not in {self.dns_requests}. "
+                        "Compressing without query."
+                    )
+                    query = None
+                    query_missing = True
             else:
                 assert False, "Unable to find original request"
             cbor_obj = dns_dumps(
@@ -299,6 +306,7 @@ class CommonProxy:
                 "new_content_type": "application/dns+cbor",
                 "new_body_length": len(cbor_obj),
                 "new_body_hex": cbor_obj.hex(),
+                "query_missing": query_missing,
                 "msg": "Converted DNS to CBOR" if self.convert else "Not converted",
             }
         )

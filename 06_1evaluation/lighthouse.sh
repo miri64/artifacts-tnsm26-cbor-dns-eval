@@ -20,8 +20,8 @@ tranco_subset() {
     awk \
         -v TRANCO_LIST_LEN="${TRANCO_LIST_LEN}"\
         -F, \
-        'FNR <= 50 || FNR > (TRANCO_LIST_LEN - 50) {gsub("\r","",$2); print $1,$2}' \
-        "${TRANCO_LIST}" #| grep -v -F -e 'mail.ru'
+        'FNR <= 500 || FNR > (TRANCO_LIST_LEN - 500) {gsub("\r","",$2); print $1,$2}' \
+        "${TRANCO_LIST}"
 }
 
 if tranco_subset | grep -qF "${MARKER_DOMAIN}"; then

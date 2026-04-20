@@ -10,12 +10,9 @@
 rm -f "${PROXY_LOG}";
 
 set -x
-SERVER_KEY=$(grep "server_key" /mitmproxy-remote/wireguard.conf | sed -E 's/^.*"server_key"\s*:\s*"([^"]+)".*$/\1/')
-CLIENT_KEY=$(grep "client_key" /mitmproxy-remote/wireguard.conf | sed -E 's/^.*"client_key"\s*:\s*"([^"]+)".*$/\1/')
 
-PROXY_REMOTE_ADDRESS=$(dig "${PROXY_REMOTE_HOST}" | \
-    grep -E '^'"${PROXY_REMOTE_HOST}"'\.\s+[0-9]+\s+IN\s+A\s+[0-9.]+$' | \
-    grep -oE '[0-9.]+$')
+PROXY_REMOTE_ADDRESS=$(host "${PROXY_REMOTE_HOST}" | \
+    grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
 
 {
     echo "[ProxyList]"
@@ -36,4 +33,4 @@ rm -f ~/.mitmproxy/mitmproxy-*
 
 # tbd clone and checkout right branch of cbor4dns to /cbor4dns
 
-proxychains4 mitmdump -v -m transparent --ssl-insecure --showhost -s "${PROXY_LOCAL_SCRIPT}" -p "${PROXY_LOCAL_PORT}"
+proxychains4 mitmdump -v -m transparent --ssl-insecure --showhost -s "${PROXY_LOCAL_SCRIPT}" -p "${PROXY_LOCAL_PORT}" --set connection_strategy=lazy

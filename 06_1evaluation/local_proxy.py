@@ -5,7 +5,6 @@
 #
 # Distributed under terms of the MIT license.
 
-import logging
 import os
 import pathlib
 import time
@@ -40,7 +39,6 @@ class LocalProxy(common_proxy.CommonProxy):
             return
         content_type = flow.request.headers.get("content-type", "")
         if content_type == "application/dns-message":
-            logging.info("Content-TYPE! %s", content_type)
             row = self._dns2cbor(flow, flow.request)
         elif (
             flow.request.method in ["POST", "PUT"]

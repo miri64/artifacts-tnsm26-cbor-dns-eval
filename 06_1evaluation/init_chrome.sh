@@ -8,8 +8,6 @@
 
 apt-get update && apt-get install -y iproute2 dnsutils openssl
 
-env
-
 while curl -m 1 -s http://mitm.it | grep -q "If you can see this, traffic is not going through mitmproxy."; do
     LOCAL_PROXY_ADDRESS=$(dig local-proxy | grep -E '^local-proxy\.\s+[0-9]+\s+IN\s+A\s+[0-9.]+$' | grep -oE '[0-9.]+$')
 

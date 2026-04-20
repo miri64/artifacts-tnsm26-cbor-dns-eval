@@ -3,15 +3,16 @@ services:
     extends:
       file: docker-compose-chrome.yaml
       service: chrome
+    environment:
+      CHROME_DEBUG_PORT: "${CHROME_DEBUG_PORT:-9159}"
     build:
       context: .
       dockerfile: Dockerfile.lighthouse
     image: cbor-dns-eval/lighthouse
     volumes:
       - .:/app
+      - ./chrome-config/.config/google-chrome-lighthouse:/tmp/chrome-lighthouse-config
+      - ./custom-wrapped-chrome:/usr/bin/wrapped-chrome
     working_dir: /app
-    environment:
-      MARKER_DOMAIN: "${MARKER_DOMAIN:-tud.de}"
-      SSLKEYLOGFILE: "/app/output-dataset/chrome-key.log"
-    command:
-      - /app/lighthouse.sh
+    command: |
+      sh -c "PUID='${PUID:-1000}' MARKER_DOMAIN='${MARKER_DOMAIN:-tud.de}' /app/lighthouse.sh"

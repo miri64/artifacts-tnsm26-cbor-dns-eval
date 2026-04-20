@@ -13,4 +13,4 @@ rm -f ~/.mitmproxy/mitmproxy-*; \
 
 # tbd clone and checkout right branch of cbor4dns to /cbor4dns
 
-mitmdump -v -m socks5 -s "${PROXY_SCRIPT}" -p "${PROXY_PORT}"
+mitmdump -v -m socks5 -s "${PROXY_SCRIPT}" -p "${PROXY_PORT}" --set connection_strategy=lazy

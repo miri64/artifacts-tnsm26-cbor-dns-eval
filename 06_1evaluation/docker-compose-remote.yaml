@@ -7,6 +7,9 @@ services:
       PROXY_LOG: "${PROXY_REMOTE_LOG:-/app/output-dataset/mimproxy-remote.log}"
       PROXY_PORT: "${PROXY_REMOTE_PORT:-8081}"
       PROXY_SCRIPT: "${PROXY_REMOTE_SCRIPT:-/app/remote_proxy.py}"
+    networks:
+      remote:
+        # ipv4_address: 172.17.12.2
     volumes:
       - "./mitmproxy-remote:/root/.mitmproxy"
     ports:
@@ -14,3 +17,10 @@ services:
     cap_add:
       - SYSLOG
     command: /app/remote_proxy.sh
+
+networks:
+  remote:
+    # ipam:
+    #   config:
+    #   - subnet: "172.17.0.0/16"
+

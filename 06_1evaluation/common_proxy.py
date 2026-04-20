@@ -62,6 +62,7 @@ class CommonProxy:
         self.convert = True
         self.writer = None
         self.proxy = None
+        self.lhts = None
         self.dns_requests = {}
         self.packed = True
 
@@ -78,6 +79,7 @@ class CommonProxy:
                 "run",
                 "convert",
                 "packed",
+                "lhts",
                 "url",
                 "method",
                 "response_status",
@@ -113,35 +115,39 @@ class CommonProxy:
                         self.run = obj["run"]
                         self.convert = obj["convert"]
                         self.packed = obj["packed"]
+                        self.lhts = obj["lhts"]
                         self._write_row(
                             {
                                 "proxy": self.proxy,
                                 "domain": self.domain,
                                 "convert": self.convert,
                                 "packed": self.packed,
+                                "lhts": self.lhts,
                                 "run": self.run,
                                 "url": flow.request.url,
                                 "host": flow.request.headers.get("host"),
-                                "msg": f"start:{self.run}:{self.domain}"
+                                "msg": f"Start run"
                             }
                         )
                     elif obj["signal"] == "end":
-                        self.convert = None
                         self._write_row(
                             {
                                 "proxy": self.proxy,
                                 "domain": self.domain,
                                 "convert": self.convert,
                                 "packed": self.packed,
+                                "lhts": self.lhts,
                                 "run": self.run,
                                 "url": flow.request.url,
                                 "host": flow.request.headers.get("host"),
-                                "msg": f"end:{self.run}:{self.domain}"
+                                "msg": f"End run"
                             }
                         )
+                        self.convert = None
                         self.domain = None
                         self.run = None
                         self.packed = None
+                        self.lhts = None
                     self.csvfile.flush()
                     return True
         except (json.JSONDecodeError, UnicodeDecodeError):
@@ -155,6 +161,7 @@ class CommonProxy:
             "run": self.run,
             "convert": self.convert,
             "packed": self.packed,
+            "lhts": self.lhts,
             "url": flow.request.url,
             'method': flow.request.method,
             "host": flow.request.headers.get("host"),
@@ -215,7 +222,7 @@ class CommonProxy:
             dns_obj = dns_query_loads(
                 msg.raw_content,
             )
-            self.dns_requests[dns_obj] = msg.raw_content
+            self.dns_requests[flow.id] = msg.raw_content
         content_len = msg.headers.get("content-length", "")
         content = msg.raw_content
         msg.raw_content = dns_obj
@@ -252,8 +259,11 @@ class CommonProxy:
             elif "application/dns-message" == flow.request.headers.get(
                 "content-type", "",
             ):
-                query = self.dns_requests[flow.request.raw_content]
-                del self.dns_requests[flow.request.raw_content]
+                try:
+                    query = self.dns_requests[flow.id]
+                except KeyError:
+                    raise KeyError(f"{flow.id!r} not in {self.dns_requests}")
+                del self.dns_requests[flow.id]
             else:
                 assert False, "Unable to find original request"
             cbor_obj = dns_dumps(

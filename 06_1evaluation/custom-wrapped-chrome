@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BIN=/usr/bin/google-chrome
+
+# Cleanup
+if pgrep chrome > /dev/null;then
+  rm -f $HOME/.config/google-chrome/Singleton*
+fi
+
+rm -f /tmp/chrome-lighthouse-config/Singleton*
+
+${BIN} \
+  --no-first-run \
+  --no-sandbox \
+  --password-store=basic \
+  --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT' \
+  --start-maximized \
+  --test-type \
+  --remote-debugging-port=${CHROME_DEBUG_PORT:-9159} \
+  --user-data-dir="/tmp/chrome-lighthouse-config" \
+   "$@" #> /dev/null 2>&1

@@ -27,9 +27,6 @@ class LocalProxy(common_proxy.CommonProxy):
             self._start_dict_writer()
             self.writer.writeheader()
         self.proxy = "local"
-        self.domain = None
-        self.run = None
-        self.convert = None
 
     def request(self, flow):
         start = time.time()

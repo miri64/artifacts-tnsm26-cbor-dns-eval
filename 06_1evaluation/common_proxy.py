@@ -59,9 +59,12 @@ def dns_response_loads(byts, query=None, packed=True):
 class CommonProxy:
     def __init__(self):
         self.csvfile = None
+        self.proxy = None
+        self.domain = None
+        self.domain_rank = None
+        self.run = None
         self.convert = True
         self.writer = None
-        self.proxy = None
         self.lhts = None
         self.dns_requests = {}
         self.packed = True
@@ -76,6 +79,7 @@ class CommonProxy:
                 "timestamp",
                 "proxy",
                 "domain",
+                "domain_rank",
                 "run",
                 "convert",
                 "packed",
@@ -113,6 +117,7 @@ class CommonProxy:
                 if isinstance(obj, dict) and obj.get("marker", False):
                     if obj["signal"] == "start":
                         self.domain = obj["domain"]
+                        self.domain_rank = obj["rank"]
                         self.run = obj["run"]
                         self.convert = obj["convert"]
                         self.packed = obj["packed"]
@@ -121,6 +126,7 @@ class CommonProxy:
                             {
                                 "proxy": self.proxy,
                                 "domain": self.domain,
+                                "domain_rank": self.domain_rank,
                                 "convert": self.convert,
                                 "packed": self.packed,
                                 "lhts": self.lhts,
@@ -135,6 +141,7 @@ class CommonProxy:
                             {
                                 "proxy": self.proxy,
                                 "domain": self.domain,
+                                "domain_rank": self.domain_rank,
                                 "convert": self.convert,
                                 "packed": self.packed,
                                 "lhts": self.lhts,
@@ -146,6 +153,7 @@ class CommonProxy:
                         )
                         self.convert = None
                         self.domain = None
+                        self.domain_rank = None
                         self.run = None
                         self.packed = None
                         self.lhts = None
@@ -159,6 +167,7 @@ class CommonProxy:
         return {
             "proxy": self.proxy,
             "domain": self.domain,
+            "domain_rank": self.domain_rank,
             "run": self.run,
             "convert": self.convert,
             "packed": self.packed,

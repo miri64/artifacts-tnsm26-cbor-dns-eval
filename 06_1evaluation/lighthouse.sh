@@ -62,7 +62,7 @@ USER="$(id -nu "${PUID}")"
 
 mkdir -p /app/output-dataset
 
-tranco_subset | while read nr domain; do
+tranco_subset | shuf | while read nr domain; do
     for run in $(seq "${LIGHTHOUSE_RUNS}"); do
         for convert in "true" "false"; do
             for packed in "false"; do
@@ -70,11 +70,11 @@ tranco_subset | while read nr domain; do
                     continue
                 fi
                 LIGHTHOUSE_TS=$(date "+%s")
-                curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"run\":${run},\"signal\":\"start\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
+                curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"start\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
                 chown -R "${USER}:" /app/output-dataset
                 LIGHTHOUSE_OUTPUT_PATH="/app/output-dataset/lighthouse-run-${domain}-$(printf "%03d" "${run}")-${convert}-${packed}-${LIGHTHOUSE_TS}${LIGHTHOUSE_LOG_EXTRA}"
                 su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port 9159"
-                curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"run\":${run},\"signal\":\"end\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
+                curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"end\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
             done
         done
     done

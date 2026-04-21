@@ -7,4 +7,4 @@ if [ $# -gt 0 ]; then
     shift 1
 fi
 
-PUID=$(id -u) PGID=$(id -g) PROXY_REMOTE_HOST=the-remote-proxy PROXY_REMOTE_PORT=8081 PROXY_LOCAL_LOG=output-dataset/mitmproxy-$(date +%s)-local.log docker compose -f docker-compose-local.yaml -f docker-compose-lighthouse.yaml "${CMD}" $*
+PUID=$(id -u) PGID=$(id -g) PROXY_REMOTE_HOST="${PROXY_REMOTE_HOST:-remote-proxy}" PROXY_REMOTE_PORT="${PROXY_REMOTE_PORT:-8081}" PROXY_LOCAL_LOG=output-dataset/mitmproxy-$(date +%s)-local.log docker compose -f docker-compose-local.yaml -f docker-compose-lighthouse.yaml "${CMD}" $*

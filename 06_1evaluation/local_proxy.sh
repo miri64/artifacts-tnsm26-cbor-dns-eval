@@ -11,10 +11,16 @@ rm -f "${PROXY_LOG}";
 
 set -x
 
-PROXY_REMOTE_ADDRESS=$(host "${PROXY_REMOTE_HOST}" | \
-    grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+if echo "${PROXY_REMOTE_HOST}" | grep -qoE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
+    PROXY_REMOTE_ADDRESS="${PROXY_REMOTE_HOST}"
+else
+    PROXY_REMOTE_ADDRESS=$(host "${PROXY_REMOTE_HOST}" | \
+        grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+fi
 
 {
+    echo "tcp_read_time_out 15000"
+    echo "tcp_connect_time_out 8000"
     echo "[ProxyList]"
     echo "socks5 ${PROXY_REMOTE_ADDRESS} ${PROXY_REMOTE_PORT}"
 } > /etc/proxychains4.conf

@@ -22,7 +22,7 @@ import cbor4dns.decode
 import cbor4dns.encode
 
 
-def dns_dumps(byts, query=None, packed=True):
+def dns_dumps(byts, query=None, packed=False):
     with io.BytesIO() as cbor_file:
         try:
             cbor4dns.encode.Encoder(
@@ -45,7 +45,7 @@ def dns_query_loads(byts):
         return res.to_wire(want_shuffle=False)
 
 
-def dns_response_loads(byts, query=None, packed=True):
+def dns_response_loads(byts, query=None, packed=False):
     with io.BytesIO() as cbor_file:
         res = cbor4dns.decode.Decoder(cbor_file).decode(
             cbor4dns.decode.MsgType.RESPONSE,
@@ -67,7 +67,7 @@ class CommonProxy:
         self.writer = None
         self.lhts = None
         self.dns_requests = {}
-        self.packed = True
+        self.packed = False
 
     def _start_dict_writer(self):
         if self.csvfile is None or self.writer is not None:

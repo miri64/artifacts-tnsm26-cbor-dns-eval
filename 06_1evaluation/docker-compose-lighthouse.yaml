@@ -6,6 +6,8 @@ services:
     environment:
       CHROME_DEBUG_PORT: "${CHROME_DEBUG_PORT:-9159}"
       LIGHTHOUSE_LOG_EXTRA: "${LIGHTHOUSE_LOG_EXTRA:-}"
+      TRANCO_LOWER_LIMIT: "${TRANCO_LOWER_LIMIT:-0}"
+      TRANCO_UPPER_LIMIT: "${TRANCO_UPPER_LIMIT:-30}"
     build:
       context: .
       dockerfile: Dockerfile.lighthouse
@@ -16,4 +18,4 @@ services:
       - ./custom-wrapped-chrome:/usr/bin/wrapped-chrome
     working_dir: /app
     command: |
-      sh -c "PUID='${PUID:-1000}' MARKER_DOMAIN='${MARKER_DOMAIN:-tud.de}' /app/lighthouse.sh"
+      sh -c "PUID='${PUID:-1000}' LIGHTHOUSE_LOG_EXTRA='${LIGHTHOUSE_LOG_EXTRA:-}' TRANCO_LOWER_LIMIT='${TRANCO_LOWER_LIMIT:-0}' TRANCO_UPPER_LIMIT='${TRANCO_UPPER_LIMIT:-30}' MARKER_DOMAIN='${MARKER_DOMAIN:-tud.de}' /app/lighthouse.sh"

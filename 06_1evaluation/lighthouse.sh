@@ -12,15 +12,19 @@ TRANCO_LIST="${TRANCO_LIST:-"${SCRIPT_DIR}"/tranco_3QL4L.csv}"
 LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-3}"
 MARKER_DOMAIN="${MARKER_DOMAIN:-tud.de}"
 TRANCO_LIST_LEN=$(wc -l "${TRANCO_LIST}" | awk '{print $1}')
+TRANCO_LOWER_LIMIT="${TRANCO_LOWER_LIMIT:-0}"
+TRANCO_UPPER_LIMIT="${TRANCO_UPPER_LIMIT:-30}"
 
 export SLEEP_AFTER_INIT=0
 /init.sh
 
 tranco_subset() {
     awk \
-        -v TRANCO_LIST_LEN="${TRANCO_LIST_LEN}"\
+        -v tlength="${TRANCO_LIST_LEN}"\
+        -v lower="${TRANCO_LOWER_LIMIT}"\
+        -v upper="${TRANCO_UPPER_LIMIT}"\
         -F, \
-        'FNR <= 500 || FNR > (TRANCO_LIST_LEN - 500) {gsub("\r","",$2); print $1,$2}' \
+        '(FNR >= lower && FNR <= upper) || (FNR > (tlength - upper) && FNR <= (tlength - lower)) {gsub("\r","",$2); print $1,$2}' \
         "${TRANCO_LIST}"
 }
 

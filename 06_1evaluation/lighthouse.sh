@@ -13,7 +13,7 @@ LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-3}"
 MARKER_DOMAIN="${MARKER_DOMAIN:-tud.de}"
 TRANCO_LIST_LEN=$(wc -l "${TRANCO_LIST}" | awk '{print $1}')
 TRANCO_LOWER_LIMIT="${TRANCO_LOWER_LIMIT:-0}"
-TRANCO_UPPER_LIMIT="${TRANCO_UPPER_LIMIT:-30}"
+TRANCO_UPPER_LIMIT="${TRANCO_UPPER_LIMIT:-50}"
 
 export SLEEP_AFTER_INIT=0
 /init.sh
@@ -24,7 +24,7 @@ tranco_subset() {
         -v lower="${TRANCO_LOWER_LIMIT}"\
         -v upper="${TRANCO_UPPER_LIMIT}"\
         -F, \
-        '(FNR >= lower && FNR <= upper) || (FNR > (tlength - upper) && FNR <= (tlength - lower)) {gsub("\r","",$2); print $1,$2}' \
+        '(FNR > lower && FNR <= upper) || (FNR > (tlength - upper) && FNR <= (tlength - lower)) {gsub("\r","",$2); print $1,$2}' \
         "${TRANCO_LIST}"
 }
 
@@ -64,9 +64,9 @@ USER="$(id -nu "${PUID}")"
 
 mkdir -p /app/output-dataset
 
-tranco_subset | shuf | while read nr domain; do
-    for run in $(seq "${LIGHTHOUSE_RUNS}"); do
-        for convert in "true" "false"; do
+for run in $(seq 2 "${LIGHTHOUSE_RUNS}"); do
+    for convert in "true" "false"; do
+        tranco_subset | while read nr domain; do
             for packed in "false"; do
                 if [ "${convert}" = "false" ] && [ "${packed}" = "true" ]; then
                     continue
@@ -80,5 +80,4 @@ tranco_subset | shuf | while read nr domain; do
             done
         done
     done
-    sleep 60
 done

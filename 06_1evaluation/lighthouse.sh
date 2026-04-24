@@ -9,7 +9,7 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 TRANCO_LIST="${TRANCO_LIST:-"${SCRIPT_DIR}"/tranco_3QL4L.csv}"
-LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-3}"
+LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-5}"
 MARKER_DOMAIN="${MARKER_DOMAIN:-tud.de}"
 TRANCO_LIST_LEN=$(wc -l "${TRANCO_LIST}" | awk '{print $1}')
 TRANCO_LOWER_LIMIT="${TRANCO_LOWER_LIMIT:-0}"
@@ -64,7 +64,7 @@ USER="$(id -nu "${PUID}")"
 
 mkdir -p /app/output-dataset
 
-for run in $(seq 2 "${LIGHTHOUSE_RUNS}"); do
+for run in $(seq "${LIGHTHOUSE_RUNS}"); do
     for convert in "true" "false"; do
         tranco_subset | while read nr domain; do
             for packed in "false"; do

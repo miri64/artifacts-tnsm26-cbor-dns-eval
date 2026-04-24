@@ -10,7 +10,7 @@ ARG HOST_UID
 ARG HOST_GID
 RUN addgroup --gid "$HOST_GID" user || true  # just use group if it already exists
 RUN addgroup wireshark || true  # just use group if it already exists
-RUN adduser --disabled-password --home /home/user/ --shell /bin/bash user --uid "$HOST_UID" --gid "$HOST_GID" && usermod -a -G wireshark user && chown -R user:user /home/user 
+RUN adduser --disabled-password --home /home/user/ --shell /bin/bash user --uid "$HOST_UID" --gid "$HOST_GID" && usermod -a -G wireshark user && chown -R "$HOST_UID:$HOST_GID" /home/user 
 
 # in case clang-14 is needed, we might need to go back to bookworm
 RUN apt-get update && apt-get install -y --no-install-recommends \

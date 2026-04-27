@@ -54,7 +54,7 @@ class LocalProxy(common_proxy.CommonProxy):
         content_type = flow.response.headers.get("content-type", "")
         if content_type.startswith("application/dns+cbor"):
             row = self._cbor2dns(flow, flow.response)
-        elif content_type == "application/cbor":
+        elif "x-to-cbor" in flow.response.headers:
             row = self._cbor2json(flow, flow.response)
         else:
             row = self._not_converted(flow, flow.response)

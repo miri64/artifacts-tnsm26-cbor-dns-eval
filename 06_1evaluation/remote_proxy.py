@@ -44,7 +44,7 @@ class RemoteProxy(common_proxy.CommonProxy):
             row = self._cbor2dns(flow, flow.request)
         elif (
             flow.request.method in ["POST", "PUT"]
-            and flow.request.headers.get("content-type") == "application/cbor"
+            and "x-to-cbor" in flow.request.headers
         ):
             row = self._cbor2json(flow, flow.request)
         else:

@@ -3,7 +3,7 @@ FROM mitmproxy/mitmproxy:12.2.2
 WORKDIR /app
 
 
-RUN apt update && apt install -y --no-install-recommends iptables dnsutils iproute2 proxychains4 # wireguard-tools
+RUN apt update && apt install -y --no-install-recommends iptables dnsutils iproute2 proxychains4
 
 COPY requirements.txt ./
 RUN pip --no-cache-dir install --upgrade uv && \

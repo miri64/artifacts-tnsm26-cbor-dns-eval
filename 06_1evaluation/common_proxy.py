@@ -63,7 +63,7 @@ class CommonProxy:
         self.domain = None
         self.domain_rank = None
         self.run = None
-        self.convert = True
+        self.convert = None
         self.writer = None
         self.lhts = None
         self.dns_requests = {}
@@ -115,8 +115,8 @@ class CommonProxy:
         try:
             if flow.request.method == "POST":
                 obj = json.loads(flow.request.raw_content)
-                logging.info("MARKER %s %r", flow.id, obj)
-                if isinstance(obj, dict) and obj.get("marker", False):
+                if isinstance(obj, dict) and obj.get("marker-Ool0vaiXoh7g", False):
+                    logging.info("MARKER %s %r", flow.id, obj)
                     if obj["signal"] == "start":
                         self.domain = obj["domain"]
                         self.domain_rank = obj["rank"]
@@ -136,7 +136,7 @@ class CommonProxy:
                                 "url": flow.request.url,
                                 "flow_id": flow.id,
                                 "host": flow.request.headers.get("host"),
-                                "msg": f"Start run"
+                                "msg": "Start run"
                             }
                         )
                     elif obj["signal"] == "end":
@@ -152,7 +152,7 @@ class CommonProxy:
                                 "url": flow.request.url,
                                 "flow_id": flow.id,
                                 "host": flow.request.headers.get("host"),
-                                "msg": f"End run"
+                                "msg": "End run"
                             }
                         )
                         self.convert = None
@@ -301,7 +301,7 @@ class CommonProxy:
         if self.convert:
             msg.raw_content = cbor_obj
             msg.headers["content-type"] = "application/dns+cbor"
-            if  self.packed and flow.response == msg:
+            if self.packed and flow.response == msg:
                 msg.headers["content-type"] += ";packed=1"
             msg.headers["content-length"] = str(new_content_len)
         row = self._prefill_flow_row(flow)
@@ -344,14 +344,14 @@ class CommonProxy:
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
                 "date": msg.headers.get("date"),
-                "orig_content_type": content_type,
+                "orig_content_type": "application/cbor",
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
                 ),
                 "orig_body_length": len(content),
                 "orig_content_length": content_len,
                 "orig_body_hex": content.hex(),
-                "new_content_type": "application/json",
+                "new_content_type": content_type,
                 "new_body_length": len(json_obj),
                 "new_body_hex": json_obj.hex(),
                 "msg": "Converted CBOR to JSON",
@@ -395,6 +395,6 @@ class CommonProxy:
                 )
             else:
                 row = self._not_converted(flow, msg)
-        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
-            row = self._exc(flow, msg, exc)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            raise
         return row

@@ -18,16 +18,7 @@ PROXY_LOG = os.environ.get("PROXY_LOG", "/app/output-dataset/mitmproxy-local.log
 
 class LocalProxy(common_proxy.CommonProxy):
     def __init__(self):
-        super().__init__()
-        csvpath = pathlib.Path(PROXY_LOG)
-        if csvpath.exists():
-            self.csvfile = csvpath.open("at")
-            self._start_dict_writer()
-        else:
-            self.csvfile = csvpath.open("wt")
-            self._start_dict_writer()
-            self.writer.writeheader()
-        self.proxy = "local"
+        super().__init__(pathlib.Path(PROXY_LOG), "local")
 
     def request(self, flow):
         start = time.time()

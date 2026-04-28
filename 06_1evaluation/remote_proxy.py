@@ -19,20 +19,7 @@ PROXY_LOG = os.environ.get("PROXY_LOG", "/app/output-dataset/mitmproxy-remote.lo
 
 class RemoteProxy(common_proxy.CommonProxy):
     def __init__(self):
-        super().__init__()
-
-        if PROXY_LOG.endswith(".csv.gz"):
-            open_func = gzip.open
-        else:
-            open_func = open
-        if pathlib.Path(PROXY_LOG).exists():
-            self.csvfile = open_func(PROXY_LOG, "at")
-            self._start_dict_writer()
-        else:
-            self.csvfile = open_func(PROXY_LOG, "wt")
-            self._start_dict_writer()
-            self.writer.writeheader()
-        self.proxy = "remote"
+        super().__init__(pathlib.Path(PROXY_LOG), "remote")
 
     def request(self, flow):
         start = time.time()

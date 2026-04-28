@@ -9,8 +9,11 @@ import csv
 import io
 import json
 import logging
+import pathlib
+import queue
 import sys
 import time
+import threading
 
 import cbor2
 
@@ -20,6 +23,35 @@ if "/cbor4dns" not in sys.path:
 
 import cbor4dns.decode
 import cbor4dns.encode
+
+
+CSV_FIELDS = [
+    "timestamp",
+    "proxy",
+    "domain",
+    "domain_rank",
+    "run",
+    "convert",
+    "packed",
+    "lhts",
+    "flow_id",
+    "url",
+    "method",
+    "response_status",
+    "host",
+    "date",
+    "orig_content_type",
+    "orig_content_encoding",
+    "orig_body_length",
+    "orig_content_length",
+    "orig_body_hex",
+    "new_content_type",
+    "new_body_length",
+    "new_body_hex",
+    "query_missing",
+    "handler_time",
+    "msg",
+]
 
 
 def dns_dumps(byts, query=None, packed=False):
@@ -56,60 +88,61 @@ def dns_response_loads(byts, query=None, packed=False):
         return res.to_wire(want_shuffle=False)
 
 
+class CSVWriterThread(threading.Thread):
+    def __init__(self, csvpath: pathlib.Path, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.csvpath = csvpath
+        self.writer = None
+        self.queue = queue.Queue()
+
+    def run(self):
+        if self.csvpath.exists():
+            mode = "at"
+            write_header = False
+        else:
+            mode = "wt"
+            write_header = True
+        with self.csvpath.open(mode) as csvfile:
+            self._start_dict_writer(csvfile)
+            if write_header:
+                self.writer.writeheader()
+                csvfile.flush()
+            while True:
+                row = self.queue.get()
+                self.writer.writerow(row)
+                csvfile.flush()
+
+    def _start_dict_writer(self, csvfile):
+        if self.writer is not None:
+            return
+        self.writer = csv.DictWriter(
+            csvfile,
+            delimiter="\t",
+            fieldnames=CSV_FIELDS,
+        )
+
+    def write_row(self, row):
+        self.queue.put_nowait(row)
+
+
 class CommonProxy:
-    def __init__(self):
-        self.csvfile = None
+    def __init__(self, csvpath: pathlib.Path, proxy: str):
+        self.writer = CSVWriterThread(csvpath)
+        self.writer.start()
         self.proxy = None
         self.domain = None
         self.domain_rank = None
         self.run = None
         self.convert = None
-        self.writer = None
         self.lhts = None
         self.dns_requests = {}
         self.packed = False
-
-    def _start_dict_writer(self):
-        if self.csvfile is None or self.writer is not None:
-            return
-        self.writer = csv.DictWriter(
-            self.csvfile,
-            delimiter="\t",
-            fieldnames=[
-                "timestamp",
-                "proxy",
-                "domain",
-                "domain_rank",
-                "run",
-                "convert",
-                "packed",
-                "lhts",
-                "flow_id",
-                "url",
-                "method",
-                "response_status",
-                "host",
-                "date",
-                "orig_content_type",
-                "orig_content_encoding",
-                "orig_body_length",
-                "orig_content_length",
-                "orig_body_hex",
-                "new_content_type",
-                "new_body_length",
-                "new_body_hex",
-                "query_missing",
-                "handler_time",
-                "msg",
-            ]
-        )
 
     def _write_row(self, row, start=None):
         row["timestamp"] = time.time()
         if start is not None:
             row["handler_time"] = time.time() - start
-        self.writer.writerow(row)
-        self.csvfile.flush()
+        self.writer.write_row(row)
 
     def _write_marker(self, flow):
         try:
@@ -161,7 +194,6 @@ class CommonProxy:
                         self.run = None
                         self.packed = None
                         self.lhts = None
-                    self.csvfile.flush()
                     return True
         except (json.JSONDecodeError, UnicodeDecodeError):
             pass

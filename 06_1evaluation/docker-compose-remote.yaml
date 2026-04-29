@@ -14,8 +14,6 @@ services:
       - "./mitmproxy-remote:/root/.mitmproxy"
     ports:
       - "${PROXY_REMOTE_PORT:-8081}:${PROXY_REMOTE_PORT:-8081}"
-    cap_add:
-      - SYSLOG
     command: /app/remote_proxy.sh
 
 networks:

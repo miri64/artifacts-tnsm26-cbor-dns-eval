@@ -61,21 +61,29 @@ done
 
 export PATH="${PATH}:/bin/versions/node/v24.14.1/bin/"
 USER="$(id -nu "${PUID}")"
+CHROME_DEBUG_PORT=${CHROME_DEBUG_PORT:-9159}
 
 mkdir -p /app/output-dataset
 
-for run in $(seq "${LIGHTHOUSE_RUNS}"); do
-    for convert in "true" "false"; do
+for run in $(seq 0 "${LIGHTHOUSE_RUNS}"); do
+    if [ "$run" -eq 0 ]; then
+        # first run to warm up potential upstream caches
+        CONVERT=("false")
+    else
+        CONVERT=("true" "false")
+    fi
+    for convert in "${CONVERT[@]}"; do
         tranco_subset | while read nr domain; do
             for packed in "false"; do
-                if [ "${convert}" = "false" ] && [ "${packed}" = "true" ]; then
-                    continue
-                fi
+                WS_URL=$(curl -s "http://localhost:${CHROME_DEBUG_PORT}/json" | jq -r '.[0].webSocketDebuggerUrl')
+                echo '{"id": 1, "method": "Network.enable"}' | wscat -c "$WS_URL"
+                echo '{"id": 2, "method": "Network.clearBrowserCache"}' | wscat -c "$WS_URL"
+                echo '{"id": 3, "method": "Network.clearBrowserCookies"}' | wscat -c "$WS_URL"
                 LIGHTHOUSE_TS=$(date "+%s")
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker-Ool0vaiXoh7g\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"start\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
                 chown -R "${USER}:" /app/output-dataset
                 LIGHTHOUSE_OUTPUT_PATH="/app/output-dataset/lighthouse-run-${domain}-$(printf "%03d" "${run}")-${convert}-${packed}-${LIGHTHOUSE_TS}${LIGHTHOUSE_LOG_EXTRA}"
-                su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port 9159"
+                su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port '${CHROME_DEBUG_PORT}'"
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker-Ool0vaiXoh7g\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"end\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
             done
         done

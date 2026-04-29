@@ -26,6 +26,7 @@ import cbor4dns.encode
 
 
 CSV_FIELDS = [
+    "marker",
     "timestamp",
     "proxy",
     "domain",
@@ -35,19 +36,14 @@ CSV_FIELDS = [
     "packed",
     "lhts",
     "flow_id",
-    "url",
     "method",
     "response_status",
-    "host",
-    "date",
     "orig_content_type",
     "orig_content_encoding",
     "orig_body_length",
     "orig_content_length",
-    "orig_body_hex",
     "new_content_type",
     "new_body_length",
-    "new_body_hex",
     "query_missing",
     "handler_time",
     "msg",
@@ -127,9 +123,7 @@ class CSVWriterThread(threading.Thread):
 
 class CommonProxy:
     def __init__(self, csvpath: pathlib.Path, proxy: str):
-        self.writer = CSVWriterThread(csvpath)
-        self.writer.start()
-        self.proxy = None
+        self.proxy = proxy
         self.domain = None
         self.domain_rank = None
         self.run = None
@@ -137,12 +131,25 @@ class CommonProxy:
         self.lhts = None
         self.dns_requests = {}
         self.packed = False
+        print(
+            *CSV_FIELDS,
+            sep="\t",
+            file=sys.stderr,
+        )
 
     def _write_row(self, row, start=None):
         row["timestamp"] = time.time()
+        row["marker"] = "ROW"
         if start is not None:
             row["handler_time"] = time.time() - start
-        self.writer.write_row(row)
+        print(
+            *[
+                row.get(f) if row.get(f) is not None else ""
+                for f in CSV_FIELDS
+            ],
+            sep="\t",
+            file=sys.stderr,
+        )
 
     def _write_marker(self, flow):
         try:
@@ -168,7 +175,6 @@ class CommonProxy:
                                 "run": self.run,
                                 "url": flow.request.url,
                                 "flow_id": flow.id,
-                                "host": flow.request.headers.get("host"),
                                 "msg": "Start run"
                             }
                         )
@@ -184,7 +190,6 @@ class CommonProxy:
                                 "run": self.run,
                                 "url": flow.request.url,
                                 "flow_id": flow.id,
-                                "host": flow.request.headers.get("host"),
                                 "msg": "End run"
                             }
                         )
@@ -211,7 +216,6 @@ class CommonProxy:
             "url": flow.request.url,
             "flow_id": flow.id,
             'method': flow.request.method,
-            "host": flow.request.headers.get("host"),
         }
 
     def _not_converted(self, flow, msg):
@@ -221,7 +225,6 @@ class CommonProxy:
                 "response_status": (
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
-                "date": msg.headers.get("date"),
                 "orig_content_type": msg.headers.get("content-type"),
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
@@ -242,7 +245,6 @@ class CommonProxy:
                 "response_status": (
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
-                "date": msg.headers.get("date"),
                 "orig_content_type": msg.headers.get("content-type"),
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
@@ -281,7 +283,6 @@ class CommonProxy:
                 "response_status": (
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
-                "date": msg.headers.get("date"),
                 "orig_content_type": content_type,
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
@@ -342,7 +343,6 @@ class CommonProxy:
                 "response_status": (
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
-                "date": msg.headers.get("date"),
                 "orig_content_type": content_type,
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
@@ -380,7 +380,6 @@ class CommonProxy:
                 "response_status": (
                     msg.status_code if hasattr(msg, "status_code") else None
                 ),
-                "date": msg.headers.get("date"),
                 "orig_content_type": "application/cbor",
                 "orig_content_encoding": msg.headers.get(
                     "content-encoding"
@@ -416,7 +415,6 @@ class CommonProxy:
                         "response_status": (
                             msg.status_code if hasattr(msg, "status_code") else None
                         ),
-                        "date": msg.headers.get("date"),
                         "orig_content_type": content_type,
                         "orig_content_encoding": msg.headers.get(
                             "content-encoding"

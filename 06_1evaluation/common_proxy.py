@@ -256,69 +256,21 @@ class CommonProxy:
         )
         return row
 
-    def __dns_resp2cbor(self, flow, msg, data):
-        query_missing = None
-        if "application/dns+cbor" == flow.request.headers.get(
-            "content-type", "",
-        ):
-            query = flow.request.raw_content
-        elif "application/dns-message" == flow.request.headers.get(
-            "content-type", "",
-        ):
-            try:
-                query = self.dns_requests[flow.id]
-                del self.dns_requests[flow.id]
-            except KeyError:
-                logging.error(
-                    f"{flow.id!r} not in {self.dns_requests}. "
-                    "Compressing without query."
-                )
-                query = None
-                query_missing = True
-        else:
-            assert False, "Unable to find original request"
-        cbor_obj = dns_dumps(
-            data,
-            query=query,
-            packed=self.packed,
-        )
-        return cbor_obj, query_missing
-
     def _cbor2dns(self, flow, msg):
         content_type = msg.headers.get("content-type", "")
         if flow.response == msg:
-            if self.convert:
-                assert "application/dns+cbor" == flow.request.headers.get(
-                    "content-type", "",
-                )
-                dns_obj = dns_response_loads(
-                    msg.raw_content,
-                    flow.request.raw_content,
-                    ";packed=1" in content_type
-                )
-                # do back conversions to provide some time for back conversion
-                # for !convert case
-                cbor_obj, _ = self.__dns_resp2cbor(flow, msg, dns_obj)
-            else:
-                # do conversions the other way around to equalize timings
-                cbor_obj, _ = self.__dns_resp2cbor(flow, msg, msg.raw_content)
-                dns_obj = dns_response_loads(
-                    cbor_obj,
-                    None,
-                    ";packed=1" in content_type
-                )
+            assert "application/dns+cbor" == flow.request.headers.get(
+                "content-type", "",
+            )
+            dns_obj = dns_response_loads(
+                msg.raw_content,
+                flow.request.raw_content,
+                ";packed=1" in content_type
+            )
         else:
-            if self.convert:
-                dns_obj = dns_query_loads(
-                    msg.raw_content,
-                )
-                # do back conversions to provide some time for back conversion
-                # for !convert case
-                cbor_obj = dns_dumps(dns_obj, packed=self.packed)
-            else:
-                # do conversions the other way around to equalize timings
-                cbor_obj = dns_dumps(msg.raw_content, packed=self.packed)
-                dns_obj = dns_query_loads(cbor_obj)
+            dns_obj = dns_query_loads(
+                msg.raw_content,
+            )
             self.dns_requests[flow.id] = msg.raw_content
         content_len = msg.headers.get("content-length", "")
         content = msg.raw_content
@@ -349,7 +301,30 @@ class CommonProxy:
     def _dns2cbor(self, flow, msg):
         query_missing = None
         if flow.response == msg:
-            cbor_obj, query_missing = self.__dns_resp2cbor(flow, msg, msg.raw_content)
+            if "application/dns+cbor" == flow.request.headers.get(
+                "content-type", "",
+            ):
+                query = flow.request.raw_content
+            elif "application/dns-message" == flow.request.headers.get(
+                "content-type", "",
+            ):
+                try:
+                    query = self.dns_requests[flow.id]
+                    del self.dns_requests[flow.id]
+                except KeyError:
+                    logging.error(
+                        f"{flow.id!r} not in {self.dns_requests}. "
+                        "Compressing without query."
+                    )
+                    query = None
+                    query_missing = True
+            else:
+                assert False, "Unable to find original request"
+            cbor_obj = dns_dumps(
+                msg.raw_content,
+                query=query,
+                packed=self.packed,
+            )
         else:
             cbor_obj = dns_dumps(msg.raw_content, packed=self.packed)
         content_type = msg.headers.get("content-type", "")

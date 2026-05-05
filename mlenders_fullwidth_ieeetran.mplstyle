@@ -26,7 +26,7 @@ patch.linewidth : 0.5
 # pgf.rcfonts : True
 # pgf.texsystem : xelatex
 text.usetex : True
-text.latex.preamble : "\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{pslatex}\usepackage[kerning,spacing]{microtype}" 
+text.latex.preamble : "\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{pslatex}\usepackage[kerning,spacing]{microtype}\usepackage{amsmath}" 
 xtick.labelsize : x-small
 xtick.major.pad : 1
 xtick.minor.pad : 1

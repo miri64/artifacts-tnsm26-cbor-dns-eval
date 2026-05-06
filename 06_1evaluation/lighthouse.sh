@@ -9,11 +9,12 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 TRANCO_LIST="${TRANCO_LIST:-"${SCRIPT_DIR}"/tranco_3QL4L.csv}"
+LIGHTHOUSE_RUNS_START="${LIGHTHOUSE_RUNS_START:-1}"
 LIGHTHOUSE_RUNS="${LIGHTHOUSE_RUNS:-5}"
 MARKER_DOMAIN="${MARKER_DOMAIN:-tud.de}"
 TRANCO_LIST_LEN=$(wc -l "${TRANCO_LIST}" | awk '{print $1}')
 TRANCO_LOWER_LIMIT="${TRANCO_LOWER_LIMIT:-0}"
-TRANCO_UPPER_LIMIT="${TRANCO_UPPER_LIMIT:-50}"
+TRANCO_UPPER_LIMIT="${TRANCO_UPPER_LIMIT:-100}"
 
 export SLEEP_AFTER_INIT=0
 /init.sh
@@ -65,8 +66,8 @@ CHROME_DEBUG_PORT=${CHROME_DEBUG_PORT:-9159}
 
 mkdir -p /app/output-dataset
 
-for run in $(seq 0 "${LIGHTHOUSE_RUNS}"); do
-    if [ "$run" -eq 0 ]; then
+for run in 0 $(seq "${LIGHTHOUSE_RUNS_START}" "${LIGHTHOUSE_RUNS}"); do
+    if [ "${run}" -eq 0 ]; then
         # first run to warm up potential upstream caches
         CONVERT=("false")
     else
@@ -75,6 +76,10 @@ for run in $(seq 0 "${LIGHTHOUSE_RUNS}"); do
     for convert in "${CONVERT[@]}"; do
         tranco_subset | while read nr domain; do
             for packed in "false"; do
+                if [ "${convert}" = "false" ] && [ "${packed}" = "true" ]; then
+                    continue
+                fi
+                # Clear browser cache and cookies via CDP
                 WS_URL=$(curl -s "http://localhost:${CHROME_DEBUG_PORT}/json" | jq -r '.[0].webSocketDebuggerUrl')
                 echo '{"id": 1, "method": "Network.enable"}' | wscat -c "$WS_URL"
                 echo '{"id": 2, "method": "Network.clearBrowserCache"}' | wscat -c "$WS_URL"
@@ -83,7 +88,7 @@ for run in $(seq 0 "${LIGHTHOUSE_RUNS}"); do
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker-Ool0vaiXoh7g\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"start\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
                 chown -R "${USER}:" /app/output-dataset
                 LIGHTHOUSE_OUTPUT_PATH="/app/output-dataset/lighthouse-run-${domain}-$(printf "%03d" "${run}")-${convert}-${packed}-${LIGHTHOUSE_TS}${LIGHTHOUSE_LOG_EXTRA}"
-                su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port '${CHROME_DEBUG_PORT}'"
+                su - "${USER}" -c "export PATH='${PATH}'; lighthouse 'https://${domain}' --throttling.downloadThroughputKbps 51200 --throttling.uploadThroughputKbps 20480 -GA '${LIGHTHOUSE_OUTPUT_PATH}-artifacts' --output-path='${LIGHTHOUSE_OUTPUT_PATH}' --output=json --output=html --output=csv --port '${CHROME_DEBUG_PORT}'"
                 curl -s -m 1 -X POST -k https://"${MARKER_DOMAIN}" -d "{\"marker-Ool0vaiXoh7g\":true,\"domain\":\"${domain}\",\"rank\":${nr},\"run\":${run},\"signal\":\"end\",\"convert\":${convert},\"packed\":${packed},\"lhts\":${LIGHTHOUSE_TS}}"
             done
         done

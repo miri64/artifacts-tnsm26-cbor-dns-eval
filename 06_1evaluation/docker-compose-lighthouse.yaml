@@ -6,16 +6,18 @@ services:
     environment:
       CHROME_DEBUG_PORT: "${CHROME_DEBUG_PORT:-9159}"
       LIGHTHOUSE_LOG_EXTRA: "${LIGHTHOUSE_LOG_EXTRA:-}"
+      LIGHTHOUSE_RUNS_START: "${LIGHTHOUSE_RUNS_START:-1}"
+      LIGHTHOUSE_RUNS: "${LIGHTHOUSE_RUNS:-5}"
       TRANCO_LOWER_LIMIT: "${TRANCO_LOWER_LIMIT:-0}"
-      TRANCO_UPPER_LIMIT: "${TRANCO_UPPER_LIMIT:-50}"
+      TRANCO_UPPER_LIMIT: "${TRANCO_UPPER_LIMIT:-100}"
     build:
       context: .
       dockerfile: Dockerfile.lighthouse
-    image: cbor-dns-eval/lighthouse
+    image: ghcr.io/netd-tud/tnsm26-cbor-lighthouse 
     volumes:
       - .:/app
       - ./chrome-config/.config/google-chrome-lighthouse:/tmp/chrome-lighthouse-config
       - ./custom-wrapped-chrome:/usr/bin/wrapped-chrome
     working_dir: /app
     command: |
-      sh -c "PUID='${PUID:-1000}' LIGHTHOUSE_LOG_EXTRA='${LIGHTHOUSE_LOG_EXTRA:-}' TRANCO_LOWER_LIMIT='${TRANCO_LOWER_LIMIT:-0}' TRANCO_UPPER_LIMIT='${TRANCO_UPPER_LIMIT:-50}' MARKER_DOMAIN='${MARKER_DOMAIN:-tud.de}' CHROME_DEBUG_PORT='${CHROME_DEBUG_PORT:-9159}' /app/lighthouse.sh"
+      sh -c "PUID='${PUID:-1000}' LIGHTHOUSE_RUNS_START='${LIGHTHOUSE_RUNS_START:-1}' LIGHTHOUSE_RUNS='${LIGHTHOUSE_RUNS:-5}' LIGHTHOUSE_LOG_EXTRA='${LIGHTHOUSE_LOG_EXTRA:-}' TRANCO_LOWER_LIMIT='${TRANCO_LOWER_LIMIT:-0}' TRANCO_UPPER_LIMIT='${TRANCO_UPPER_LIMIT:-100}' MARKER_DOMAIN='${MARKER_DOMAIN:-tud.de}' CHROME_DEBUG_PORT='${CHROME_DEBUG_PORT:-9159}' /app/lighthouse.sh"

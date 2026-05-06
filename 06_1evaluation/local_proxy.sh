@@ -9,8 +9,6 @@
 
 rm -f "${PROXY_LOG}";
 
-set -x
-
 if echo "${PROXY_REMOTE_HOST}" | grep -qoE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
     PROXY_REMOTE_ADDRESS="${PROXY_REMOTE_HOST}"
 else

@@ -20,6 +20,7 @@ services:
       - NET_RAW
       - NET_ADMIN
     command: >
-      bash -c "usermod -u '${HOST_UID:-1000}' -g '${HOST_GID:-1000}' user;
+      bash -c "groupmod -g '${HOST_GID:-1000}' user;
+      usermod -u '${HOST_UID:-1000}' -g '${HOST_GID:-1000}' user;
       chown -R "user:" /home/user;
       su - user -c \"cd /app; jupyter lab --port '${JUPYTER_PORT:-8888}'\""

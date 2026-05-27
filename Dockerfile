@@ -15,7 +15,9 @@ RUN adduser --disabled-password --home /home/user/ --shell /bin/bash user --uid 
 # in case clang-14 is needed, we might need to go back to bookworm
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
+    gawk \
     git \
+    iproute2 \
     libbz2-dev \
     libffi-dev \
     libgdbm-dev \

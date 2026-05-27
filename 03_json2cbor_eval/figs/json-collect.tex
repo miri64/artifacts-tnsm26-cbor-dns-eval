@@ -35,7 +35,7 @@
   },
   cite/.style 2 args = {
     api-right={#1},
-    font=\scriptsize\cite{#2},
+    font=\scriptsize[#2],
   },
   result/.style = {
     -stealth,
@@ -115,7 +115,7 @@
   \draw [result] (CSV) -- (CSV.south |- curl.north);
   \node [api, below=of curl] (json) {json5.loads(json\_str)};
   \node [logo={json}{python}] {};
-  \node [cite={json}{pyjson5}] {};
+  \node [cite={json}{68}] {};  % TBD update to final citation
   \draw [result] (curl) -- node [collect-bq-result-text] (curl-result) {json\_str} (curl.south |- json.north);
 
   \node [api, below=of json] (base64) {base64.b64decode(content)};
@@ -150,7 +150,7 @@
   \node [logo={load json file}{python}] {};
   \node [api, below=1.4em of load json file] (dump cbor files) {cbor2.dump(...)};
   \node [logo={dump cbor files}{python}] {};
-  \node [cite={dump cbor files}{cbor2}] {};
+  \node [cite={dump cbor files}{69}] {};  % TBD update to final citation
   \node [api, below=1.4em of dump cbor files, draw=none] (gzip dummy) {};
   \node [api, below=1.4em of dump cbor files.south west, anchor=north west, text width=12em] (gzip) {gzip -9 *.\{json,cbor\}};
   \node [logo={gzip}{dollar-sign}] {};

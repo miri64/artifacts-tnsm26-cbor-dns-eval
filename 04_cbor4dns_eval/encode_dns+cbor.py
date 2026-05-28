@@ -30,21 +30,32 @@ if CBOR4DNS_PATH not in sys.path:
 import cbor4dns.encode
 
 
-def encode(row):
+def encode(row, args=None):
     global PACKED_VAL, TAG_TYPE, WRITER
+    encoder_kwargs = {}
+    if args:
+        if hasattr(args, "A"):
+            encoder_kwargs["A"] = args.A
+        if hasattr(args, "B"):
+            encoder_kwargs["B"] = args.B
+        if hasattr(args, "C"):
+            encoder_kwargs["C"] = args.C
     try:
         with io.BytesIO() as cbor_file:
             with io.BytesIO() as cbor_packed_file:
                 cbor_encoder = cbor4dns.encode.Encoder(
-                    cbor_file, packed=False, always_omit_question=False
+                    cbor_file, packed=False, always_omit_question=False,
+                    **encoder_kwargs,
                 )
                 cbor_packed_encoder = cbor4dns.encode.Encoder(
-                    cbor_packed_file, packed=True, always_omit_question=False
+                    cbor_packed_file, packed=True, always_omit_question=False,
+                    **encoder_kwargs,
                 )
                 if row.get("dns.query_payload"):
                     with io.BytesIO() as cbor_query_file:
                         cbor_query_encoder = cbor4dns.encode.Encoder(
-                            cbor_query_file, packed=False, always_omit_question=False
+                            cbor_query_file, packed=False, always_omit_question=False,
+                            **encoder_kwargs,
                         )
                         cbor_query_encoder.encode(
                             bytes.fromhex(row["dns.query_payload"])
@@ -110,6 +121,25 @@ def main():
             default=7,
             help="Tag number for name compression referencing",
         )
+    if hasattr(cbor4dns.encode.Encoder, "packed_parametrized"):
+        parser.add_argument(
+            "-A",
+            type=int,
+            default=16,
+            help="Number of simple values to use for packed",
+        )
+        parser.add_argument(
+            "-B",
+            type=int,
+            default=32,
+            help="Number of 1+1 tags to use for straight references",
+        )
+        parser.add_argument(
+            "-C",
+            type=int,
+            default=8,
+            help="Number of 1+1 tags to use for inverted references",
+        )
     parser.add_argument("--header", action="store_true")
     parser.add_argument(metavar="<Input CSV filename>", dest="csv")
     args = parser.parse_args()
@@ -129,7 +159,7 @@ def main():
     ).strip()
     if git_branch == "packed-lite":
         PACKED_VAL = "lite"
-    if hasattr(cbor4dns.encode, "RefIdx"):
+    if hasattr(cbor4dns.encode, "RefIdx") and hasattr(cbor4dns.encode.RefIdx, "tag"):
         cbor4dns.encode.RefIdx.tag = args.tag
         TAG_TYPE = f" t{args.tag}"
         PACKED_VAL = "str-ref"
@@ -181,7 +211,7 @@ def main():
     for row in reader:
         if row["dataset"] == "dataset":
             continue
-        encode(row)
+        encode(row, args=args)
 
 
 if __name__ == "__main__":

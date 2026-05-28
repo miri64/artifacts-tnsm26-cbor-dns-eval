@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # vim:fenc=utf-8
 #
-# Copyright (C) TU Dresden
+# Copyright (C) 2024 TU Dresden
 #
 # Distributed under terms of the MIT license.
 

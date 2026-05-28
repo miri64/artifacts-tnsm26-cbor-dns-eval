@@ -1,8 +1,8 @@
 \tikzset{
-  x = 0.45em,
-  y = -0.45em,
+  x = 0.525em,
+  y = -0.525em,
   node/.style = {
-    font = \ttfamily\small\strut,
+    font = \normalsize\ttfamily\strut,
     % fill=Pastel2-H,
     anchor = west,
     align = left,
@@ -12,7 +12,7 @@
   },
   index/.style = {
     node,
-    font = \tiny\strut,
+    font = \scriptsize\strut\ttfamily,
     anchor = south west,
     align = center,
     xshift = 1pt,
@@ -38,42 +38,42 @@
     below,
     align=center,
     xshift=-0.25em-1pt,
-    font=\tiny\strut,
-    text width = 12em,
+    font=\scriptsize\strut,
+    text width = 14em,
   }
 }
 \begin{tikzpicture}
-  \node [node] at (0, 0)                     {[["www","example","org",1],[[ ( ),3218,5, ( )]],[[ (1),3218,1,h'c6336423']]]};
+  \node [node] at (0, 0)                     {[["www","example","org",1], [[ ( ),3218,5,\ ( )]], [[ ( ),3218,1,h'c6336423']]]};
   \node [node] (question) at (0, 0) {\phantom{[["www","example","org",1]}};
   \node [node] (name 0) at (2, 0)     {\phantom{"www"}};
-  \node [node] (name 1) at (8, 0)           {\phantom{"example"}};
-  \node [node] (name 2) at (18, 0)                    {\phantom{"org"}};
-  \node [node] (answer) at (27, 0)                             {\phantom{[[ ( ),3218,5, ( )]]}};
-  \node [node, xshift=1pt] at (29, 0)                                    {$t$};
-  \node [node, color=Set1-B] (Ref 0-1) at (31, 0)                           {0};
-  \node [node, xshift=1pt] at (41, 0)                                                {$t$};
-  \node [node, color=Set1-A] (Ref 1-1) at (43, 0)                                       {1};
-  \node [node] (additional) at (48, 0)                                              {\phantom{[[ ( ),3218,1,h'c6336423']]}};
-  \node [node, xshift=1pt] at (50, 0)                                                         {$t$};
-  \node [node, color=Set1-A] (Ref 1-2) at (52, 0)                                                {1};
+  \node [node] (name 1) at (8, 0)            {\phantom{"example"}};
+  \node [node] (name 2) at (18, 0)                      {\phantom{"org"}};
+  \node [node] (answer) at (28, 0)                                 {\phantom{[[ ( ),3218,5,\ ( )]]}};
+  \node [node, xshift=1pt] at (30, 0)                                            {$t$};
+  \node [node, color=Dark2-A] (Ref 0-1) at (32, 0)                              {0};
+  \node [node, xshift=1pt] at (42, 0)                                                       {$t$};
+  \node [node, color=Dark2-B] (Ref 1-1) at (44, 0)                                             {1};
+  \node [node] (additional) at (50, 0)                                                        {\phantom{[[ ( ),3218,1,h'c6336423']]}};
+  \node [node, xshift=1pt] at (52, 0)                                                                   {$t$};
+  \node [node, color=Dark2-B] (Ref 1-2) at (54, 0)                                                         {1};
 
-  \draw [section] (question.south west) -- node [section-desc] {Question: What is the A (1) record of ``www.example.org''} (question.south east);
+  \draw [section] (question.south west) -- node [section-desc] {Question: What is the A (1) record of\\``www.example.org''} (question.south east);
   \draw [section] (answer.south west) -- node [section-desc] {Answer for ```www.example.org'':\\CNAME (5) is ``example.org'', TTL = 3218} (answer.south east);
   \draw [section] (additional.south west) -- node [section-desc] {Additional: A (1) for ``example.org''\\is 198.51.100.35 (\texttt{0xc6336423}), TTL = 3218} (additional.south east);
 
-  \node [index, color=Set1-B] (Idx 0) at (2, 0) {0};
-  \node [index, color=Set1-A] (Idx 1) at (8, 0) {1};
-  \node [index, color=Set1-E] (Idx 2) at (18, 0) {2};
+  \node [index, color=Dark2-A] (Idx 0) at (2, 0) {0};
+  \node [index, color=Dark2-B] (Idx 1) at (8, 0) {1};
+  \node [index, color=Dark2-C] (Idx 2) at (18, 0) {2};
 
-  \draw [reference, Set1-B] (Ref 0-1.north) -- ++(0, 1.75em) -| (Idx 0.north);
-  \draw [reference, Set1-A] (Ref 1-1.north) -- ++(0, 1.50em) -| (Idx 1.north); 
-  \draw [reference, Set1-A] (Ref 1-2.north) -- ++(0, 1.50em) -| (Idx 1.north); 
+  \draw [reference, Dark2-A] (Ref 0-1.north) -- ++(0, 1.50em) -| (Idx 0.north);
+  \draw [reference, Dark2-B] (Ref 1-1.north) -- ++(0, 1.25em) -| (Idx 1.north);
+  \draw [reference, Dark2-B] (Ref 1-2.north) -- ++(0, 1.25em) -| (Idx 1.north);
 
   \begin{pgfonlayer}{bg} 
     \node [name-marker, fit={(name 2) (Idx 2)}, inner ysep=1pt] (name 2 phantom) {};
     \node [name-marker, fit={(name 1) (Idx 1) (name 2 phantom)}] (name 1 phantom) {};
-    \node [name-marker, fill=Pastel1-B!50, fit={(name 0) (Idx 0) (name 1 phantom)}] {};
-    \node [name-marker, fill=Pastel1-A!50, fit={(name 1) (Idx 1) (name 2 phantom)}] {};
-    \node [name-marker, fill=Pastel1-E!50, fit={(name 2) (Idx 2)}, inner ysep=1pt] {};
+    \node [name-marker, fill=Set3-A!50, fit={(name 0) (Idx 0) (name 1 phantom)}] {};
+    \node [name-marker, fill=YlOrRd-C!50, fit={(name 1) (Idx 1) (name 2 phantom)}] {};
+    \node [name-marker, fill=Set3-C!50, fit={(name 2) (Idx 2)}, inner ysep=1pt] {};
   \end{pgfonlayer}
 \end{tikzpicture}

@@ -14,18 +14,29 @@ if [ $PROCS -gt 64 ]; then
 fi
 PYTHON_ARGS=""
 
-while getopts ":t:" o; do
+while getopts ":A:B:C:t:" o; do
     case "${o}" in
+        A)  PYTHON_ARGS="${PYTHON_ARGS} -A ${OPTARG}"
+            ;;
+        B)  PYTHON_ARGS="${PYTHON_ARGS} -B ${OPTARG}"
+            ;;
+        C)  PYTHON_ARGS="${PYTHON_ARGS} -C ${OPTARG}"
+            ;;
         t)
             PYTHON_ARGS="${PYTHON_ARGS} -t ${OPTARG}"
-            shift 2
             ;;
         *)  ;;
     esac
 done
 
+for opt in "A" "B" "C" "t"; do
+    if echo "${PYTHON_ARGS}" | grep -qe "-${opt}"; then
+        shift 2
+    fi
+done
+
 if [ $# -ne 2 ]; then
-    echo "Usage: $0 [-t <tag number>] <input file> <output file>" >&2
+    echo "Usage: $0 [-t <tag number>] [-A <A>] [-B <B>] [-C <C>] <input file> <output file>" >&2
     exit 1
 fi
 

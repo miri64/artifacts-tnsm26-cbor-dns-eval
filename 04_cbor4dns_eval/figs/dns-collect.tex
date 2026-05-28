@@ -29,7 +29,7 @@
     line width = 1pt,
   },
   transfer-text/.style = {
-    font = \tiny,
+    font = \scriptsize,
     inner sep=0pt,
     fill=white,
     align=center,
@@ -57,7 +57,7 @@
     inner sep = 0.5em,
   },
   section label/.style = {
-    font = \normalsize\sffamily\bfseries,
+    font = \normalsize\bfseries,
     anchor = south,
     align = center,
     inner sep = 0,
@@ -85,27 +85,27 @@
 }
 \newcommand{\files}[6][]{
   \foreach \i in {2, 1, 0} {
-    \file [#1, fill opacity=1.0-(0.4*\i)]  {#2 \i}{($#3 + (-0.06 * \i, 0.06 * \i)$)}{#4}{#5}{#6};
+    \file [#1, fill opacity=1.0-(0.4*\i)]  {#2 \i}{($#3 + (-0.06 * \i, 0.06 * \i)$)}{#4}{#5}{#6}
   }
-  \file[#1]{#2}{#3}{#4}{#5}{#6};
+  \file[#1]{#2}{#3}{#4}{#5}{#6}
 }
 
 \begin{tikzpicture}
-  \file {Tranco List}{(0, 0)}{GnBu}{TXT}{\faIcon{bars}};
-  \node [dataset label, above=-0.4em of Tranco List, anchor=south] (Tranco label) {\textbf{Tranco List}~[42]};
+  \file {Tranco List}{(0, 0)}{GnBu}{TXT}{\faIcon{bars}}
+  \node [dataset label, above=-0.4em of Tranco List, anchor=south] (Tranco label) {\textbf{Tranco List}~[20]};
 
-  \node [procedure, below=of Tranco List] (MassDNS) {MassDNS [8]};
+  \node [procedure, below=of Tranco List] (MassDNS) {MassDNS [68]};
   \node [right=6em of MassDNS, color=gray, font=\Huge, inner sep=0pt, outer sep=0pt] (DNS resolver) {\faIcon{database}};
-  \node [above=0em of DNS resolver, align=center, font=\small] {1.1.1.1\\[-0.5em]8.8.8.8\\[-0.5em]9.9.9.9};
+  \node [above=0em of DNS resolver, align=center, font=\small] {1.1.1.1\\[-0.3em]8.8.8.8\\[-0.3em]9.9.9.9};
   \node [below=0em of DNS resolver, align=center, font=\small] (DNS label) {Public\\Resolvers};
   \node [font=\large, above=0.5pt, color=Blues-J, inner sep=0, anchor=center] (Sniffer) at ($(MassDNS.east)!0.5!(DNS resolver.west)$) {\faIcon[regular]{eye}};
 
   \node [file coordinate, below=of MassDNS, yshift=-2.5em] (Tranco PCAP coordinate 1) {};
   \coordinate (Tranco PCAP coordinate 2) at ($(MassDNS.west)!0.5!(DNS resolver.east)$) {};
-  \file {Tranco PCAP}{(Tranco PCAP coordinate 1 -| Tranco PCAP coordinate 2)}{Blues}{PCAP}{\faIcon{box-open}};
+  \file {Tranco PCAP}{(Tranco PCAP coordinate 1 -| Tranco PCAP coordinate 2)}{Blues}{PCAP}{\faIcon{box-open}}
 
   \draw [transfer] (Tranco List) -- (MassDNS);
-  \draw [-{Classical TikZ Rightarrow[length=6pt, width=5pt]}, line width=1pt, densely dotted] (MassDNS) to [out=12, in=160] node [midway, above=-2pt, font=\tiny, align=center] {AAAA, A, HTTPS,\\NS, PTR, DS,\\RRSIG, DNSKEY,\\NSEC, NSEC3} (DNS resolver);
+  \draw [-{Classical TikZ Rightarrow[length=6pt, width=5pt]}, line width=1pt, densely dotted] (MassDNS) to [out=12, in=160] node [midway, above=-2pt, font=\scriptsize, align=center] {AAAA, A,\\HTTPS, NS,\\PTR, DS,\\RRSIG, DNSKEY,\\NSEC, NSEC3} (DNS resolver);
   \draw [-{Classical TikZ Rightarrow[length=6pt, width=5pt]}, line width=1pt, densely dotted] (DNS resolver) to [out=-160, in=-12](MassDNS);
   \draw [transfer] (Sniffer) to [out=-90, in=45] ([xshift=-3*1.7pt, yshift=-3*1.7pt]Tranco PCAP.north east);
 
@@ -114,7 +114,7 @@
   \end{pgfonlayer}
 
   \coordinate (IoT label base) at (Tranco label.north -| Tranco.east);
-  \node [right=4em of IoT label base, dataset label] (IoT label) {{\bfseries IoT dataset}\\{[2, 56, 59]}};
+  \node [right=6em of IoT label base, dataset label] (IoT label) {{\bfseries IoT dataset}\\{}[17]-[19]};
   \node [file coordinate, below=0.25em of IoT label, yshift=-7*1.7pt] (IoT PCAPs coordinate) {};
   \files{IoT PCAPs}{(IoT PCAPs coordinate)}{Blues}{PCAP}{\faIcon{box-open}}
 
@@ -123,7 +123,7 @@
   \end{pgfonlayer}
 
   \coordinate (SecSpider label base) at (IoT label.north -| IoT.east);
-  \node [right=4em of SecSpider label base, dataset label] (SecSpider label) {\textbf{SecSpider}\\{[54]}};
+  \node [right=5em of SecSpider label base, dataset label] (SecSpider label) {\textbf{SecSpider}\\{}[22]};
   \coordinate (SecSpider base) at (IoT.east |- IoT PCAPs);
   \node [file coordinate, below=0.25em of SecSpider label, yshift=-7*1.7pt] (SecSpider coordinate) {};
   \file {SecSpider CSV}{(SecSpider coordinate)}{Greens}{CSV}{\faIcon{table}}
@@ -133,7 +133,7 @@
   \end{pgfonlayer}
 
   \coordinate (PKI label base) at (SecSpider label.north -| SecSpider.east);
-  \node [right=4em of PKI label base, dataset label] (PKI label) {\textbf{Web PKI Study}\\{[61]}};
+  \node [right=6em of PKI label base, dataset label] (PKI label) {\textbf{Web PKI Study}\\{}[21]};
   \coordinate (PKI base) at (SecSpider.east |- SecSpider CSV);
   \node [file coordinate, below=0.25em of PKI label, yshift=-7*1.7pt] (PKI coordinate) {};
   \files {PKI JSONs}{(PKI coordinate)}{Purples}{JSON}{\texttt{\textbf{\{\}}}}
@@ -142,53 +142,47 @@
     \node [dataset, fit={(PKI label) (PKI JSONs)}] (PKI) {};
   \end{pgfonlayer}
 
-  \coordinate (Name anchor) at ($(IoT.south west)!0.75!(PKI.south east)$);
-  \coordinate (Address anchor) at ($(IoT.south west)!0.25!(PKI.south east)$);
+  \coordinate (Name anchor) at ($(IoT.south west)!0.8!(PKI.south east)$);
+  \coordinate (Address anchor) at ($(IoT.south west)!0.2!(PKI.south east)$);
   \node [procedure, text width=6em, anchor=north, below=1.5em of Name anchor, font=\scriptsize] (Name Suffixes) {{\small\bfseries Names}\\[.0em]Pair-wise longest common suffix per message};
   \node [procedure, text width=6em, anchor=north, below=1.5em of Address anchor, font=\scriptsize] (Address Prefixes) {{\small\bfseries Addresses}\\[.0em]Pair-wise longest common prefix per message};
 
-  \node [procedure, below=of Name Suffixes, font=\tiny] (psl) {Mozilla Public Suffix List~[27]};
-  \node [procedure, below=of psl.south east, anchor=north east] (v2fly) {\tiny V2fly list~[64]};
+  \node [procedure, below=of Name Suffixes, font=\scriptsize] (psl) {Mozilla Public Suffix List~[79]};
+  \node [procedure, below=of psl.south east, anchor=north east] (v2fly) {\scriptsize V2fly list~[78]};
 
   \node [graph, below=of v2fly] (categories) {\includegraphics[width=4em]{dns_names_category_publicsuffixes.pdf}};
   \node [graph, left=0.1em of categories] (slds) {\includegraphics[width=4em]{dns_names_publicsuffixes.pdf}};
-  \node [graph, anchor=north] (sld-categories-captions) at ([yshift=-0.2em]$(categories.south east)!0.5!(slds.south west)$) {\footnotesize Figure 12};
+  \node [graph, anchor=north] (sld-categories-captions) at ([yshift=-0.2em]$(categories.south east)!0.5!(slds.south west)$) {\footnotesize Figure 12};  % TBD update to final figure
 
-  \node [graph, left=0.5em of slds.south west, anchor=south east] (ip-addrs) {\includegraphics[width=4em]{dns_r_ipv4_addrs_hist_all_w_same_addr.pdf}\includegraphics[width=4em]{dns_r_ipv6_addrs_hist_all_w_same_addr.pdf}};
-  \node [graph, above=0.25em of ip-addrs.north west, anchor=south west] (name-csb) {\includegraphics[width=4em]{dns_r_names_ccsb_hist_all_w_same_name.pdf}\includegraphics[width=4em]{dns_r_names_csb_hist_all_w_same_name.pdf}};
-  \node [graph, anchor=north] (ip-addrs-name-csb-captions) at ([yshift=-0.2em]ip-addrs.south) {\footnotesize Figures 13 and 14};
-  \coordinate (as-share anchor) at (categories.south east |- ip-addrs-name-csb-captions.south);
+  \node [procedure, left=5.5em of slds.south west, anchor=south east, text width=8em] (comp-pot) {Name Suffix \& IP Address Prefix Length Analysis};
+  \coordinate (as-share anchor) at (categories.south east |- comp-pot.south);
+
+  % \node [procedure] (as-lists) at (as-share.west -| ip-addrs-name-csb-captions) {Public AS lists};
 
   \begin{pgfonlayer}{bg}
-    \node [section, fit={(Address Prefixes) (Name Suffixes) (psl) (categories) (slds) (ip-addrs) (name-csb) (sld-categories-captions) (ip-addrs-name-csb-captions) % (as-share) (as-share-captions)
+    \node [section, fit={(Address Prefixes) (Name Suffixes) (psl) (categories) (slds) (comp-pot) (sld-categories-captions) % (name-csb) (ip-addrs) (ip-addrs-name-csb-captions)  (as-share) (as-share-captions)
     }] (Compression Potential) {};
-    \node [section label, above=0.25em of Compression Potential] (Compression Potential label) {Section 4.3};
+    \node [section label, above=0.25em of Compression Potential] (Compression Potential label) {Section IV-C};  % TBD update to final section
   \end{pgfonlayer}
 
-  \node [procedure, below left=0.5em and 0.5em of Tranco.south, anchor=north east, font=\scriptsize] (cbor-tax) {{\small\bfseries Taxonomy}\\[.0em]\tiny of DNS+CBOR\\\includegraphics[height=1.5em]{dns_cbor_classic_taxonomy_tier}\includegraphics[height=1.5em]{dns_cbor_classic_taxonomy_content_type}\includegraphics[height=1.5em]{dns_cbor_classic_taxonomy_redundancy}\includegraphics[height=1.5em]{dns_cbor_classic_taxonomy_structure}\\{\footnotesize Figure 10}};
-  \node [procedure, right=3em of cbor-tax] (cbor4dns) {cbor4dns~[44]};
-  \node [graph, anchor=south] (draft-06) at ([yshift=0.5em]cbor-tax.south |- Compression Potential.south) {\includegraphics[height=1em]{cbor+dns-gain-all.pdf}\includegraphics[height=1em]{cbor+dns-savings-all.pdf}\\[-0.5em]{\footnotesize Figure 11}};
+\node [procedure, below left=1.5em and 0.5em of Tranco.south, anchor=north east, font=\scriptsize, text width=7em] (cbor-tax) {{\small\bfseries Taxonomy}\\[.25em]\scriptsize of DNS+CBOR};
+  \node [procedure, right=3.0em of cbor-tax] (cbor4dns) {cbor4dns~[73]};
+  \node [graph, anchor=south] (draft-06) at ([yshift=0.5em]cbor-tax.south |- Compression Potential.south) {\includegraphics[height=1em]{cbor+dns-gain-all.pdf}\includegraphics[height=1em]{cbor+dns-savings-all.pdf}\\[-0.5em]{\footnotesize Figure 11}};  % TBD update to final figure
   \node [graph, anchor=south] (name-comp1) at ([yshift=0.5em]cbor4dns.south |- Compression Potential.south) {%
     \includegraphics[height=0.9em]{cbor+dns-name-comp-queries-savings-all.pdf}%
     \includegraphics[height=0.9em]{cbor+dns-name-comp-responses-woq-savings-all.pdf}%
     \includegraphics[height=0.9em]{cbor+dns-name-comp-responses-wq-savings-all.pdf}%
     \\[-0.5em]%
-    \footnotesize Figures 16 and 17%
-  };
-  \node [graph, above=0.25em of name-comp1.north west, anchor=south west] (name-comp2) {%
-    \includegraphics[height=0.9em]{cbor+dns-name-comp-queries-gain-all.pdf}%
-    \includegraphics[height=0.9em]{cbor+dns-name-comp-responses-woq-gain-all.pdf}%
-    \includegraphics[height=0.9em]{cbor+dns-name-comp-responses-wq-gain-all.pdf}%
-    \\[-1.5em]%
-    \phantom{\footnotesize Figures 16 and 17}%
+    \footnotesize Figure 14%  % TBD update to final figure
   };
 
   \begin{pgfonlayer}{bg}
     \node [section, fit={(draft-06)}] (DNS+CBOR) {};
-    \node [section label, above=0.25em of DNS+CBOR] (DNS+CBOR label) {Section 4.2};
+    \node [section label, above=0.25em of DNS+CBOR] (DNS+CBOR label) {Section IV-B};  % TBD update to final section
 
-    \node [section, fit={(name-comp1) (name-comp2)}] (Name Compression) {};
-    \node [section label, above=0.25em of Name Compression] (Name Compression label) {Section 4.4};
+    % \node [section, fit={(name-comp1) (name-comp2)}] (Name Compression) {};
+    \node [section, fit={(name-comp1)}] (Name Compression) {};
+    \node [section label, above=0.25em of Name Compression] (Name Compression label) {Section IV-D};  % TBD update to final figure
   \end{pgfonlayer}
 
   \coordinate [yshift=0.5em] (Tranco comp-pot anchor 1) at ($(Tranco.south east)!0.6666!(Compression Potential.north west)$ |- Tranco PCAP.east);
@@ -203,7 +197,7 @@
   \draw [transfer, rounded corners=1.0em] ([yshift=-0.75em]Tranco PCAP.east) -| ([xshift=-0.5em]cbor4dns.north);
   \draw [transfer] (cbor4dns) -- (cbor-tax.east |- cbor4dns.west);
 
-  \coordinate [yshift=-1.5em] (gain-savings anchor) at ($(cbor4dns.south west)!0.33!(DNS+CBOR label.north east)$);
+  \coordinate [yshift=2em] (gain-savings anchor) at ($(cbor4dns.west |- DNS+CBOR.east)!0.5!(DNS+CBOR.east)$);
   \draw [transfer, rounded corners=1.0em] ([yshift=-0.33em]cbor4dns.west) -| (gain-savings anchor) |- (DNS+CBOR.east);
   \draw [transfer] (cbor4dns.south) -- ([yshift=-2pt]Name Compression label.north -| cbor4dns.south);
 
@@ -211,9 +205,12 @@
   \draw [transfer] (psl.south -| v2fly.north) -- node [transfer-text, pos=0.4] {TLD/SLD} (v2fly.north);
   \draw [transfer] (psl.south -| slds.north) -- node [transfer-text, pos=0.5] {TLD/SLD} (slds.north);
   \draw [transfer] (v2fly.south) -- node [transfer-text, pos=0.4] {Category} (categories.north -| v2fly.south);
-  \draw [transfer] ([xshift=-0.5em]Address Prefixes.south -| name-csb.north) -- node [transfer-text, pos=0.25] (cpl-label) {Common\\Prefix\\Length} ([xshift=-0.5em]name-csb.north);
+  \draw [transfer] ([xshift=-0.5em]Address Prefixes.south -| comp-pot.north) -- node [transfer-text, pos=0.25] (cpl-label) {Common\\Prefix\\Length} ([xshift=-0.5em]comp-pot.north);
   \coordinate (csl anchor 1) at ($(Address Prefixes.south east)!0.5!(Name Suffixes.south west)$);
-  \coordinate (csl anchor 2) at ($(csl anchor 1)!0.5!([xshift=0.5em]name-csb.north)$);
-  \draw [transfer, rounded corners=0.5em] (Name Suffixes) -| (csl anchor 1) |- (csl anchor 2) -| ([xshift=0.5em]name-csb.north);
+  \coordinate (csl anchor 2) at ($(csl anchor 1)!0.5!([xshift=0.5em]comp-pot.north)$);
+  \draw [transfer, rounded corners=0.5em] (Name Suffixes) -| (csl anchor 1) |- (csl anchor 2) -| ([xshift=0.5em]comp-pot.north);
   \node [transfer-text] at ([xshift=-2pt]cpl-label.east -| csl anchor 1) {Common\\Suffix\\Length};
+
+  % \draw [transfer] (ip-addrs-name-csb-captions) -- node [transfer-text, pos=0.35] {IPv6 addresses up to prefix median} (as-lists);
+  % \draw [transfer] (as-lists) -- (as-share);
 \end{tikzpicture}

@@ -1,4 +1,5 @@
 *.parquet
+!dns_names_slds_*.parquet
 *.csv
 !dns_cbor_classic_taxonomy_*.csv
 !dns_cbor_{classic,name_comp7,name_comp48,plite}_hist_{gain,savings}_*.csv

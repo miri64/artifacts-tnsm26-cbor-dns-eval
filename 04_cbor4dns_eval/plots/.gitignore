@@ -1,3 +1,8 @@
+dns_cbor_classic_taxonomy_*.pdf
+!dns_cbor_classic_taxonomy_content_type.pdf
+!dns_cbor_classic_taxonomy_redundancy.pdf
+!dns_cbor_classic_taxonomy_structure.pdf
+!dns_cbor_classic_taxonomy_tier.pdf
 cbor+dns-*.pdf
 !cbor+dns-*-all.pdf
 !cbor+dns-*-all_legend.pdf

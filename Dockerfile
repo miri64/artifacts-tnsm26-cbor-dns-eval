@@ -66,3 +66,6 @@ RUN echo 'Installing arm-none-eabi toolchain from arm.com' >&2 && \
     rm -f /opt/gcc-arm-none-eabi.tar.bz2 && \
     echo 'Removing documentation' >&2 && \
     rm -rf /opt/gcc-arm-none-eabi-*/share/doc
+
+ENV PATH ${PATH}:/opt/${ARM_FOLDER}/bin
+RUN echo 'export PATH=${PATH}:'"/opt/${ARM_FOLDER}/bin" >> /home/user/.profile

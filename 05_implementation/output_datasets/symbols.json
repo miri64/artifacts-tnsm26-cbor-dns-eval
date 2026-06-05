@@ -1,0 +1,7563 @@
+{
+    "app": "dns_cbor",
+    "board": "nrf52840dongle",
+    "symbols": [
+        {
+            "sym": "0",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4096,
+            "type": "t",
+            "size": 64,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "cortex_vector_base"
+            ]
+        },
+        {
+            "sym": "1",
+            "path": [
+                "cpu",
+                "nrf52",
+                "vectors"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4160,
+            "type": "t",
+            "size": 192,
+            "arcv": "",
+            "obj": "vectors_nrf52840xxaa.o",
+            "alias": [
+                "vector_cpu"
+            ]
+        },
+        {
+            "sym": "_compose_main",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4352,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "_compose_main"
+            ]
+        },
+        {
+            "sym": "_parse_main",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4408,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "_parse_main"
+            ]
+        },
+        {
+            "sym": "_dump_status",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4464,
+            "type": "t",
+            "size": 96,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_set_status",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4560,
+            "type": "t",
+            "size": 120,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_print_errno",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4680,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_error_codes",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4724,
+            "type": "t",
+            "size": 96,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_reset_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4820,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_command_runner",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4852,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_parse",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 4896,
+            "type": "t",
+            "size": 140,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_dump_buf",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5036,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_compose",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5060,
+            "type": "t",
+            "size": 260,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_dump",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5320,
+            "type": "t",
+            "size": 76,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_load",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5396,
+            "type": "t",
+            "size": 272,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "startup.main",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5668,
+            "type": "t",
+            "size": 64,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "main"
+            ]
+        },
+        {
+            "sym": "auto_init",
+            "path": [
+                "sys",
+                "auto_init"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5732,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "auto_init.o",
+            "alias": [
+                "auto_init"
+            ]
+        },
+        {
+            "sym": "auto_init_usb",
+            "path": [
+                "sys",
+                "auto_init",
+                "usb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5768,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "auto_init_usb.o",
+            "alias": [
+                "auto_init_usb"
+            ]
+        },
+        {
+            "sym": "board_init",
+            "path": [
+                "boards",
+                "common",
+                "init"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5824,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "board_common.o",
+            "alias": [
+                "board_init"
+            ]
+        },
+        {
+            "sym": "usb_board_reset_in_bootloader",
+            "path": [
+                "boards",
+                "nrf52840dongle"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5826,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "reset.o",
+            "alias": [
+                "usb_board_reset_in_bootloader"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5846,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "main_trampoline",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5848,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": []
+        },
+        {
+            "sym": "kernel_init",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5872,
+            "type": "t",
+            "size": 52,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": [
+                "kernel_init"
+            ]
+        },
+        {
+            "sym": "early_init",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5924,
+            "type": "t",
+            "size": 14,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": [
+                "early_init"
+            ]
+        },
+        {
+            "sym": "panic_app",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5938,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "panic.o",
+            "alias": [
+                "panic_app"
+            ]
+        },
+        {
+            "sym": "core_panic",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 5940,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "panic.o",
+            "alias": [
+                "core_panic"
+            ]
+        },
+        {
+            "sym": "_msg_receive",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6000,
+            "type": "t",
+            "size": 216,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": []
+        },
+        {
+            "sym": "queue_msg",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6216,
+            "type": "t",
+            "size": 62,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6278,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_msg_send",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6280,
+            "type": "t",
+            "size": 192,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": []
+        },
+        {
+            "sym": "msg_send_receive",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6472,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": [
+                "msg_send_receive"
+            ]
+        },
+        {
+            "sym": "msg_reply",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6532,
+            "type": "t",
+            "size": 68,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": [
+                "msg_reply"
+            ]
+        },
+        {
+            "sym": "msg_receive",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6600,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "msg.o",
+            "alias": [
+                "msg_receive"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6606,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "mutex_lock_internal",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6608,
+            "type": "t",
+            "size": 104,
+            "arcv": "",
+            "obj": "mutex.o",
+            "alias": [
+                "mutex_lock_internal"
+            ]
+        },
+        {
+            "sym": "mutex_unlock",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6712,
+            "type": "t",
+            "size": 68,
+            "arcv": "",
+            "obj": "mutex.o",
+            "alias": [
+                "mutex_unlock"
+            ]
+        },
+        {
+            "sym": "sched_run",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6780,
+            "type": "t",
+            "size": 112,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_run"
+            ]
+        },
+        {
+            "sym": "sched_set_status",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 6892,
+            "type": "t",
+            "size": 128,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_set_status"
+            ]
+        },
+        {
+            "sym": "sched_switch",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7020,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_switch"
+            ]
+        },
+        {
+            "sym": "sched_task_exit",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7080,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_task_exit"
+            ]
+        },
+        {
+            "sym": "_thread_flags_clear_atomic",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7140,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "thread_flags.o",
+            "alias": []
+        },
+        {
+            "sym": "_thread_flags_wait_any",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7168,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "thread_flags.o",
+            "alias": []
+        },
+        {
+            "sym": "thread_flags_wake",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7228,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "thread_flags.o",
+            "alias": [
+                "thread_flags_wake"
+            ]
+        },
+        {
+            "sym": "thread_flags_wait_any",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7284,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "thread_flags.o",
+            "alias": [
+                "thread_flags_wait_any"
+            ]
+        },
+        {
+            "sym": "thread_flags_set",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7312,
+            "type": "t",
+            "size": 80,
+            "arcv": "",
+            "obj": "thread_flags.o",
+            "alias": [
+                "thread_flags_set"
+            ]
+        },
+        {
+            "sym": "thread_add_to_list",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7392,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": [
+                "thread_add_to_list"
+            ]
+        },
+        {
+            "sym": "thread_create",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7420,
+            "type": "t",
+            "size": 216,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": [
+                "thread_create"
+            ]
+        },
+        {
+            "sym": "thread_state_to_string",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7636,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": [
+                "thread_state_to_string"
+            ]
+        },
+        {
+            "sym": "cortexm_init",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7660,
+            "type": "t",
+            "size": 64,
+            "arcv": "",
+            "obj": "cortexm_init.o",
+            "alias": [
+                "cortexm_init"
+            ]
+        },
+        {
+            "sym": "panic_arch",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7724,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "panic.o",
+            "alias": [
+                "panic_arch"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7726,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "pm_reboot",
+            "path": [
+                "cpu",
+                "cortexm_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7728,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": [
+                "pm_reboot"
+            ]
+        },
+        {
+            "sym": "thread_stack_init",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7764,
+            "type": "t",
+            "size": 104,
+            "arcv": "",
+            "obj": "thread_arch.o",
+            "alias": [
+                "thread_stack_init"
+            ]
+        },
+        {
+            "sym": "cpu_switch_context_exit",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7868,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "thread_arch.o",
+            "alias": [
+                "cpu_switch_context_exit"
+            ]
+        },
+        {
+            "sym": "isr_pendsv",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7912,
+            "type": "t",
+            "size": 76,
+            "arcv": "",
+            "obj": "thread_arch.o",
+            "alias": [
+                "isr_pendsv"
+            ]
+        },
+        {
+            "sym": "isr_svc",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 7988,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "thread_arch.o",
+            "alias": [
+                "isr_svc"
+            ]
+        },
+        {
+            "sym": "sched_arch_idle",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8004,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "thread_arch.o",
+            "alias": [
+                "sched_arch_idle"
+            ]
+        },
+        {
+            "sym": "nmi_handler",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8016,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "nmi_handler"
+            ]
+        },
+        {
+            "sym": "hard_fault_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8032,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "hard_fault_default"
+            ]
+        },
+        {
+            "sym": "mem_manage_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8048,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "mem_manage_default"
+            ]
+        },
+        {
+            "sym": "bus_fault_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8064,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "bus_fault_default"
+            ]
+        },
+        {
+            "sym": "usage_fault_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8080,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "usage_fault_default"
+            ]
+        },
+        {
+            "sym": "debug_mon_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8096,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "debug_mon_default"
+            ]
+        },
+        {
+            "sym": "dummy_handler_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8112,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "dummy_handler_default",
+                "isr_systick"
+            ]
+        },
+        {
+            "sym": "pre_startup",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8128,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "pre_startup"
+            ]
+        },
+        {
+            "sym": "post_startup",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8130,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "post_startup"
+            ]
+        },
+        {
+            "sym": "reset_handler_default",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8132,
+            "type": "t",
+            "size": 104,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "reset_handler_default"
+            ]
+        },
+        {
+            "sym": "clock_init_hf",
+            "path": [
+                "cpu",
+                "nrf5x_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8236,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "clock.o",
+            "alias": [
+                "clock_init_hf"
+            ]
+        },
+        {
+            "sym": "ftpan_32",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8238,
+            "type": "t",
+            "size": 54,
+            "arcv": "",
+            "obj": "cpu.o",
+            "alias": []
+        },
+        {
+            "sym": "cpu_init",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8292,
+            "type": "t",
+            "size": 116,
+            "arcv": "",
+            "obj": "cpu.o",
+            "alias": [
+                "cpu_init"
+            ]
+        },
+        {
+            "sym": "cortexm_isr_end",
+            "path": [
+                "cpu",
+                "cortexm_common",
+                "include"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8408,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": []
+        },
+        {
+            "sym": "isr_spi0_twi0",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8436,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": [
+                "isr_spi0_twi0"
+            ]
+        },
+        {
+            "sym": "isr_spi1_twi1",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8464,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": [
+                "isr_spi1_twi1"
+            ]
+        },
+        {
+            "sym": "isr_spi2",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8492,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": [
+                "isr_spi2"
+            ]
+        },
+        {
+            "sym": "isr_spi3",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8520,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": [
+                "isr_spi3"
+            ]
+        },
+        {
+            "sym": "_extend_name",
+            "path": [
+                "sys",
+                "net",
+                "application_layer",
+                "dns"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8548,
+            "type": "t",
+            "size": 62,
+            "arcv": "",
+            "obj": "cbor.o",
+            "alias": []
+        },
+        {
+            "sym": "_parse_name",
+            "path": [
+                "sys",
+                "net",
+                "application_layer",
+                "dns"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8610,
+            "type": "t",
+            "size": 252,
+            "arcv": "",
+            "obj": "cbor.o",
+            "alias": []
+        },
+        {
+            "sym": "dns_cbor_compose_query",
+            "path": [
+                "sys",
+                "net",
+                "application_layer",
+                "dns"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 8862,
+            "type": "t",
+            "size": 196,
+            "arcv": "",
+            "obj": "cbor.o",
+            "alias": [
+                "dns_cbor_compose_query"
+            ]
+        },
+        {
+            "sym": "dns_cbor_parse_response",
+            "path": [
+                "sys",
+                "net",
+                "application_layer",
+                "dns"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 9058,
+            "type": "t",
+            "size": 1108,
+            "arcv": "",
+            "obj": "cbor.o",
+            "alias": [
+                "dns_cbor_parse_response"
+            ]
+        },
+        {
+            "sym": "clist_lpop",
+            "path": [
+                "core",
+                "lib",
+                "include"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10166,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "event.o",
+            "alias": []
+        },
+        {
+            "sym": "event_post",
+            "path": [
+                "sys",
+                "event"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10190,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "event.o",
+            "alias": [
+                "event_post"
+            ]
+        },
+        {
+            "sym": "event_get",
+            "path": [
+                "sys",
+                "event"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10234,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "event.o",
+            "alias": [
+                "event_get"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10258,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "fmt_byte_hex",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10260,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_byte_hex"
+            ]
+        },
+        {
+            "sym": "fmt_bytes_hex",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10288,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_bytes_hex"
+            ]
+        },
+        {
+            "sym": "fmt_bytes_hex_reverse",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10322,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_bytes_hex_reverse"
+            ]
+        },
+        {
+            "sym": "fmt_strlen",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10356,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_strlen"
+            ]
+        },
+        {
+            "sym": "fmt_u32_hex",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10372,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_u32_hex"
+            ]
+        },
+        {
+            "sym": "fmt_u32_dec",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10392,
+            "type": "t",
+            "size": 64,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "fmt_u32_dec"
+            ]
+        },
+        {
+            "sym": "scn_u32_dec",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10456,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "scn_u32_dec"
+            ]
+        },
+        {
+            "sym": "print",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10488,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "print"
+            ]
+        },
+        {
+            "sym": "print_u32_dec",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10520,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "print_u32_dec"
+            ]
+        },
+        {
+            "sym": "print_byte_hex",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10544,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "print_byte_hex"
+            ]
+        },
+        {
+            "sym": "print_u32_hex",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10568,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "print_u32_hex"
+            ]
+        },
+        {
+            "sym": "print_str",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10592,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": [
+                "print_str"
+            ]
+        },
+        {
+            "sym": "isrpipe_write_one",
+            "path": [
+                "sys",
+                "isrpipe"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10612,
+            "type": "t",
+            "size": 22,
+            "arcv": "",
+            "obj": "isrpipe.o",
+            "alias": [
+                "isrpipe_write_one"
+            ]
+        },
+        {
+            "sym": "isrpipe_read",
+            "path": [
+                "sys",
+                "isrpipe"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10634,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "isrpipe.o",
+            "alias": [
+                "isrpipe_read"
+            ]
+        },
+        {
+            "sym": "luid_base",
+            "path": [
+                "sys",
+                "luid"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10670,
+            "type": "t",
+            "size": 100,
+            "arcv": "",
+            "obj": "luid.o",
+            "alias": [
+                "luid_base"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10770,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "luid_get",
+            "path": [
+                "sys",
+                "luid"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10772,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "luid.o",
+            "alias": [
+                "luid_get"
+            ]
+        },
+        {
+            "sym": "_advance",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10800,
+            "type": "t",
+            "size": 22,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": []
+        },
+        {
+            "sym": "nanocbor_decoder_init",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10822,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_decoder_init"
+            ]
+        },
+        {
+            "sym": "nanocbor_at_end",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10834,
+            "type": "t",
+            "size": 52,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_at_end"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_type",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10886,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_type"
+            ]
+        },
+        {
+            "sym": "_get_uint64",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 10910,
+            "type": "t",
+            "size": 134,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_get_and_advance_uint8",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11044,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_get_str",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11088,
+            "type": "t",
+            "size": 76,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_skip_simple",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11164,
+            "type": "t",
+            "size": 66,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": []
+        },
+        {
+            "sym": "nanocbor_get_uint8",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11230,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_uint8"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_uint16",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11236,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_uint16"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_uint32",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11280,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_uint32"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_uint64",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11324,
+            "type": "t",
+            "size": 48,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_uint64"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_tag",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11372,
+            "type": "t",
+            "size": 46,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_tag"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_bstr",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11418,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_bstr"
+            ]
+        },
+        {
+            "sym": "nanocbor_get_tstr",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11424,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_get_tstr"
+            ]
+        },
+        {
+            "sym": "nanocbor_enter_array",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11430,
+            "type": "t",
+            "size": 70,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_enter_array"
+            ]
+        },
+        {
+            "sym": "nanocbor_leave_container",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11500,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_leave_container"
+            ]
+        },
+        {
+            "sym": "nanocbor_skip_simple",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11536,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "decoder.o",
+            "alias": [
+                "nanocbor_skip_simple"
+            ]
+        },
+        {
+            "sym": "_encoder_mem_fits",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11540,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_append",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11556,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_fits",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11572,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_put_bytes",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11596,
+            "type": "t",
+            "size": 38,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_encoder_mem_append",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11634,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "_fmt_uint64",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11658,
+            "type": "t",
+            "size": 142,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": []
+        },
+        {
+            "sym": "nanocbor_encoder_init",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11800,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_encoder_init"
+            ]
+        },
+        {
+            "sym": "nanocbor_encoded_len",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11828,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_encoded_len"
+            ]
+        },
+        {
+            "sym": "nanocbor_fmt_uint",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11832,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_fmt_uint"
+            ]
+        },
+        {
+            "sym": "nanocbor_fmt_tstr",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11848,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_fmt_tstr"
+            ]
+        },
+        {
+            "sym": "nanocbor_put_tstrn",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11868,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_put_tstrn"
+            ]
+        },
+        {
+            "sym": "nanocbor_fmt_array",
+            "path": [
+                "pkg",
+                "nanocbor",
+                "src"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11896,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "encoder.o",
+            "alias": [
+                "nanocbor_fmt_array"
+            ]
+        },
+        {
+            "sym": "_init",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11916,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_init"
+            ]
+        },
+        {
+            "sym": "_fini",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11928,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_fini"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11930,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_sbrk_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11932,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_sbrk_r"
+            ]
+        },
+        {
+            "sym": "_read_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 11992,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_read_r"
+            ]
+        },
+        {
+            "sym": "_write_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12000,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_write_r"
+            ]
+        },
+        {
+            "sym": "_close_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12008,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_close_r"
+            ]
+        },
+        {
+            "sym": "_lseek_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12018,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_lseek_r"
+            ]
+        },
+        {
+            "sym": "_fstat_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12028,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_fstat_r"
+            ]
+        },
+        {
+            "sym": "_isatty_r",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12038,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": [
+                "_isatty_r"
+            ]
+        },
+        {
+            "sym": "dummy_handler",
+            "path": [
+                "cpu",
+                "nrf52",
+                "vectors"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12054,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "vectors_nrf52840xxaa.o",
+            "alias": [
+                "isr_pwm1",
+                "isr_lpcomp",
+                "isr_timer0",
+                "isr_radio",
+                "isr_qspi",
+                "isr_swi1",
+                "isr_spi0",
+                "isr_ccm_aar",
+                "isr_swi5",
+                "isr_pwm3",
+                "isr_timer1",
+                "isr_spi1_twi0",
+                "isr_i2s",
+                "isr_twi0",
+                "isr_timer4",
+                "isr_uart0",
+                "dummy_handler",
+                "isr_wdt",
+                "isr_qdec",
+                "isr_gpiote",
+                "isr_rtc2",
+                "isr_rtc0",
+                "isr_swi2",
+                "isr_cryptocell",
+                "isr_pdm",
+                "isr_swi4",
+                "isr_timer2",
+                "isr_nfct",
+                "isr_pwm0",
+                "isr_ecb",
+                "isr_timer3",
+                "isr_swi0",
+                "isr_mwu",
+                "isr_rtc1",
+                "isr_fpu",
+                "isr_rng",
+                "isr_saadc",
+                "isr_swi3",
+                "isr_power_clock",
+                "isr_pwm2",
+                "isr_uarte1",
+                "isr_temp"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12058,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "gpio_init",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12060,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "gpio.o",
+            "alias": [
+                "gpio_init"
+            ]
+        },
+        {
+            "sym": "gpio_set",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12120,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "gpio.o",
+            "alias": [
+                "gpio_set"
+            ]
+        },
+        {
+            "sym": "gpio_clear",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12152,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "gpio.o",
+            "alias": [
+                "gpio_clear"
+            ]
+        },
+        {
+            "sym": "pm_off",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12184,
+            "type": "t",
+            "size": 24,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": [
+                "pm_off"
+            ]
+        },
+        {
+            "sym": "_ep_set_stall",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12208,
+            "type": "t",
+            "size": 40,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_stall",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12248,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_dma_out",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12252,
+            "type": "t",
+            "size": 48,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_get",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12300,
+            "type": "t",
+            "size": 22,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_set",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12322,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_new_ep",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12354,
+            "type": "t",
+            "size": 102,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_enable_irq",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12456,
+            "type": "t",
+            "size": 40,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_disable_irq",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12496,
+            "type": "t",
+            "size": 40,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep0_stall",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12536,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_init",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12546,
+            "type": "t",
+            "size": 42,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_get",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12588,
+            "type": "t",
+            "size": 96,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_set",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12684,
+            "type": "t",
+            "size": 104,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_xmit",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12788,
+            "type": "t",
+            "size": 188,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_esr",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 12976,
+            "type": "t",
+            "size": 100,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_ep_esr",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13076,
+            "type": "t",
+            "size": 266,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13342,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_init",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13344,
+            "type": "t",
+            "size": 104,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "usbdev_get_ctx",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13448,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": [
+                "usbdev_get_ctx"
+            ]
+        },
+        {
+            "sym": "usbdev_init_lowlevel",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13464,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": [
+                "usbdev_init_lowlevel"
+            ]
+        },
+        {
+            "sym": "isr_usbd",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13492,
+            "type": "t",
+            "size": 300,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": [
+                "isr_usbd"
+            ]
+        },
+        {
+            "sym": "od_hex_dump_ext",
+            "path": [
+                "sys",
+                "od"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13792,
+            "type": "t",
+            "size": 96,
+            "arcv": "",
+            "obj": "od.o",
+            "alias": [
+                "od_hex_dump_ext"
+            ]
+        },
+        {
+            "sym": "cpuid_get",
+            "path": [
+                "drivers",
+                "periph_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13888,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "cpuid.o",
+            "alias": [
+                "cpuid_get"
+            ]
+        },
+        {
+            "sym": "led_init",
+            "path": [
+                "drivers",
+                "periph_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13904,
+            "type": "t",
+            "size": 62,
+            "arcv": "",
+            "obj": "init_leds.o",
+            "alias": [
+                "led_init"
+            ]
+        },
+        {
+            "sym": "periph_init",
+            "path": [
+                "drivers",
+                "periph_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13966,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": [
+                "periph_init"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13970,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "ps",
+            "path": [
+                "sys",
+                "ps"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 13972,
+            "type": "t",
+            "size": 92,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": [
+                "ps"
+            ]
+        },
+        {
+            "sym": "_pm_handler",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14064,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": []
+        },
+        {
+            "sym": "_ps_handler",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14124,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": []
+        },
+        {
+            "sym": "_reboot_handler",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14134,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_bootloader_handler",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14144,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14154,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_version_handler",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14156,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "print_prompt",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14172,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": []
+        },
+        {
+            "sym": "readline",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14204,
+            "type": "t",
+            "size": 204,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": [
+                "readline"
+            ]
+        },
+        {
+            "sym": "shell_run_once",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14408,
+            "type": "t",
+            "size": 508,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": [
+                "shell_run_once"
+            ]
+        },
+        {
+            "sym": "stdio_read",
+            "path": [
+                "sys",
+                "stdio"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14916,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "stdio.o",
+            "alias": [
+                "stdio_read"
+            ]
+        },
+        {
+            "sym": "_pop",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14932,
+            "type": "t",
+            "size": 18,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": []
+        },
+        {
+            "sym": "tsrb_get_one",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14950,
+            "type": "t",
+            "size": 42,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": [
+                "tsrb_get_one"
+            ]
+        },
+        {
+            "sym": "tsrb_get",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 14992,
+            "type": "t",
+            "size": 62,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": [
+                "tsrb_get"
+            ]
+        },
+        {
+            "sym": "tsrb_drop",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15054,
+            "type": "t",
+            "size": 52,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": [
+                "tsrb_drop"
+            ]
+        },
+        {
+            "sym": "tsrb_add_one",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15106,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": [
+                "tsrb_add_one"
+            ]
+        },
+        {
+            "sym": "tsrb_add",
+            "path": [
+                "sys",
+                "tsrb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15166,
+            "type": "t",
+            "size": 68,
+            "arcv": "",
+            "obj": "tsrb.o",
+            "alias": [
+                "tsrb_add"
+            ]
+        },
+        {
+            "sym": "usb_board_reset_coding_cb",
+            "path": [
+                "sys",
+                "usb_board_reset"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15234,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "usb_board_reset.o",
+            "alias": [
+                "usb_board_reset_coding_cb"
+            ]
+        },
+        {
+            "sym": "_event_handler",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15262,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "_gen_assoc_descriptor",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15270,
+            "type": "t",
+            "size": 44,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15314,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15316,
+            "type": "t",
+            "size": 172,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "_gen_full_acm_descriptor",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15488,
+            "type": "t",
+            "size": 116,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "usbdev_ep_xmit.isra.0",
+            "path": [
+                "drivers",
+                "include",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15604,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "_handle_in",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15612,
+            "type": "t",
+            "size": 96,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "_transfer_handler",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15708,
+            "type": "t",
+            "size": 108,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "_handle_flush",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15816,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_cdc_acm_submit",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15836,
+            "type": "t",
+            "size": 108,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": [
+                "usbus_cdc_acm_submit"
+            ]
+        },
+        {
+            "sym": "usbus_cdc_acm_flush",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15944,
+            "type": "t",
+            "size": 18,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": [
+                "usbus_cdc_acm_flush"
+            ]
+        },
+        {
+            "sym": "_control_handler",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 15962,
+            "type": "t",
+            "size": 178,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_cdc_acm_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16140,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": [
+                "usbus_cdc_acm_init"
+            ]
+        },
+        {
+            "sym": "_cdc_acm_rx_pipe",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16200,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": []
+        },
+        {
+            "sym": "usb_cdc_acm_stdio_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16228,
+            "type": "t",
+            "size": 40,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": [
+                "usb_cdc_acm_stdio_init"
+            ]
+        },
+        {
+            "sym": "stdio_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16268,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": [
+                "stdio_init"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16270,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "stdio_write",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16272,
+            "type": "t",
+            "size": 40,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": [
+                "stdio_write"
+            ]
+        },
+        {
+            "sym": "_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16312,
+            "type": "t",
+            "size": 58,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "usbdev_ep_set.constprop.0.isra.0",
+            "path": [
+                "drivers",
+                "include",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16370,
+            "type": "t",
+            "size": 22,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "usbdev_ep_xmit.isra.0",
+            "path": [
+                "drivers",
+                "include",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16392,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "_recv_setup",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 16400,
+            "type": "t",
+            "size": 604,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "_handler_ep0_transfer",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17004,
+            "type": "t",
+            "size": 252,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "_handler_ep0_event",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17256,
+            "type": "t",
+            "size": 72,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_control_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17328,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": [
+                "usbus_control_init"
+            ]
+        },
+        {
+            "sym": "usbus_control_get_out_data",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17348,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": [
+                "usbus_control_get_out_data"
+            ]
+        },
+        {
+            "sym": "usbus_control_slicer_nextslice",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17376,
+            "type": "t",
+            "size": 48,
+            "arcv": "",
+            "obj": "usbus_control_slicer.o",
+            "alias": [
+                "usbus_control_slicer_nextslice"
+            ]
+        },
+        {
+            "sym": "usbus_control_slicer_put_bytes",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17424,
+            "type": "t",
+            "size": 86,
+            "arcv": "",
+            "obj": "usbus_control_slicer.o",
+            "alias": [
+                "usbus_control_slicer_put_bytes"
+            ]
+        },
+        {
+            "sym": "usbus_control_slicer_put_char",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17510,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "usbus_control_slicer.o",
+            "alias": [
+                "usbus_control_slicer_put_char"
+            ]
+        },
+        {
+            "sym": "usbus_control_slicer_ready",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17566,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "usbus_control_slicer.o",
+            "alias": [
+                "usbus_control_slicer_ready"
+            ]
+        },
+        {
+            "sym": "_gen_descriptor_size",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17602,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": []
+        },
+        {
+            "sym": "_fmt_descriptors_pre",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17638,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": []
+        },
+        {
+            "sym": "_fmt_descriptors_post",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17672,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": []
+        },
+        {
+            "sym": "_fmt_descriptors_endpoints",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17706,
+            "type": "t",
+            "size": 114,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_fmt_descriptor_conf",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 17820,
+            "type": "t",
+            "size": 508,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": [
+                "usbus_fmt_descriptor_conf"
+            ]
+        },
+        {
+            "sym": "usbus_fmt_descriptor_dev",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18328,
+            "type": "t",
+            "size": 84,
+            "arcv": "",
+            "obj": "usbus_fmt.o",
+            "alias": [
+                "usbus_fmt_descriptor_dev"
+            ]
+        },
+        {
+            "sym": "_event_cb",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18412,
+            "type": "t",
+            "size": 168,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "_event_ep_cb",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18580,
+            "type": "t",
+            "size": 220,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_init",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18800,
+            "type": "t",
+            "size": 22,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_init"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18822,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "usbus_create",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18824,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_create"
+            ]
+        },
+        {
+            "sym": "usbus_add_string_descriptor",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18852,
+            "type": "t",
+            "size": 30,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_add_string_descriptor"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18882,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_usbus_thread",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 18884,
+            "type": "t",
+            "size": 344,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus_add_interface",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19228,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_add_interface"
+            ]
+        },
+        {
+            "sym": "usbus_register_event_handler",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19260,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_register_event_handler"
+            ]
+        },
+        {
+            "sym": "usbus_interface_find_endpoint",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19280,
+            "type": "t",
+            "size": 26,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_interface_find_endpoint"
+            ]
+        },
+        {
+            "sym": "usbus_add_endpoint",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19306,
+            "type": "t",
+            "size": 60,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_add_endpoint"
+            ]
+        },
+        {
+            "sym": "usbus_endpoint_halt",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19366,
+            "type": "t",
+            "size": 14,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_endpoint_halt"
+            ]
+        },
+        {
+            "sym": "usbus_endpoint_clear_halt",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19380,
+            "type": "t",
+            "size": 14,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": [
+                "usbus_endpoint_clear_halt"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19394,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "sbrk_aligned",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19396,
+            "type": "t",
+            "size": 68,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mallocr.o",
+            "alias": []
+        },
+        {
+            "sym": "_malloc_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19464,
+            "type": "t",
+            "size": 256,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mallocr.o",
+            "alias": [
+                "_malloc_r"
+            ]
+        },
+        {
+            "sym": "__malloc_lock",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19720,
+            "type": "t",
+            "size": 12,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mlock.o",
+            "alias": [
+                "__malloc_lock"
+            ]
+        },
+        {
+            "sym": "__malloc_unlock",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19732,
+            "type": "t",
+            "size": 12,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mlock.o",
+            "alias": [
+                "__malloc_unlock"
+            ]
+        },
+        {
+            "sym": "__sflush_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 19744,
+            "type": "t",
+            "size": 264,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-fflush.o",
+            "alias": [
+                "__sflush_r"
+            ]
+        },
+        {
+            "sym": "_fflush_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20008,
+            "type": "t",
+            "size": 80,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-fflush.o",
+            "alias": [
+                "_fflush_r"
+            ]
+        },
+        {
+            "sym": "fflush",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20088,
+            "type": "t",
+            "size": 40,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-fflush.o",
+            "alias": [
+                "fflush"
+            ]
+        },
+        {
+            "sym": "std",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20128,
+            "type": "t",
+            "size": 108,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": []
+        },
+        {
+            "sym": "stdio_exit_handler",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20236,
+            "type": "t",
+            "size": 24,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": []
+        },
+        {
+            "sym": "cleanup_stdio",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20260,
+            "type": "t",
+            "size": 64,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": []
+        },
+        {
+            "sym": "global_stdio_init.part.0",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20324,
+            "type": "t",
+            "size": 60,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": []
+        },
+        {
+            "sym": "__sfp_lock_acquire",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20384,
+            "type": "t",
+            "size": 12,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__sfp_lock_acquire"
+            ]
+        },
+        {
+            "sym": "__sfp_lock_release",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20396,
+            "type": "t",
+            "size": 12,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__sfp_lock_release"
+            ]
+        },
+        {
+            "sym": "__sinit",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20408,
+            "type": "t",
+            "size": 48,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__sinit"
+            ]
+        },
+        {
+            "sym": "_fwalk_sglue",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20456,
+            "type": "t",
+            "size": 60,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-fwalk.o",
+            "alias": [
+                "_fwalk_sglue"
+            ]
+        },
+        {
+            "sym": "getchar",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20516,
+            "type": "t",
+            "size": 16,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-getchar.o",
+            "alias": [
+                "getchar"
+            ]
+        },
+        {
+            "sym": "printf",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20532,
+            "type": "t",
+            "size": 36,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-printf.o",
+            "alias": [
+                "printf",
+                "iprintf"
+            ]
+        },
+        {
+            "sym": "putchar",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20568,
+            "type": "t",
+            "size": 16,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-putchar.o",
+            "alias": [
+                "putchar"
+            ]
+        },
+        {
+            "sym": "_puts_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20584,
+            "type": "t",
+            "size": 170,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-puts.o",
+            "alias": [
+                "_puts_r"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20754,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "puts",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20756,
+            "type": "t",
+            "size": 16,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-puts.o",
+            "alias": [
+                "puts"
+            ]
+        },
+        {
+            "sym": "__sread",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20772,
+            "type": "t",
+            "size": 34,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-stdio.o",
+            "alias": [
+                "__sread"
+            ]
+        },
+        {
+            "sym": "__swrite",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20806,
+            "type": "t",
+            "size": 56,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-stdio.o",
+            "alias": [
+                "__swrite"
+            ]
+        },
+        {
+            "sym": "__sseek",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20862,
+            "type": "t",
+            "size": 36,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-stdio.o",
+            "alias": [
+                "__sseek"
+            ]
+        },
+        {
+            "sym": "__sclose",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20898,
+            "type": "t",
+            "size": 8,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-stdio.o",
+            "alias": [
+                "__sclose"
+            ]
+        },
+        {
+            "sym": "__swbuf_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 20906,
+            "type": "t",
+            "size": 124,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-wbuf.o",
+            "alias": [
+                "__swbuf_r"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 21030,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "__swsetup_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 21032,
+            "type": "t",
+            "size": 172,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-wsetup.o",
+            "alias": [
+                "__swsetup_r"
+            ]
+        },
+        {
+            "sym": "memset",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 21204,
+            "type": "t",
+            "size": 16,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-memset.o",
+            "alias": [
+                "memset"
+            ]
+        },
+        {
+            "sym": "_strerror_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 21220,
+            "type": "t",
+            "size": 972,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strerror.o",
+            "alias": [
+                "_strerror_r"
+            ]
+        },
+        {
+            "sym": "strerror",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22192,
+            "type": "t",
+            "size": 20,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strerror.o",
+            "alias": [
+                "strerror"
+            ]
+        },
+        {
+            "sym": "strncmp",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22212,
+            "type": "t",
+            "size": 36,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strncmp.o",
+            "alias": [
+                "strncmp"
+            ]
+        },
+        {
+            "sym": "strncpy",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22248,
+            "type": "t",
+            "size": 38,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strncpy.o",
+            "alias": [
+                "strncpy"
+            ]
+        },
+        {
+            "sym": "_user_strerror",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22286,
+            "type": "t",
+            "size": 4,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-u_strerr.o",
+            "alias": [
+                "_user_strerror"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22290,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "__libc_init_array",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22292,
+            "type": "t",
+            "size": 72,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-init.o",
+            "alias": [
+                "__libc_init_array"
+            ]
+        },
+        {
+            "sym": "__retarget_lock_init_recursive",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22364,
+            "type": "t",
+            "size": 2,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-lock.o",
+            "alias": [
+                "__retarget_lock_init_recursive"
+            ]
+        },
+        {
+            "sym": "__retarget_lock_acquire_recursive",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22366,
+            "type": "t",
+            "size": 2,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-lock.o",
+            "alias": [
+                "__retarget_lock_acquire_recursive"
+            ]
+        },
+        {
+            "sym": "__retarget_lock_release_recursive",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22368,
+            "type": "t",
+            "size": 2,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-lock.o",
+            "alias": [
+                "__retarget_lock_release_recursive"
+            ]
+        },
+        {
+            "sym": "text",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22370,
+            "type": "t",
+            "size": 20,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strcmp.o",
+            "alias": [
+                "strcmp"
+            ]
+        },
+        {
+            "sym": "memcpy",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22390,
+            "type": "t",
+            "size": 28,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-memcpy-stub.o",
+            "alias": [
+                "memcpy"
+            ]
+        },
+        {
+            "sym": "text",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22418,
+            "type": "t",
+            "size": 16,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strlen.o",
+            "alias": [
+                "strlen"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22434,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_free_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22436,
+            "type": "t",
+            "size": 148,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-freer.o",
+            "alias": [
+                "_free_r"
+            ]
+        },
+        {
+            "sym": "__sfputc_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22584,
+            "type": "t",
+            "size": 46,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf.o",
+            "alias": []
+        },
+        {
+            "sym": "__sfputs_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22630,
+            "type": "t",
+            "size": 36,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf.o",
+            "alias": [
+                "__sfputs_r"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22666,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_vfprintf_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 22668,
+            "type": "t",
+            "size": 560,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf.o",
+            "alias": [
+                "_vfiprintf_r",
+                "_vfprintf_r"
+            ]
+        },
+        {
+            "sym": "_printf_common",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 23228,
+            "type": "t",
+            "size": 218,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf_i.o",
+            "alias": [
+                "_printf_common"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 23446,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_printf_i",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 23448,
+            "type": "t",
+            "size": 572,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf_i.o",
+            "alias": [
+                "_printf_i"
+            ]
+        },
+        {
+            "sym": "_getc_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24020,
+            "type": "t",
+            "size": 86,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-getc.o",
+            "alias": [
+                "_getc_r"
+            ]
+        },
+        {
+            "sym": "__swhatbuf_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24106,
+            "type": "t",
+            "size": 76,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-makebuf.o",
+            "alias": [
+                "__swhatbuf_r"
+            ]
+        },
+        {
+            "sym": "__smakebuf_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24182,
+            "type": "t",
+            "size": 120,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-makebuf.o",
+            "alias": [
+                "__smakebuf_r"
+            ]
+        },
+        {
+            "sym": "_putc_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24302,
+            "type": "t",
+            "size": 104,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-putc.o",
+            "alias": [
+                "_putc_r"
+            ]
+        },
+        {
+            "sym": "__srget_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24406,
+            "type": "t",
+            "size": 48,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-rget.o",
+            "alias": [
+                "__srget_r"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24454,
+            "type": "t",
+            "size": 10,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "text",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24464,
+            "type": "t",
+            "size": 160,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-memchr.o",
+            "alias": [
+                "memchr"
+            ]
+        },
+        {
+            "sym": "lflush",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24624,
+            "type": "t",
+            "size": 28,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-refill.o",
+            "alias": []
+        },
+        {
+            "sym": "__srefill_r",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24652,
+            "type": "t",
+            "size": 232,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-refill.o",
+            "alias": [
+                "__srefill_r"
+            ]
+        },
+        {
+            "sym": "_dump_status.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 24884,
+            "type": "t",
+            "size": 2963,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_set_status.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 69,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_print_errno.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_error_codes.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 53,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_parse.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_compose.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 137,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_dump.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 30,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_load.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 102,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "main.str1.1",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 15,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27847,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_parse_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27848,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_parse_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27860,
+            "type": "t",
+            "size": 46,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_parse_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27906,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_compose_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27912,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_compose_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27924,
+            "type": "t",
+            "size": 36,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_compose_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27960,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_dump_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27968,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_dump_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 27980,
+            "type": "t",
+            "size": 32,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_dump_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28012,
+            "type": "t",
+            "size": 5,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28017,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reset_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28020,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reset_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28032,
+            "type": "t",
+            "size": 33,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reset_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28065,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28071,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_set_status_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28072,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_set_status_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28084,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_set_status_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28104,
+            "type": "t",
+            "size": 11,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28115,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_load_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28116,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_load_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28128,
+            "type": "t",
+            "size": 41,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_load_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28169,
+            "type": "t",
+            "size": 5,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28174,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_error_codes_cmd",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28176,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_error_codes_cmd_desc",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28188,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_error_codes_cmd_name",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28222,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "auto_init_usb.str1.1",
+            "path": [
+                "sys",
+                "auto_init",
+                "usb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 6,
+            "arcv": "",
+            "obj": "auto_init_usb.o",
+            "alias": []
+        },
+        {
+            "sym": "main_trampoline.str1.1",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 81,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": []
+        },
+        {
+            "sym": "kernel_init.str1.1",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 5,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": []
+        },
+        {
+            "sym": "core_panic.str1.1",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 46,
+            "arcv": "",
+            "obj": "panic.o",
+            "alias": []
+        },
+        {
+            "sym": "thread_state_to_string.str1.1",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": []
+        },
+        {
+            "sym": "str1.1",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 106,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28234,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "state_names",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28236,
+            "type": "t",
+            "size": 52,
+            "arcv": "",
+            "obj": "thread.o",
+            "alias": []
+        },
+        {
+            "sym": "nmi_handler.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "hard_fault_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 19,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "mem_manage_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 19,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "bus_fault_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 18,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "usage_fault_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 20,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "debug_mon_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 18,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "dummy_handler_default.str1.1",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 14,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": []
+        },
+        {
+            "sym": "_hex_chars",
+            "path": [
+                "sys",
+                "fmt"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28288,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "fmt.o",
+            "alias": []
+        },
+        {
+            "sym": "_driver",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28304,
+            "type": "t",
+            "size": 48,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "od_hex_dump_ext.str1.1",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28352,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "od.o",
+            "alias": []
+        },
+        {
+            "sym": "ps.str1.1",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28352,
+            "type": "t",
+            "size": 56,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": []
+        },
+        {
+            "sym": "_pm_handler.str1.1",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28352,
+            "type": "t",
+            "size": 34,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_pm_cmd",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28352,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_pm_cmd_desc",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28364,
+            "type": "t",
+            "size": 35,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_pm_cmd_name",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28399,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28402,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_ps_cmd",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28404,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_ps_cmd_desc",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28416,
+            "type": "t",
+            "size": 42,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_ps_cmd_name",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28458,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": []
+        },
+        {
+            "sym": "_version_handler.str1.1",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28461,
+            "type": "t",
+            "size": 48,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28461,
+            "type": "t",
+            "size": 3,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_version_cmd",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28464,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_version_cmd_desc",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28476,
+            "type": "t",
+            "size": 28,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_version_cmd_name",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28504,
+            "type": "t",
+            "size": 8,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_bootloader_cmd",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28512,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_bootloader_cmd_desc",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28524,
+            "type": "t",
+            "size": 21,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_bootloader_cmd_name",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28545,
+            "type": "t",
+            "size": 11,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reboot_cmd",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28556,
+            "type": "t",
+            "size": 12,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reboot_cmd_desc",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28568,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "_xfa_reboot_cmd_name",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28584,
+            "type": "t",
+            "size": 7,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": []
+        },
+        {
+            "sym": "shell_run_once.str1.1",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28591,
+            "type": "t",
+            "size": 179,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28591,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_cdcacm_descriptor",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28592,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "cdc_driver",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28608,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "cdc_acm.o",
+            "alias": []
+        },
+        {
+            "sym": "enable.0",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28624,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "enable.1",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28625,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "enable.2",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28626,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28627,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_ep0_driver",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28628,
+            "type": "t",
+            "size": 16,
+            "arcv": "",
+            "obj": "usbus_control.o",
+            "alias": [
+                "_ep0_driver"
+            ]
+        },
+        {
+            "sym": "_usbus_thread.str1.1",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28644,
+            "type": "t",
+            "size": 38,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "disable.0",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28644,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "_enable.1",
+            "path": [
+                "sys",
+                "usb",
+                "usbus"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28645,
+            "type": "t",
+            "size": 1,
+            "arcv": "",
+            "obj": "usbus.o",
+            "alias": []
+        },
+        {
+            "sym": "_strerror_r.str1.1",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28646,
+            "type": "t",
+            "size": 1687,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strerror.o",
+            "alias": []
+        },
+        {
+            "sym": "_vfprintf_r.str1.1",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28646,
+            "type": "t",
+            "size": 17,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf.o",
+            "alias": []
+        },
+        {
+            "sym": "_printf_i.str1.1",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28646,
+            "type": "t",
+            "size": 34,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-nano-vfprintf_i.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28646,
+            "type": "t",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "auto_init_xfa.0_",
+            "path": [
+                "sys",
+                "auto_init"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28648,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "auto_init.o",
+            "alias": [
+                "auto_init_xfa"
+            ]
+        },
+        {
+            "sym": "auto_init_xfa.5_1350",
+            "path": [
+                "sys",
+                "auto_init"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28648,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "auto_init.o",
+            "alias": [
+                "auto_init_xfa_auto_init_usb"
+            ]
+        },
+        {
+            "sym": "auto_init_xfa.9_",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28652,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "auto_init.o",
+            "alias": [
+                "auto_init_xfa_end"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.0_",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28652,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": [
+                "shell_commands_xfa"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_bootloader",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28652,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": [
+                "shell_commands_xfa_bootloader_bootloader"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_compose",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28656,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_compose_compose"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_dump",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28660,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_dump_dump"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_error_codes",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28664,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_error_codes_error_codes"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_load",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28668,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_load_load"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_parse",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28672,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_parse_parse"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_pm",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28676,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "pm.o",
+            "alias": [
+                "shell_commands_xfa_pm_pm"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_ps",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28680,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "ps.o",
+            "alias": [
+                "shell_commands_xfa_ps_ps"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_reboot",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28684,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": [
+                "shell_commands_xfa_reboot_reboot"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_reset",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28688,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_reset_reset"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_set_status",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28692,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": [
+                "shell_commands_xfa_set_status_set_status"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.5_version",
+            "path": [
+                "sys",
+                "shell",
+                "cmds"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28696,
+            "type": "t",
+            "size": 4,
+            "arcv": "",
+            "obj": "sys.o",
+            "alias": [
+                "shell_commands_xfa_version_version"
+            ]
+        },
+        {
+            "sym": "shell_commands_xfa.9_",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28700,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "shell.o",
+            "alias": [
+                "shell_commands_xfa_end"
+            ]
+        },
+        {
+            "sym": "iplt",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28700,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "plt",
+            "path": [
+                "sys",
+                "shell"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28700,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "ARM.exidx",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28700,
+            "type": "t",
+            "size": 8,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strcmp.o",
+            "alias": []
+        },
+        {
+            "sym": "ARM.exidx",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28708,
+            "type": "t",
+            "size": 0,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strlen.o",
+            "alias": []
+        },
+        {
+            "sym": "ARM.exidx",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28708,
+            "type": "t",
+            "size": 0,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-memchr.o",
+            "alias": []
+        },
+        {
+            "sym": "eh_frame",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28708,
+            "type": "t",
+            "size": 40,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-strlen.o",
+            "alias": []
+        },
+        {
+            "sym": "eh_frame",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28748,
+            "type": "t",
+            "size": 60,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-memchr.o",
+            "alias": []
+        },
+        {
+            "sym": "iplt",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 28808,
+            "type": "t",
+            "size": 0,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "isr_stack",
+            "path": [
+                "cpu",
+                "cortexm_common"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536870912,
+            "type": "b",
+            "size": 512,
+            "arcv": "",
+            "obj": "vectors_cortexm.o",
+            "alias": [
+                "isr_stack"
+            ]
+        },
+        {
+            "sym": "heap_top",
+            "path": [
+                "sys",
+                "syscalls"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871424,
+            "type": "d",
+            "size": 4,
+            "arcv": "",
+            "obj": "syscalls.o",
+            "alias": []
+        },
+        {
+            "sym": "stdin_isrpipe",
+            "path": [
+                "sys",
+                "stdio"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871428,
+            "type": "d",
+            "size": 20,
+            "arcv": "",
+            "obj": "stdio.o",
+            "alias": [
+                "stdin_isrpipe"
+            ]
+        },
+        {
+            "sym": "__sglue",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871448,
+            "type": "d",
+            "size": 12,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__sglue"
+            ]
+        },
+        {
+            "sym": "_impure_ptr",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871460,
+            "type": "d",
+            "size": 4,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-impure.o",
+            "alias": [
+                "_impure_ptr"
+            ]
+        },
+        {
+            "sym": "_impure_data",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871464,
+            "type": "d",
+            "size": 76,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-impure.o",
+            "alias": [
+                "_impure_data"
+            ]
+        },
+        {
+            "sym": "openocd",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871540,
+            "type": "d",
+            "size": 1,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "max_threads"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871541,
+            "type": "d",
+            "size": 3,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "reply.0",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871544,
+            "type": "b",
+            "size": 8,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "msg.2",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871552,
+            "type": "b",
+            "size": 8,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "out.3",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871560,
+            "type": "b",
+            "size": 128,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_command_runner_stack",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536871688,
+            "type": "b",
+            "size": 1024,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_command_runner_pid",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872712,
+            "type": "b",
+            "size": 2,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_status",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872714,
+            "type": "b",
+            "size": 36,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872750,
+            "type": "b",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_buf_len",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872752,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "_buf",
+            "path": [
+                "tests",
+                "net",
+                "dns_cbor"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872756,
+            "type": "b",
+            "size": 128,
+            "arcv": "",
+            "obj": "main.o",
+            "alias": []
+        },
+        {
+            "sym": "usbus",
+            "path": [
+                "sys",
+                "auto_init",
+                "usb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536872884,
+            "type": "b",
+            "size": 432,
+            "arcv": "",
+            "obj": "auto_init_usb.o",
+            "alias": []
+        },
+        {
+            "sym": "_stack",
+            "path": [
+                "sys",
+                "auto_init",
+                "usb"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536873316,
+            "type": "b",
+            "size": 1024,
+            "arcv": "",
+            "obj": "auto_init_usb.o",
+            "alias": []
+        },
+        {
+            "sym": "main_stack",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536874340,
+            "type": "b",
+            "size": 1536,
+            "arcv": "",
+            "obj": "init.o",
+            "alias": []
+        },
+        {
+            "sym": "crashed",
+            "path": [
+                "core",
+                "lib"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875876,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "panic.o",
+            "alias": []
+        },
+        {
+            "sym": "runqueue_bitcache",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875880,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": []
+        },
+        {
+            "sym": "sched_runqueues",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875884,
+            "type": "b",
+            "size": 64,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_runqueues"
+            ]
+        },
+        {
+            "sym": "sched_context_switch_request",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875948,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_context_switch_request"
+            ]
+        },
+        {
+            "sym": "sched_active_thread",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875952,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_active_thread"
+            ]
+        },
+        {
+            "sym": "sched_num_threads",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875956,
+            "type": "b",
+            "size": 4,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_num_threads"
+            ]
+        },
+        {
+            "sym": "sched_threads",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536875960,
+            "type": "b",
+            "size": 132,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_threads"
+            ]
+        },
+        {
+            "sym": "sched_active_pid",
+            "path": [
+                "core"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876092,
+            "type": "b",
+            "size": 2,
+            "arcv": "",
+            "obj": "sched.o",
+            "alias": [
+                "sched_active_pid"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876094,
+            "type": "b",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_irq_arg",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876096,
+            "type": "b",
+            "size": 16,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": []
+        },
+        {
+            "sym": "_irq",
+            "path": [
+                "cpu",
+                "nrf52"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876112,
+            "type": "b",
+            "size": 16,
+            "arcv": "",
+            "obj": "spi_twi_irq.o",
+            "alias": []
+        },
+        {
+            "sym": "lastused",
+            "path": [
+                "sys",
+                "luid"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876128,
+            "type": "b",
+            "size": 1,
+            "arcv": "",
+            "obj": "luid.o",
+            "alias": []
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876129,
+            "type": "b",
+            "size": 3,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        },
+        {
+            "sym": "_usbdevs",
+            "path": [
+                "cpu",
+                "nrf5x_common",
+                "periph"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876132,
+            "type": "b",
+            "size": 216,
+            "arcv": "",
+            "obj": "usbdev.o",
+            "alias": []
+        },
+        {
+            "sym": "_rx_buf_mem",
+            "path": [
+                "sys",
+                "stdio"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876348,
+            "type": "b",
+            "size": 64,
+            "arcv": "",
+            "obj": "stdio.o",
+            "alias": []
+        },
+        {
+            "sym": "_cdc_tx_buf_mem",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876412,
+            "type": "b",
+            "size": 128,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": []
+        },
+        {
+            "sym": "cdcacm",
+            "path": [
+                "sys",
+                "usb",
+                "usbus",
+                "cdc",
+                "acm"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876540,
+            "type": "b",
+            "size": 336,
+            "arcv": "",
+            "obj": "cdc_acm_stdio.o",
+            "alias": []
+        },
+        {
+            "sym": "__malloc_sbrk_start",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876876,
+            "type": "b",
+            "size": 4,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mallocr.o",
+            "alias": [
+                "__malloc_sbrk_start"
+            ]
+        },
+        {
+            "sym": "__malloc_free_list",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876880,
+            "type": "b",
+            "size": 4,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-mallocr.o",
+            "alias": [
+                "__malloc_free_list"
+            ]
+        },
+        {
+            "sym": "__sf",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536876884,
+            "type": "b",
+            "size": 312,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__sf"
+            ]
+        },
+        {
+            "sym": "__stdio_exit_handler",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536877196,
+            "type": "b",
+            "size": 4,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-findfp.o",
+            "alias": [
+                "__stdio_exit_handler"
+            ]
+        },
+        {
+            "sym": "__lock___malloc_recursive_mutex",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536877200,
+            "type": "b",
+            "size": 1,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-lock.o",
+            "alias": [
+                "__lock___malloc_recursive_mutex"
+            ]
+        },
+        {
+            "sym": "__lock___sfp_recursive_mutex",
+            "path": [
+                "newlib",
+                "libc"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536877201,
+            "type": "b",
+            "size": 1,
+            "arcv": "libc_nano.a",
+            "obj": "libc_a-lock.o",
+            "alias": [
+                "__lock___sfp_recursive_mutex"
+            ]
+        },
+        {
+            "sym": "fill",
+            "path": [
+                "fill"
+            ],
+            "file": "",
+            "line": -1,
+            "addr": 536877202,
+            "type": "b",
+            "size": 2,
+            "arcv": "",
+            "obj": "",
+            "alias": []
+        }
+    ]
+}

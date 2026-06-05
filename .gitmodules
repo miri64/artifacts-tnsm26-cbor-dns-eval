@@ -7,3 +7,6 @@
 [submodule "04_cbor4dns_eval/v2fly-domain-list-community"]
 	path = 04_cbor4dns_eval/v2fly-domain-list-community
 	url = https://github.com/v2fly/domain-list-community.git
+[submodule "05_implementation/RIOT"]
+	path = 05_implementation/RIOT
+	url = git@github.com:anr-bmbf-pivot/RIOT-private.git

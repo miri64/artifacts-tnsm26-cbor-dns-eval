@@ -25,6 +25,7 @@ publicsuffixlist==1.0.2.20240827
 pyasn==1.6.2
 requests==2.32.3
 scapy==2.5
+seaborn==0.13.2
 svglib==1.5.1
 git+https://github.com/klieret/sunburst@9ef1163
 swifter[notebook]==1.4.0

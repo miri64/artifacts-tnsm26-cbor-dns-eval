@@ -53,3 +53,16 @@ RUN setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap && \
 COPY requirements.txt ./
 RUN pip --no-cache-dir install --upgrade uv && \
     uv pip --no-cache-dir install --system --upgrade -r requirements.txt
+
+ARG ARM_URLBASE=https://developer.arm.com/-/media/Files/downloads/gnu-rm
+ARG ARM_URL=${ARM_URLBASE}/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+ARG ARM_MD5=2383e4eb4ea23f248d33adc70dc3227e
+ARG ARM_FOLDER=gcc-arm-none-eabi-10.3-2021.10
+RUN echo 'Installing arm-none-eabi toolchain from arm.com' >&2 && \
+    mkdir -p /opt && \
+    curl -L -o /opt/gcc-arm-none-eabi.tar.bz2 ${ARM_URL} && \
+    echo "${ARM_MD5} /opt/gcc-arm-none-eabi.tar.bz2" | md5sum -c && \
+    tar -C /opt -jxf /opt/gcc-arm-none-eabi.tar.bz2 && \
+    rm -f /opt/gcc-arm-none-eabi.tar.bz2 && \
+    echo 'Removing documentation' >&2 && \
+    rm -rf /opt/gcc-arm-none-eabi-*/share/doc

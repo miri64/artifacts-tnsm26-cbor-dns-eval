@@ -2,6 +2,7 @@ jsons/
 jsons.tar.gz
 cbors/
 cbors.tar.gz
+domain.*
 .gh_token
 node_modules/
 package*.json

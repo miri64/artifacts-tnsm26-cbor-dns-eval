@@ -113,9 +113,10 @@ Roughly, for each section there are one or more [Jupyter] Notebooks and a corres
 3. Evaluating the Use of CBOR for Object Encoding: [`03_json2cbor_eval`](./03_json2cbor_eval.ipynb)
 4. Evaluating CBOR as DNS Message Format: [`04_cbor4dns_eval`](./04_cbor4dns_eval.ipynb)
 5. Evaluating the Name Compressors: [`05_implementation`](./05_implementation.ipynb)
-6. Discussion: [`06_discussion`](./06_discussion.ipynb)
-7. Conclusion: [`07_conclusion`](./07_conclusion.ipynb)
-8. Appendices: [`0A_appendix`](./0A_appendix.ipynb)
+6. End-to-end Validation: [`06_e2e_eval`](./06_e2e_eval.ipynb)
+7. Discussion: Does not have a dedicated notebook
+8. Conclusion: Does not have a dedicated notebook
+9. Appendices: Does not have a dedicated notebook
 
 The directory `utils` contains additional helper functions and tools, such as our extended taxonomy tool for CBOR classification.
 

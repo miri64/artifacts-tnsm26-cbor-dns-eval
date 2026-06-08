@@ -1,0 +1,144 @@
+\tikzset{
+  x = 1mm,
+  y = -1mm,
+  database/.style = {
+    fill = Set3-I,
+    draw = black,
+  },
+  database-disk/.style = {
+    database,
+    ellipse,
+    draw,
+    minimum width=10mm,
+    minimum height=4mm,
+  },
+  label/.style = {
+    align=center,
+    node distance = 0.0em,
+    inner sep=0.2em,
+    outer sep=0,
+  },
+  transition/.style = {
+    -{stealth},
+    line width = 1pt,
+  },
+  transition-label/.style = {
+    midway,
+    fill = white,
+    align = center,
+    inner sep=1pt,
+  },
+  action/.style = {
+    rectangle,
+    draw,
+    align=center,
+    anchor=north,
+    line width=1pt,
+    rounded corners=0.1em,
+  },
+  server/.style = {
+    action,
+    rounded corners=0.5em,
+    inner xsep=1em,
+  },
+  handler/.style = {
+    action,
+    font=\scriptsize,
+    fill=white,
+  },
+  handler-east/.style = {
+    handler,
+    xshift=-0.9em,
+    anchor=west,
+  },
+  handler-west/.style = {
+    handler,
+    xshift=0.9em,
+    anchor=east,
+  },
+}
+\begin{tikzpicture}
+  \node [align=center] (har) at (0, 0) {\includegraphics[width=15mm]{ha.png}\\(1 Mio. URLs of JSON, CSS, and HTML)};
+
+  \node [action] (download-objs) at ($(har) + (-25, 20)$) {Download and\\convert to\\intermediate};
+
+  \draw [database] ($(download-objs.north) + (-5, 35)$) node [coordinate]
+                        (http-disk-1) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (http-disk-1-fill) at ($(http-disk-1) + (5, 0)$) {};
+  \draw [database] ($(http-disk-1) + (0, -2)$) node [coordinate]
+                        (http-disk-2) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (http-disk-2-fill) at ($(http-disk-2) + (5, 0)$) {};
+  \draw [database] ($(http-disk-2) + (0, -2)$) node [coordinate]
+                        (http-disk-3) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (http-disk-3-fill) at ($(http-disk-3) + (5, 0)$) {};
+  \node [label, right=of http-disk-1-fill.east, anchor=west, align=left] (http-label) {HTTP\strut\\Database\strut};
+
+  \draw [transition] (har) -- (download-objs) node [transition-label] {URLs};
+  \draw [transition] (download-objs) -- (http-disk-3-fill.north) node [transition-label] {URL, actual type,\\original length, object};
+
+  \node [server] (web server) at ($(http-disk-1-fill.south) + (0, 10)$) {\includegraphics[width=7mm]{tornado.png}\\Web Server\strut};
+  \node [handler-east] (web universal) at (web server.0) {\texttt{/*}};
+
+  \draw [transition] ([yshift=-1.6mm]http-disk-1-fill.south) -- (web server) node [transition-label] {Convert object};
+
+  \node [action] (query-dns) at ($(har) + (25, 20)$) {Query A and\\AAAA records};
+
+  \draw [database] ($(query-dns.north) + (-5, 35)$) node [coordinate]
+                        (dns-disk-1) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (dns-disk-1-fill) at ($(dns-disk-1) + (5, 0)$) {};
+  \draw [database] ($(dns-disk-1) + (0, -2)$) node [coordinate]
+                        (dns-disk-2) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (dns-disk-2-fill) at ($(dns-disk-2) + (5, 0)$) {};
+  \draw [database] ($(dns-disk-2) + (0, -2)$) node [coordinate]
+                        (dns-disk-3) {} -- ++(0, 1.6) arc (180:360:5mm and 2.0mm) -- ++(0, -1.6);
+  \node [database-disk] (dns-disk-3-fill) at ($(dns-disk-3) + (5, 0)$) {};
+  \node [label, left=of dns-disk-1-fill.west, anchor=east, align=right] (dns-label) {DNS\strut\\Database\strut};
+
+  \draw [transition] (har) -- (query-dns) node [transition-label] {Hostnames};
+  \draw [transition] (query-dns) -- (dns-disk-3-fill.north) node [transition-label] {Name, query type,\\text response};
+
+  \node [server] (dns server) at ($(dns-disk-1-fill.south) + (0, 10)$) {\includegraphics[width=7mm]{tornado.png}\\DoH Server\strut};
+  \node [handler-west] (dns delegate) at (dns server.195) {\texttt{/delegate}};
+  \node [handler-west] (dns query) at (dns server.165) {\texttt{/dns-query}};
+
+  \draw [transition] ([yshift=-1.6mm]dns-disk-1-fill.south) -- (dns server) node [transition-label] {Convert response};
+  \draw [transition] (dns delegate.5) arc (-90:90:0.4em) -- ++(-17, 0) arc (270:90:0.4em) -- (dns query);
+
+  \node [anchor=north, yshift=-12mm] (curl) at (har |- web server.south) {\includegraphics[width=15mm]{curl.pdf}};
+
+  \draw [transition] ([xshift=1mm, yshift=-1mm]curl.north west) -- (web universal.310) node [transition-label, pos=0.35, font=\scriptsize\ttfamily] {GET\\{-}{-}connect-to\\<url-port>\\:<server-port>};
+  \draw [transition] ([xshift=-1mm, yshift=-1mm]curl.north east) -- (dns delegate.310) node [transition-label, pos=0.45, font=\scriptsize\ttfamily] {{-}{-}doh-url\\/delegate};
+  \draw [transition] (http-label.300) arc (45:0:10mm) -- ++(0, 5) node [transition-label] {URLs} to [out=270, in=90] (curl.north); 
+
+  \begin{scope}[shift={($(curl.center) + (270:15mm)$)}, y=1mm, scale=1.75]
+    \draw [draw, fill=white] (-6, 2) -- ++(2, 2) -- ++(10, 0) -- ++(0, -8) -- ++(-12, 0) -- cycle;
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.66em) {time\_total};
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.25em) {time\_connect};
+    \node [font=\ttfamily\scriptsize, align=center] at (0,-0.10em) {$\vdots$};
+    \node [font=\ttfamily\scriptsize, align=center] at (0,-0.66em) {time\_namelookup};
+    \draw [draw, fill=gray!50!white] (-6, 2) -- ++(2, 0) -- ++(0, 2) -- cycle;
+    \node [draw=none, fill=none, inner sep=0pt, outer sep=0pt, fit={(-6, 2) (-4, 4) (6, 4) (6, -4) (-6, -4)}] (curl-output) {};
+  \end{scope}
+  \draw [transition] (curl) -- (curl-output);
+
+  \begin{scope}[shift={($(curl.center) + (180:29mm)$)}, y=1mm, scale=1.75]
+    \draw [draw, fill=white] (-6, 2) -- ++(2, 2) -- ++(10, 0) -- ++(0, -8) -- ++(-12, 0) -- cycle;
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.40em) {encode\_time};
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.00em) {$\vdots$};
+    \node [font=\ttfamily\scriptsize, align=center] at (0,-0.40em) {handler\_time};
+    \draw [draw, fill=gray!50!white] (-6, 2) -- ++(2, 0) -- ++(0, 2) -- cycle;
+    \node [draw=none, fill=none, inner sep=0pt, outer sep=0pt, fit={(-6, 2) (-4, 4) (6, 4) (6, -4) (-6, -4)}] (web-output) {};
+  \end{scope}
+  \draw [transition] (web server) -- (web-output);
+
+  \begin{scope}[shift={($(curl.center) + (0:29mm)$)}, y=1mm, scale=1.75]
+    \draw [draw, fill=white] (-6, 2) -- ++(2, 2) -- ++(10, 0) -- ++(0, -8) -- ++(-12, 0) -- cycle;
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.66em) {decode\_time};
+    \node [font=\ttfamily\scriptsize, align=center] at (0, 0.25em) {encode\_time};
+    \node [font=\ttfamily\scriptsize, align=center] at (0,-0.10em) {$\vdots$};
+    \node [font=\ttfamily\scriptsize, align=center] at (0,-0.66em) {handler\_time};
+    \draw [draw, fill=gray!50!white] (-6, 2) -- ++(2, 0) -- ++(0, 2) -- cycle;
+    \node [draw=none, fill=none, inner sep=0pt, outer sep=0pt, fit={(-6, 2) (-4, 4) (6, 4) (6, -4) (-6, -4)}] (dns-output) {};
+  \end{scope}
+  \draw [transition] (dns server) -- (dns-output);
+\end{tikzpicture}

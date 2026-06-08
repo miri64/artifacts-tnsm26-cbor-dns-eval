@@ -3,7 +3,7 @@ beautifulsoup4==4.12.3
 bounded_pool_executor==0.0.3
 cbor2==5.6.4
 dnspython[doh,idna]==2.6.1
-duckdb==1.1.1
+duckdb==1.4.4
 fonttools==4.53.1
 geoip2==4.8.0
 html5lib==1.1

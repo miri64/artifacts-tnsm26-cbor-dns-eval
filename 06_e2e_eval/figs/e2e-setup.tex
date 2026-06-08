@@ -1,0 +1,111 @@
+\input{\inputexternaltikzpath/World}
+\tikzset{
+  proxy/.style = {
+    outer sep=0,
+    inner sep=-1pt,
+    circle,
+    minimum width=8pt,
+    draw=Set1-B,
+    line width=1pt
+  },
+  lighthouse/.style = {
+    outer sep=0,
+    inner sep=0,
+  },
+  proxy-label/.style = {
+    outer sep=0,
+    inner sep=0,
+    label distance=1pt,
+    font=\scriptsize,
+  },
+  cbor-leg/.style = {
+    {Stealth}-{Stealth},
+    shorten <=4pt,
+    shorten >=4pt,
+    Set1-B,
+    densely dashed,
+    line width=1pt,
+  },
+  cbor-leg-label/.style = {
+    midway,
+    sloped,
+    color=black,
+    font=\tiny,
+    inner sep=0,
+    outer sep=0,
+  },
+  web/.style = {
+    color=black,
+    draw=Set1-B,
+    line width=0.5pt,
+  },
+  web node/.style = {
+    circle,
+    web,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum width=2pt,
+    fill=Set1-B,
+  },
+  legend label/.style = {
+    color=black,
+    font=\scriptsize,
+    anchor=west,
+    align=left,
+  }
+}
+\begin{tikzpicture}
+  \begin{scope}[scale=0.35]
+    \begin{pgfonlayer}{bg}
+      \WORLD[every state={draw=white, line width=0.5pt, fill=Set3-I}, local bounding box=World]
+    \end{pgfonlayer}
+  \end{scope}
+  \coordinate (Dresden) at ($(Germany.center)!0.6!(Germany.12)$);
+  \coordinate (Johannesburg) at ($(Lesotho.north)!0.45!(SouthAfrica.north -| Lesotho.north)$);
+  \coordinate (Oregon) at ($(UnitedStatesOfAmerica.center)!0.05!(UnitedStatesOfAmerica.south)$);
+  \coordinate (Jakarta) at ($(Indonesia.center)!0.5!(Indonesia.195)$);
+  \node [proxy, draw=Set1-A, label={[proxy-label]above:{Dresden, DE}}]  at (Dresden)                        {\includegraphics[width=8pt]{mitmproxy-logo}};
+  \node [proxy, label={[proxy-label, xshift=3em]below:{Johannesburg, ZA}}]          at (Johannesburg)                   {\includegraphics[width=8pt]{mitmproxy-logo}};
+  \node [proxy, label={[proxy-label, label distance=3pt]above:{Oregon, US}}]                at (Oregon)                         {\includegraphics[width=8pt]{mitmproxy-logo}};
+  \node [proxy, label={[proxy-label]below:{Jakarta, ID}}]               at (Jakarta)                        {\includegraphics[width=8pt]{mitmproxy-logo}};
+  \node [lighthouse]                                                    at ($(Dresden.center) + (215:4pt)$) {\includegraphics[width=8pt]{lighthouse-logo}};
+
+  \begin{pgfonlayer}{bg}
+    \foreach \remote/\hopsm/\hopss/\rttm/\rtts in {Johannesburg/16/2/176/3,Oregon/15/1/163/9,Jakarta/20/0/253/23}
+    {
+      \draw [cbor-leg] (Dresden) -- node [cbor-leg-label, above=1pt] {\hopsm$\pm$\hopss~hops} node [cbor-leg-label, below=1pt] {\rttm$\pm$\rtts~ms} (\remote);
+      \draw [web] (\remote) -- ++(47:8pt) node [web node] {};
+      \draw [web] (\remote) -- ++(139:11pt) node [web node] {};
+      \draw [web] (\remote) -- ++(186:9pt) node [web node] {};
+      \draw [web] (\remote) -- ++(230:7pt) node [web node] {};
+      \draw [web] (\remote) -- ++(301:6pt) node [web node] {};
+      \draw [web] (\remote) -- ++(339:10pt) node [web node] {};
+    }
+  \end{pgfonlayer}
+
+  \draw [
+    cbor-leg,
+    shorten <=-1pt,
+    shorten >=-1pt,
+    % {Stealth[reversed] Stealth[reversed]}-
+    ] ([xshift=-1.5em, yshift=1.1em]World.south west) node [coordinate] (cbor-leg-legend-handle) {} -- ++(3em, 0) node [cbor-leg-label, above=1pt] (cbor-leg-legend-center) {$x$~hops} node [cbor-leg-label, below=1pt] {$t$~ms} node [legend label] (cbor-leg-legend-label) {CBOR-converted web\\[-0.1em]exchange over $x$ hops\\[-0.1em]with ICMP RTT $t$ ms};
+  \coordinate (remote-proxy-legend-handle) at ($(cbor-leg-legend-center.south) + (0, 1.6em)$);
+  \foreach \remote in {remote-proxy-legend-handle}
+  {
+    \draw [web] (\remote) -- ++(47:7pt) node [web node] {};
+    \draw [web] (\remote) -- ++(139:7pt) node [web node] {};
+    \draw [web] (\remote) -- ++(186:6pt) node [web node] {};
+    \draw [web] (\remote) -- ++(230:7pt) node [web node] {};
+    \draw [web] (\remote) -- ++(301:7pt) node [web node] {};
+    \draw [web] (\remote) -- ++(339:6pt) node [web node] {};
+    \node [proxy]  at (\remote) {\includegraphics[width=8pt]{mitmproxy-logo}};
+  }
+  \node [legend label] (remote-proxy-legend-label) at (remote-proxy-legend-handle -| cbor-leg-legend-label.west) {Remote proxy};
+  \coordinate (local-proxy-legend-handle) at ($(remote-proxy-legend-handle) + (0em, 1.6em)$);
+  \node [proxy, draw=Set1-A] at (local-proxy-legend-handle) {\includegraphics[width=8pt]{mitmproxy-logo}};
+  \node [lighthouse] at ($(local-proxy-legend-handle) + (215:4pt)$) {\includegraphics[width=8pt]{lighthouse-logo}};
+  \node [legend label] (local-proxy-legend-label) at (local-proxy-legend-handle -| cbor-leg-legend-label.west) {Browser and\\[-0.1em]local proxy};
+  \begin{pgfonlayer}{bg}
+    \node [fit={(cbor-leg-legend-handle) (cbor-leg-legend-label) (remote-proxy-legend-label) (local-proxy-legend-handle) (local-proxy-legend-label)}, inner xsep=2pt, inner ysep=0pt, line width=1pt, rectangle, rounded corners=2pt, draw=gray!50, fill=white, fill opacity=.8] {};
+  \end{pgfonlayer}
+\end{tikzpicture}

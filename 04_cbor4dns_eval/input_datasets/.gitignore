@@ -1,3 +1,4 @@
+*.out.gz
 *.csv.gz
 *.ndjson.gz
 *.pcapng.gz

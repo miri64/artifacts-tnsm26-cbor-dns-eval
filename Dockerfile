@@ -46,7 +46,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pigz \
     sqlite3 \
     tmux \
-    tshark
+    tshark \
+    zstd
 
 RUN setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap && \
    chown root:wireshark /usr/bin/dumpcap && chmod u+s /usr/bin/dumpcap && chmod o-rx /usr/bin/dumpcap 

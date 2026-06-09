@@ -7,12 +7,12 @@ This repository contains code and documentation to reproduce the experimental re
 
 **Abstract:**
 
-> The Internet community has taken major efforts to decrease latency in the World Wide Web with significant improvements in accelerating content transport and in compressing static content.
-> Less attention, however, has been dedicated to dynamic content compression.
+> The Internet community has taken major efforts to decrease latency on the World Wide Web with significant improvements in accelerating content transport and in compressing static content.
+> Less attention, however, has been dedicated to compression of dynamic content.
 > Such content is commonly provided by JSON and DNS over HTTPS.
 > Dynamic content objects continue to grow in size, which increases latency and fosters the digital inequality.
 > Concise Binary Object Representation (CBOR) was originally introduced to restrict packet sizes in constrained Internet of Things (IoT) and enables efficient encoding of data objects.
-> When switching the data representation from JSON to CBOR a corpus of JSON objects collected via the HTTP Archive reduces data by up to 80.0%.
+> When switching the data representation from JSON to CBOR, a corpus of JSON objects collected via the HTTP Archive reduces data by up to 80.0%.
 > This size reduction can decrease loading times by up to 13.8% when downloading large objects—even in local setups.
 > A new CBOR-based DNS message format designed for use with DNS over HTTPS (DoH) and DNS over CoAP (DoC) minimizes packets by up to 95.5% in its packed form and shows large potential for additionally compressing names and addresses.
 > We contribute two name compression schemes that apply to the new CBOR format and save up to 226 bytes in a response.
@@ -60,7 +60,7 @@ If your host user has a different UID or GID than 1000, this also can be configu
 HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose up
 ```
 
-Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
+Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
 
 ### Using UV
 
@@ -102,7 +102,7 @@ You now can start Jupyter Lab by running the following command (you might want t
 jupyter lab
 ```
 
-Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
+Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
 
 ## Repository Structure
 

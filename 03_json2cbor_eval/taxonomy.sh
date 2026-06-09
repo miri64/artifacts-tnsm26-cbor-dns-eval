@@ -21,7 +21,7 @@ fi
 
 taxonomy() {
     JSON_FILENAME="$(echo "$1" | cut -d';' -f1)"
-    if ! [ -f "${INPUT_DIR}/03_json2cbor_eval/jsons/${JSON_FILENAME}" ]; then
+    if ! [ -f "${INPUT_DIR}/jsons/${JSON_FILENAME}" ]; then
         echo "$1"
         return
     fi
@@ -29,7 +29,7 @@ taxonomy() {
         echo "$1"
         return
     fi
-    TAX=$("${SCRIPT_DIR}/../utils/taxonomy.py" "/users/lenders/03_json2cbor_eval/jsons/${JSON_FILENAME}" | \
+    TAX=$("${SCRIPT_DIR}/../utils/taxonomy.py" "${INPUT_DIR}/jsons/${JSON_FILENAME}" | \
         sed "s/\['tier \([0-9]\+\)', '\(.\)\(.*\)', '\(.\)\(.*\)', '\(.\)\(.*\)'\]/\1;\U\2\E\3;\U\4\E\5;\U\6\E\7/g")
     if [ "${TAX}" = "['str', 'str', 'str', 'str']" ]; then
         echo "${TAX}" >&2

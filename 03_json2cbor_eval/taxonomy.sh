@@ -6,23 +6,22 @@
 #
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+INPUT_DIR="${INPUT_DIR:-${SCRIPT_DIR}}"
 
 if [ $# -lt 1 ]; then
     echo "usage: $0 <input file>" >&2
     exit 1
 fi
 
-# PROCS=$(grep -c '^processor' /proc/cpuinfo)
-# if [ $PROCS -gt 64 ]; then
-#     # leave some resources to collegues ;-)
-#     PROCS=$(( (PROCS * 3) / 4))
-# fi
-PROCS=256
-
+PROCS=$(grep -c '^processor' /proc/cpuinfo)
+if [ $PROCS -gt 64 ]; then
+    # leave some resources to collegues ;-)
+    PROCS=$(( (PROCS * 3) / 4))
+fi
 
 taxonomy() {
     JSON_FILENAME="$(echo "$1" | cut -d';' -f1)"
-    if ! [ -f "/users/lenders/03_json2cbor_eval/jsons/${JSON_FILENAME}" ]; then
+    if ! [ -f "${INPUT_DIR}/03_json2cbor_eval/jsons/${JSON_FILENAME}" ]; then
         echo "$1"
         return
     fi
@@ -43,5 +42,6 @@ INPUT_FILE="${1}"
 
 export -f taxonomy
 export SCRIPT_DIR
+export INPUT_DIR
 
-taxonomy "$(grep 'harch/atlas\.json' "${INPUT_FILE}")"
+cat "${INPUT_FILE}" | parallel --line-buffer -j"${PROCS}" -I'{}' taxonomy

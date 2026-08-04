@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.lighthouse
-    image: ghcr.io/netd-tud/tnsm26-cbor-lighthouse 
+    image: docker.io/netd-tud/tnsm26-cbor-lighthouse
     volumes:
       - .:/app
       - ./chrome-config/.config/google-chrome-lighthouse:/tmp/chrome-lighthouse-config

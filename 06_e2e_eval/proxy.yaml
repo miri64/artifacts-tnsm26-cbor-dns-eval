@@ -3,9 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mitmproxy
-    image: cbor-dns-eval/proxy
+    image: docker.io/netd-tud/tnsm26-cbor-proxy
     environment:
       PROXY_LOG: "${PROXY_LOG:-/app/mitmproxy.log}"
     volumes:
       - .:/app
-      - ../04_cbor4dns_eval/cbor4dns:/cbor4dns  # tbd remove
+      - ../04_cbor4dns_eval/cbor4dns:/cbor4dns

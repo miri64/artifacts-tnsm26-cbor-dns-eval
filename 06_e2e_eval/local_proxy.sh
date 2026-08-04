@@ -35,6 +35,4 @@ ip6tables -t nat -A PREROUTING -i eth0 -p udp --dport 443 -j REDIRECT --to-port 
 # Remove old certificates from previous sessions (mitmproxy does not seem to reuse them)
 rm -f ~/.mitmproxy/mitmproxy-*
 
-# tbd clone and checkout right branch of cbor4dns to /cbor4dns
-
 proxychains4 mitmdump -m transparent --ssl-insecure --anticache -s "${PROXY_LOCAL_SCRIPT}" -p "${PROXY_LOCAL_PORT}" --set connection_strategy=lazy > /dev/null

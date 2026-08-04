@@ -1,9 +1,12 @@
-Leaner and Faster: The Web and DNS Can Benefit from CBOR
-========================================================
+Artifacts: Leaner and Faster: The Web and DNS Can Benefit from CBOR
+===================================================================
 
-This repository contains code and documentation to reproduce the experimental results and plots as well as the raw data results of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR](https://tbd)" published in TBD.
+[![DOI][software-badge]][software-doi]
+[![Paper on IEEE Xplore][paper-badge]][paper-doi]
 
-- TBD
+This repository contains code and documentation to reproduce the experimental results and plots as well as the raw data results of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
+
+- M. S. Lenders, C. Bormann, T.C. Schmidt, and M. Wählisch, “**A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
 
 **Abstract:**
 
@@ -24,11 +27,30 @@ This repository contains code and documentation to reproduce the experimental re
 First, clone this repository:
 
 ```sh
-git clone https://tbd cbor-dns-eval-tbd
-cd cbor-dns-eval-tbd
+git clone https://github.com/netd-tud/artifacts-tnsm26-cbor-dns-eval.git
+cd artifacts-tnsm26-cbor-dns-eval
 ```
 
-Then you have the choice between a [vagrant]-based set-up using a VM, or you can run [Jupyter] Lab natively on your system.
+Or download the `artifacts-tnsm26-cbor-dns-eval-v0.1.0.zip` ZIP archive from [Zenodo][software-doi] and unzip it in the git repository.
+
+For most sections there are one or more Jupyter notebooks containing documentation and the code to create the output we describe in that section. The number `XX` indicates which section it belongs to. Some of these notebooks have a corresponding directory which contain further code.
+
+- **I. Introduction**, see [`01_introduction.ipynb`](./01_introductionn.ipynb).
+- **II. Background and Related Work**, see [`02_background.ipynb`](./02_background.ipynb).
+- **III. Evaluating the Use of CBOR for Object Encoding**, see [`03_json2cbor_eval.ipynb`](./03_json2cbor_eval.ipynb).
+  + **Dataset Collection**, see [`03_json2cbor_eval/01_dataset_collection.ipynb`](03_json2cbor_eval/01_dataset_collection.ipynb)
+  + **Request/Response Times**, see [`03_json2cbor_eval/02_request_response_time.ipynb`](03_json2cbor_eval/02_request_response_time.ipynb) (also used for Figure 2 in Introduction)
+- **IV. Evaluating CBOR as DNS Message Format**, see [`04_cbor4dns_eval.ipynb`](./04_cbor4dns_eval.ipynb).
+  + **Dataset Collection**, see [`04_cbor4dns_eval/01_dataset_collection.ipynb`](004_cbor4dns_eval/01_dataset_collection.ipynb)
+  + **Encode to `application/dns+cbor`**, see [`04_cbor4dns_eval/02_encoding.ipynb`](04_cbor4dns_eval/02_encoding.ipynb)
+  + **Prepararations for Common IP Prefixes and Name Suffixes Analysis**, see [`04_cbor4dns_eval/03_comp_pot_prep.ipynb`](04_cbor4dns_eval/03_comp_pot_prep.ipynb)
+- **V. Evaluating the Name Compressors**, see [`05_implementation.ipynb`](./05_implementation.ipynb).
+- **VI. End-to-end Validation**, see [`06_e2e_eval.ipynb`](./06_e2e_eval.ipynb).
+- **VII. Discussion**, does not have any code.
+- **VIII. Conclusion**, does not have any code.
+- **Appendices**, do not have any code.
+
+To run the Jupyter notebooks, you can either run them in a [Docker container](#dockerized-usage) (recommended usage) or natively on your host system [using UV](#using-uv).
 
 ### Dockerized Usage
 
@@ -60,7 +82,23 @@ If your host user has a different UID or GID than 1000, this also can be configu
 HOST_UID="$(id -u)" HOST_GID="$(id -g)" docker compose up
 ```
 
-Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
+Now go to the Jupyter Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
+
+#### Download from Other Container Registry
+
+We provide the docker images needed for the artifacts at several container registries. You can find the image names for each repository in the following table.
+
+| Image           | Docker Hub      |GitHub Packages  |Codeberg Packages|
+|-----------------|-----------------|-----------------|-----------------|
+|[Main](./Dockerfile)|[`docker.io/miri64/tnsm26-cbor-jupyter`](https://hub.docker.com/r/miri64/tnsm26-cbor-jupyter)|[`ghcr.io/miri64/tnsm26-cbor-jupyter`](https://github.com/users/miri64/packages/container/package/tnsm26-cbor-jupyter)|[`codeberg.org/miri64/tnsm26-cbor-jupyter`](https://codeberg.org/miri64/-/packages/container/tnsm26-cbor-jupyter)|
+|[E2E Validation Lighthouse](./06_e2e_eval/Dockerfile.lighthouse)|[`docker.io/miri64/tnsm26-cbor-lighthouse`](https://hub.docker.com/r/miri64/tnsm26-cbor-lighthouse)|[`ghcr.io/miri64/tnsm26-cbor-lighthouse`](https://github.com/users/miri64/packages/container/package/tnsm26-cbor-lighthouse)|[`codeberg.org/miri64/tnsm26-cbor-lighthouse`](https://codeberg.org/miri64/-/packages/container/tnsm26-cbor-lighthouse)|
+|[E2E Validation Proxies](./06_e2e_eval/Dockerfile.mitmproxy)|[`docker.io/miri64/tnsm26-cbor-proxy`](https://hub.docker.com/r/miri64/tnsm26-cbor-proxy)|[`ghcr.io/miri64/tnsm26-cbor-proxy`](https://github.com/users/miri64/packages/container/package/tnsm26-cbor-proxy)|[`codeberg.org/miri64/tnsm26-cbor-proxy`](https://codeberg.org/miri64/-/packages/container/tnsm26-cbor-proxy)|
+
+Sadly, support to configure these easily is not provided when running `docker compose`. As such, the easiest way to use the repositories is to search and replace the `image:` key within the docker compose files. E.g., to use the Codeberg Packages registry, use the following
+
+```sh
+find . -name *.yaml | xargs grep -l 'image: *docker\.io/miri64' | xargs sed -i 's#image: *docker\.io/miri64#image: codeberg.org/miri64'
+```
 
 ### Using UV
 
@@ -75,7 +113,7 @@ pip install uv
 
 UV has some advantages over the classic `pip` package manager: First, it is much faster. Second, it allows for a hassle-free deployment of python versions that are not pre-installed on your system.
 
-Our [Jupyter] Notebooks were tested with Python 3.12 on a Debian 13 (Trixie) machine. As such, we recommend installing that Python version.
+Our Jupyter Notebooks were tested with Python 3.12 on a Debian 13 (Trixie) machine. As such, we recommend installing that Python version.
 
 ```bash
 uv python install cpython-3.12
@@ -102,36 +140,11 @@ You now can start Jupyter Lab by running the following command (you might want t
 jupyter lab
 ```
 
-Now go to the [Jupyter] Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `JUPYTER_PORT`).
-
-## Repository Structure
-
-Roughly, for each section there are one or more [Jupyter] Notebooks and a corresponding directory:
-
-1. Introduction: [`01_introduction`](./01_introduction.ipynb)
-2. Background and Related Work: [`02_background`](./02_background.ipynb)
-3. Evaluating the Use of CBOR for Object Encoding: [`03_json2cbor_eval`](./03_json2cbor_eval.ipynb)
-4. Evaluating CBOR as DNS Message Format: [`04_cbor4dns_eval`](./04_cbor4dns_eval.ipynb)
-5. Evaluating the Name Compressors: [`05_implementation`](./05_implementation.ipynb)
-6. End-to-end Validation: [`06_e2e_eval`](./06_e2e_eval.ipynb)
-7. Discussion: Does not have a dedicated notebook
-8. Conclusion: Does not have a dedicated notebook
-9. Appendices: Does not have a dedicated notebook
+Now go to the Jupyter Lab at http://localhost:8888/lab/tree/00_start.ipynb (the port of the URL might differ if you changed it using `--port`).
 
 The directory `utils` contains additional helper functions and tools, such as our extended taxonomy tool for CBOR classification.
 
-[vagrant]: https://developer.hashicorp.com/vagrant
-[install vagrant]: https://developer.hashicorp.com/vagrant/install
-[VirtualBox provider]: https://developer.hashicorp.com/vagrant/docs/providers/virtualbox
-[Vagrantfile]: ./Vagrantfile
-[Jupyter]: https://jupyter.org/
-[pyenv]: https://github.com/pyenv/pyenv
-[bash]: https://www.gnu.org/software/bash/
-[curl]: https://curl.se/
-[npm]: https://www.npmjs.com/
-[GNU parallel]: https://www.gnu.org/software/parallel/
-[pigz]: https://zlib.net/pigz/
-[tshark]: https://tshark.dev/
-[supported by Jupyter-TikZ]: https://jupyter-tikz.readthedocs.io/stable/installation/#latex
-[Poppler]: https://poppler.freedesktop.org/
-[requirements.txt]: ./requirements.txt
+[paper-badge]: https://img.shields.io/badge/Paper-IEEE%20Xplore-green
+[paper-doi]: https://doi.org/10.1109/TNSM.2026.TBD
+[software-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.TBD.svg
+[software-doi]: https://doi.org/10.5281/zenodo.TBD

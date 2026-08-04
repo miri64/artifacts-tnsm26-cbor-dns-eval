@@ -3,10 +3,10 @@
 	url = https://github.com/blechschmidt/massdns.git
 [submodule "04_cbor4dns_eval/cbor4dns"]
 	path = 04_cbor4dns_eval/cbor4dns
-	url = https://github.com/anr-bmbf-pivot/cbor4dns
+	url = https://github.com/netd-tud/cbor4dns.git
 [submodule "04_cbor4dns_eval/v2fly-domain-list-community"]
 	path = 04_cbor4dns_eval/v2fly-domain-list-community
 	url = https://github.com/v2fly/domain-list-community.git
 [submodule "05_implementation/RIOT"]
 	path = 05_implementation/RIOT
-	url = git@github.com:anr-bmbf-pivot/RIOT-private.git
+	url = https://github.com/netd-tud/RIOT.git

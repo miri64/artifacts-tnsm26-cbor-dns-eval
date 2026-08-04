@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+title: "Artifacts: Leaner and Faster: The Web and DNS Can Benefit from CBOR"
+version: 0.1.0
+license: "MIT"
+type: software
+abstract: |
+  This provides the code, tools, data, and visualizations for our paper Leaner and Faster: The Web
+  and DNS Can Benefit from CBOR” accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
+doi: 10.5281/zenodo.TBD
+message: "If you use this software, please cite it as below."
+authors:
+  - given-names: Martine S.
+    family-names: Lenders
+    email: martine.lenders@tu-dresden.de
+    affiliation: TU Dresden
+    orcid: 'https://orcid.org/0000-0001-7378-1045'
+  - given-names: Carsten
+    family-name: Bormann
+    affiliation: Universität Bremen TZI
+    orcid: 'https://orcid.org/0000-0001-9527-7181'
+  - given-names: Thomas C.
+    family-names: Schmidt
+    email: t.schmidt@haw-hamburg.de
+    affiliation: HAW Hamburg
+    orcid: 'https://orcid.org/0000-0002-0956-7885'
+  - given-names: Matthias
+    family-names: Wählisch
+    affiliation: TU Dresden & Barkhausen Institut
+    orcid: 'https://orcid.org/0000-0002-3825-2807'
+    email: m.waehlisch@tu-dresden.de
+keywords:
+  - CBOR
+  - World Wide Web
+  - JSON
+  - DNS
+  - application/dns+cbor
+  - Internet measurement
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.TBD
+    description: DOI of Artifacts
+  - type: doi
+    value: 10.1109/TNSM.2026.TBD
+    description: DOI of Paper
+  - type: doi
+    value: 10.48550/arXiv.2512.12067
+    description: DOI of the pre-print
+preferred-citation:
+  type: article
+  title: "Leaner and Faster: The Web and DNS Can Benefit from CBOR"
+  authors:
+    - given-names: Martine S.
+      family-names: Lenders
+      email: martine.lenders@tu-dresden.de
+      affiliation: TU Dresden
+      orcid: 'https://orcid.org/0000-0001-7378-1045'
+    - given-names: Carsten
+      family-name: Bormann
+      affiliation: Universität Bremen TZI
+      orcid: 'https://orcid.org/0000-0001-9527-7181'
+    - given-names: Thomas C.
+      family-names: Schmidt
+      email: t.schmidt@haw-hamburg.de
+      affiliation: HAW Hamburg
+      orcid: 'https://orcid.org/0000-0002-0956-7885'
+    - given-names: Matthias
+      family-names: Wählisch
+      affiliation: TU Dresden & Barkhausen Institut
+      orcid: 'https://orcid.org/0000-0002-3825-2807'
+      email: m.waehlisch@tu-dresden.de
+  journal: "Transactions on Network and Service Management"
+  volume: TBD
+  issue: TBD
+  publisher:
+    name: IEEE
+    address: Piscataway, NJ, USA
+  start: TDB
+  end: TBD
+  year: 2026
+  month: TBD
+  doi: 10.1109/TNSM.2026.TBD
+  scope: "If you use this software, we prefer that you cite our paper as below."

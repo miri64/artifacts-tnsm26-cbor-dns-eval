@@ -94,7 +94,7 @@
   \file {Tranco List}{(0, 0)}{GnBu}{TXT}{\faIcon{bars}}
   \node [dataset label, above=-0.4em of Tranco List, anchor=south] (Tranco label) {\textbf{Tranco List}~[20]};
 
-  \node [procedure, below=of Tranco List] (MassDNS) {MassDNS [68]};
+  \node [procedure, below=of Tranco List] (MassDNS) {MassDNS [70]};
   \node [right=6em of MassDNS, color=gray, font=\Huge, inner sep=0pt, outer sep=0pt] (DNS resolver) {\faIcon{database}};
   \node [above=0em of DNS resolver, align=center, font=\small] {1.1.1.1\\[-0.3em]8.8.8.8\\[-0.3em]9.9.9.9};
   \node [below=0em of DNS resolver, align=center, font=\small] (DNS label) {Public\\Resolvers};
@@ -147,8 +147,8 @@
   \node [procedure, text width=6em, anchor=north, below=1.5em of Name anchor, font=\scriptsize] (Name Suffixes) {{\small\bfseries Names}\\[.0em]Pair-wise longest common suffix per message};
   \node [procedure, text width=6em, anchor=north, below=1.5em of Address anchor, font=\scriptsize] (Address Prefixes) {{\small\bfseries Addresses}\\[.0em]Pair-wise longest common prefix per message};
 
-  \node [procedure, below=of Name Suffixes, font=\scriptsize] (psl) {Mozilla Public Suffix List~[79]};
-  \node [procedure, below=of psl.south east, anchor=north east] (v2fly) {\scriptsize V2fly list~[78]};
+  \node [procedure, below=of Name Suffixes, font=\scriptsize] (psl) {Mozilla Public Suffix List~[78]};
+  \node [procedure, below=of psl.south east, anchor=north east] (v2fly) {\scriptsize V2fly list~[77]};
 
   \node [graph, below=of v2fly] (categories) {\includegraphics[width=4em]{dns_names_category_publicsuffixes.pdf}};
   \node [graph, left=0.1em of categories] (slds) {\includegraphics[width=4em]{dns_names_publicsuffixes.pdf}};
@@ -166,7 +166,7 @@
   \end{pgfonlayer}
 
 \node [procedure, below left=1.5em and 0.5em of Tranco.south, anchor=north east, font=\scriptsize, text width=7em] (cbor-tax) {{\small\bfseries Taxonomy}\\[.25em]\scriptsize of DNS+CBOR};
-  \node [procedure, right=3.0em of cbor-tax] (cbor4dns) {cbor4dns~[73]};
+  \node [procedure, right=3.0em of cbor-tax] (cbor4dns) {cbor4dns~[72]};
   \node [graph, anchor=south] (draft-06) at ([yshift=0.5em]cbor-tax.south |- Compression Potential.south) {\includegraphics[height=1em]{cbor+dns-gain-all.pdf}\includegraphics[height=1em]{cbor+dns-savings-all.pdf}\\[-0.5em]{\footnotesize Figure 11}};  % TBD update to final figure
   \node [graph, anchor=south] (name-comp1) at ([yshift=0.5em]cbor4dns.south |- Compression Potential.south) {%
     \includegraphics[height=0.9em]{cbor+dns-name-comp-queries-savings-all.pdf}%

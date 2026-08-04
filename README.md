@@ -6,7 +6,7 @@ Artifacts: Leaner and Faster: The Web and DNS Can Benefit from CBOR
 
 This repository contains code and documentation to reproduce the experimental results and plots as well as the raw data results of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
 
-- M. S. Lenders, C. Bormann, T.C. Schmidt, and M. Wählisch, “**A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
+- M. S. Lenders, C. Bormann, T.C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
 
 **Abstract:**
 
@@ -31,7 +31,7 @@ git clone https://github.com/netd-tud/artifacts-tnsm26-cbor-dns-eval.git
 cd artifacts-tnsm26-cbor-dns-eval
 ```
 
-Or download the `artifacts-tnsm26-cbor-dns-eval-v0.1.0.zip` ZIP archive from [Zenodo][software-doi] and unzip it in the git repository.
+Or download the `artifacts-tnsm26-cbor-dns-eval-v0.9.0.zip` ZIP archive from [Zenodo][software-doi] and unzip it in the git repository.
 
 For most sections there are one or more Jupyter notebooks containing documentation and the code to create the output we describe in that section. The number `XX` indicates which section it belongs to. Some of these notebooks have a corresponding directory which contain further code.
 
@@ -146,5 +146,5 @@ The directory `utils` contains additional helper functions and tools, such as ou
 
 [paper-badge]: https://img.shields.io/badge/Paper-IEEE%20Xplore-green
 [paper-doi]: https://doi.org/10.1109/TNSM.2026.TBD
-[software-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.TBD.svg
-[software-doi]: https://doi.org/10.5281/zenodo.TBD
+[software-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.21790597.svg
+[software-doi]: https://doi.org/10.5281/zenodo.21790597

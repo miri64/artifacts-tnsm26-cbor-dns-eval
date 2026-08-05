@@ -2,6 +2,7 @@ Artifacts: Leaner and Faster: The Web and DNS Can Benefit from CBOR
 ===================================================================
 
 [![DOI][software-badge]][software-doi]
+[![Datasets][data-badge]][data-doi]
 [![Paper on IEEE Xplore][paper-badge]][paper-doi]
 
 This repository contains code and documentation to reproduce the experimental results and plots as well as the raw data results of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
@@ -49,6 +50,8 @@ For most sections there are one or more Jupyter notebooks containing documentati
 - **VII. Discussion**, does not have any code.
 - **VIII. Conclusion**, does not have any code.
 - **Appendices**, do not have any code.
+
+The required datasets we provide on [OPARA][data-doi], an open access data repository and archive provided by TU Dresden.
 
 To run the Jupyter notebooks, you can either run them in a [Docker container](#dockerized-usage) (recommended usage) or natively on your host system [using UV](#using-uv).
 
@@ -146,5 +149,7 @@ The directory `utils` contains additional helper functions and tools, such as ou
 
 [paper-badge]: https://img.shields.io/badge/Paper-IEEE%20Xplore-green
 [paper-doi]: https://doi.org/10.1109/TNSM.2026.TBD
+[data-badge]: https://img.shields.io/badge/Data-OPARA-007f33
+[data-doi]: https://doi.org/10.25532/OPARA-1530
 [software-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.21790597.svg
 [software-doi]: https://doi.org/10.5281/zenodo.21790597

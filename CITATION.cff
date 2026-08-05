@@ -4,9 +4,9 @@ version: 0.9.0
 license: "MIT"
 type: software
 abstract: |
-  This provides the code, tools, data, and visualizations for our paper Leaner and Faster: The Web
+  This provides the code, tools, and visualizations for our paper Leaner and Faster: The Web
   and DNS Can Benefit from CBOR” accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
-doi: 10.5281/zenodo.TBD
+doi: 10.5281/zenodo.21790597
 message: "If you use this software, please cite it as below."
 authors:
   - given-names: Martine S.
@@ -38,8 +38,11 @@ keywords:
   - Internet measurement
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.TBD
-    description: DOI of Artifacts
+    value: 10.5281/zenodo.21790597
+    description: DOI of Software Artifacts
+  - type: doi
+    value: https://doi.org/10.25532/OPARA-1530
+    description: DOI of Dataset
   - type: doi
     value: 10.1109/TNSM.2026.TBD
     description: DOI of Paper

@@ -10,7 +10,7 @@ services:
         HOST_UID: "${HOST_UID:-1000}"
       context: .
       dockerfile: Dockerfile
-    image: docker.io/netd-tud/tnsm26-cbor-jupyter
+    image: docker.io/miri64/tnsm26-cbor-jupyter
     volumes:
       - .:/app
     environment:

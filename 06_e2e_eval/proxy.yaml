@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mitmproxy
-    image: docker.io/netd-tud/tnsm26-cbor-proxy
+    image: docker.io/miri64/tnsm26-cbor-proxy
     environment:
       PROXY_LOG: "${PROXY_LOG:-/app/mitmproxy.log}"
     volumes:

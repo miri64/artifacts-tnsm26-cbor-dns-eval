@@ -32,7 +32,7 @@ git clone https://github.com/netd-tud/artifacts-tnsm26-cbor-dns-eval.git
 cd artifacts-tnsm26-cbor-dns-eval
 ```
 
-Or download the `artifacts-tnsm26-cbor-dns-eval-v0.9.0.zip` ZIP archive from [Zenodo][software-doi] and unzip it in the git repository.
+Or download the `artifacts-tnsm26-cbor-dns-eval-v0.9.1.zip` ZIP archive from [Zenodo][software-doi] and unzip it in the git repository.
 
 For most sections there are one or more Jupyter notebooks containing documentation and the code to create the output we describe in that section. The number `XX` indicates which section it belongs to. Some of these notebooks have a corresponding directory which contain further code.
 

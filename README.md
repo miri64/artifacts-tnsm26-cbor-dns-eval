@@ -1,5 +1,5 @@
-Artifacts: Leaner and Faster: The Web and DNS Can Benefit from CBOR
-===================================================================
+Artifacts of “Leaner and Faster: The Web and DNS Can Benefit from CBOR”
+=======================================================================
 
 [![DOI][software-badge]][software-doi]
 [![Datasets][data-badge]][data-doi]

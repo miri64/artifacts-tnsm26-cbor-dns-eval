@@ -15,13 +15,17 @@ This repository contains code and documentation to reproduce the experimental re
 > Less attention, however, has been dedicated to compression of dynamic content.
 > Such content is commonly provided by JSON and DNS over HTTPS.
 > Dynamic content objects continue to grow in size, which increases latency and fosters the digital inequality.
-> Concise Binary Object Representation (CBOR) was originally introduced to restrict packet sizes in constrained Internet of Things (IoT) and enables efficient encoding of data objects.
-> When switching the data representation from JSON to CBOR, a corpus of JSON objects collected via the HTTP Archive reduces data by up to 80.0%.
+> In this paper, we propose to mitigate this increase by utilizing Concise Binary Object Representation (CBOR), a standard originally designed for the constrained Internet of Things (IoT) to restrict packet sizes and enable efficient encoding of data objects.
+> We provide protocol design and three new data sets for the evaluation of dynamic content, DNS, and the loading of websites.
+> Our key findings are the following:
+> _(i)_ Switching the data representation from JSON to CBOR reduces data by up to 80%.
 > This size reduction can decrease loading times by up to 13.8% when downloading large objects—even in local setups.
-> A new CBOR-based DNS message format designed for use with DNS over HTTPS (DoH) and DNS over CoAP (DoC) minimizes packets by up to 95.5% in its packed form and shows large potential for additionally compressing names and addresses.
-> We contribute two name compression schemes that apply to the new CBOR format and save up to 226 bytes in a response.
-> A lean decoder for these schemes can fit into as little as 314 bytes of build size.
-> Further optimization proposals directly influenced our work on the new DNS message format within the IETF.
+> _(ii)_ Enabling CBOR for DNS over HTTPS (DoH) and DNS over CoAP (DoC) reduces packet sizes significantly.
+> Compressing only names combined with unpacked CBOR achieves maximum gain of 52.2%, using more complex but still lightweight Packed CBOR allows minimizing packets by up to 95.5%.
+> Our lean decoder for name compression can fit into as little as 314 bytes of build size.
+> Our results clearly show the potential of CBOR outside of IoT scenarios.
+> Parts of this research have already influenced work within the IETF.
+
 
 ## Requirements
 

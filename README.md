@@ -7,7 +7,7 @@ Artifacts of “Leaner and Faster: The Web and DNS Can Benefit from CBOR”
 
 This repository contains code and documentation to reproduce the experimental results and plots of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
 
-- M. S. Lenders, C. Bormann, T.C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
+- M. S. Lenders, C. Bormann, T. C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
 
 **Abstract:**
 

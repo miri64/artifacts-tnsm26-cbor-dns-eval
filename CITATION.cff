@@ -45,7 +45,7 @@ identifiers:
     value: https://doi.org/10.25532/OPARA-1530
     description: DOI of Dataset
   - type: doi
-    value: 10.1109/TNSM.2026.TBD
+    value: 10.1109/TNSM.2026.3722114
     description: DOI of Paper
   - type: doi
     value: 10.48550/arXiv.2512.12067
@@ -84,5 +84,5 @@ preferred-citation:
   # end: TBD
   year: 2026
   # month: TBD
-  doi: 10.1109/TNSM.2026.TBD
+  doi: 10.1109/TNSM.2026.3722114
   scope: "If you use this software, we prefer that you cite our paper as below."

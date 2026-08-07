@@ -7,7 +7,7 @@ Artifacts of “Leaner and Faster: The Web and DNS Can Benefit from CBOR”
 
 This repository contains code and documentation to reproduce the experimental results and plots of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
 
-- M. S. Lenders, C. Bormann, T. C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.TBD
+- M. S. Lenders, C. Bormann, T. C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.3722114
 
 **Abstract:**
 
@@ -152,7 +152,7 @@ Now go to the Jupyter Lab at http://localhost:8888/lab/tree/00_start.ipynb (the 
 The directory `utils` contains additional helper functions and tools, such as our extended taxonomy tool for CBOR classification.
 
 [paper-badge]: https://img.shields.io/badge/Paper-IEEE%20Xplore-green
-[paper-doi]: https://doi.org/10.1109/TNSM.2026.TBD
+[paper-doi]: https://doi.org/10.1109/TNSM.2026.3722114
 [data-badge]: https://img.shields.io/badge/Data-OPARA-007f33
 [data-doi]: https://doi.org/10.25532/OPARA-1530
 [software-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.21790597.svg

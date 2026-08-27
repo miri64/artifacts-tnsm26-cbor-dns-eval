@@ -1,13 +1,13 @@
-Artifacts of “Leaner and Faster: The Web and DNS Can Benefit from CBOR”
-=======================================================================
+Artifacts of “A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS”
+================================================================================================================
 
 [![DOI][software-badge]][software-doi]
 [![Datasets][data-badge]][data-doi]
 [![Paper on IEEE Xplore][paper-badge]][paper-doi]
 
-This repository contains code and documentation to reproduce the experimental results and plots of the paper "[Leaner and Faster: The Web and DNS Can Benefit from CBOR][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
+This repository contains code and documentation to reproduce the experimental results and plots of the paper "[A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS][paper-doi]" accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
 
-- M. S. Lenders, C. Bormann, T. C. Schmidt, and M. Wählisch, “**Leaner and Faster: The Web and DNS Can Benefit from CBOR**,” IEEE Transactions on Network and Service Management (TNSM), vol. TBD, no. TBD, pp. TBD–TBD, TBD. 2026. https://doi.org/10.1109/TNSM.2026.3722114
+- M. S. Lenders, C. Bormann, T. C. Schmidt, and M. Wählisch, “**A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS**,” IEEE Transactions on Network and Service Management (TNSM), August 2026. https://doi.org/10.1109/TNSM.2026.3722114
 
 **Abstract:**
 

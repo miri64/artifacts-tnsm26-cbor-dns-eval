@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-title: "Artifacts of “Leaner and Faster: The Web and DNS Can Benefit from CBOR”"
+title: "Artifacts of “A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS”"
 version: 0.9.1
 license: "MIT"
 type: software
 abstract: |
   This repository contains code and documentation to reproduce the experimental results and plots of
-  the paper Leaner and Faster: The Web and DNS Can Benefit from CBOR” accepted at IEEE Transactions
-  on Network and Service Management (IEEE TNSM).
+  the paper “A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS
+  over HTTPS” accepted at IEEE Transactions on Network and Service Management (IEEE TNSM).
 doi: 10.5281/zenodo.21790597
 message: "If you use this software, please cite it as below."
 authors:
@@ -52,7 +52,7 @@ identifiers:
     description: DOI of the pre-print
 preferred-citation:
   type: article
-  title: "Leaner and Faster: The Web and DNS Can Benefit from CBOR"
+  title: "A Leaner and Faster Web: How CBOR Can Improve Dynamic Content Encoding in JSON and DNS over HTTPS"
   authors:
     - given-names: Martine S.
       family-names: Lenders
@@ -83,6 +83,6 @@ preferred-citation:
   # start: TDB
   # end: TBD
   year: 2026
-  # month: TBD
+  month: August
   doi: 10.1109/TNSM.2026.3722114
   scope: "If you use this software, we prefer that you cite our paper as below."

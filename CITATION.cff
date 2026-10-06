@@ -75,14 +75,14 @@ preferred-citation:
       orcid: 'https://orcid.org/0000-0002-3825-2807'
       email: m.waehlisch@tu-dresden.de
   journal: "Transactions on Network and Service Management"
-  # volume: TBD
+  volume: 23
   # issue: TBD
   publisher:
     name: IEEE
     address: Piscataway, NJ, USA
-  # start: TDB
-  # end: TBD
+  start: 7904
+  end: 7922
   year: 2026
-  month: August
+  month: 8
   doi: 10.1109/TNSM.2026.3722114
   scope: "If you use this software, we prefer that you cite our paper as below."
